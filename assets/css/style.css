@@ -1036,7 +1036,7 @@ button {
   content: "";
   position: absolute;
   z-index: -1;
-  /*top: calc(0% - clamp(28px, 1.58vw, 30px));*/
+  top: calc(0% - clamp(28px, 1.58vw, 30px));
   bottom: calc(0% - clamp(45px, 3.42vw, 65px));
   right: calc(0% - clamp(20px, 1.58vw, 30px));
   left: calc(0% - clamp(28px, 2.1vw, 40px));
@@ -1484,14 +1484,13 @@ button {
   margin-bottom: clamp(6px, 0.63vw, 12px);
 }
 .ul-banner-title {
-    font-weight: 700;
-    font-size: clamp(30px, 4.2vw, 80px);
-    font-family: Segoe Script;
-    line-height: 100%;
-    letter-spacing: -0.02em;
-    margin-bottom: clamp(17px, 1.42vw, 27px);
-    margin-left: -5px;
-}
+  font-weight: 700;
+  font-size: clamp(30px, 4.2vw, 80px);
+  font-family: var(--font-quicksand);
+  line-height: 100%;
+  letter-spacing: -0.02em;
+  margin-bottom: clamp(17px, 1.42vw, 27px);
+  margin-left: -5px;
 }
 .ul-banner-descr {
   font-size: clamp(15px, 0.95vw, 18px);
