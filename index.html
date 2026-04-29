@@ -211,9 +211,7 @@
 
 
         <!-- ABOUT SECTION START -->
-        <section class="ul-about ul-section-spacing wow animate__fadeInUp">
-            <div class="ul-container">
-                <div class="row row-cols-md-2 row-cols-1 align-items-center gy-4 ul-about-row">
+        <div class="row row-cols-md-2 row-cols-1 align-items-center gy-4 ul-about-row">
                     <div class="col">
                         <div class="ul-about-imgs">
                             <div class="img-wrapper">
@@ -232,6 +230,53 @@
                             <span class="ul-section-sub-title ul-section-sub-title--2">About US</span>
                             <h2 class="ul-section-title">Helping Each Other can Make World Better</h2>
                             <p class="ul-section-descr">Dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit The aspernaturaut odit aut fugit, sed quia consequuntur. Nonprofits around the world apply and join us to access more funding.</p>
+
+                            <!-- Dropdown Section -->
+                            <div class="ul-dropdown-section" style="margin-bottom: 25px;">
+                                <label for="serviceSelect" style="display: block; margin-bottom: 10px; font-weight: 600; color: #333; font-size: 16px;">Select Service Type:</label>
+                                <select id="serviceSelect" style="width: 100%; padding: 12px 15px; border: 1px solid #ddd; border-radius: 8px; font-size: 16px; background-color: #fff;">
+                                    <option value="">-- Select an option --</option>
+                                    <option value="Research">Research</option>
+                                    <option value="IT Project">IT Project</option>
+                                    <option value="Report with ppt">Report with ppt</option>
+                                </select>
+                            </div>
+
+                            <!-- Dynamic Number Input Section -->
+                            <div id="numberInputContainer" style="margin-top: 20px; display: none;">
+                                <div class="number-input-field" style="margin-bottom: 20px;">
+                                    <label id="fieldLabel" style="display: block; margin-bottom: 8px; font-weight: 500; color: #333; font-size: 14px;">1. Enter Quantity</label>
+                                    <input type="number" id="numberInput" min="0" max="1000" step="1" style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 8px; font-size: 14px; font-family: inherit;" placeholder="Enter a number (e.g., 100)">
+                                    
+                                    <!-- Number & Amount Display -->
+                                    <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 10px; flex-wrap: wrap; gap: 10px;">
+                                        <div style="font-size: 14px; color: #666;">
+                                            <span>🔢 Entered Value: </span>
+                                            <span id="numberDisplay" style="font-weight: bold; color: #007bff;">0</span>
+                                            <span id="numberLimitMsg" style="margin-left: 10px;"></span>
+                                        </div>
+                                        <div style="font-size: 16px; font-weight: bold; background: #f0f8ff; padding: 8px 15px; border-radius: 6px;">
+                                            💰 Amount: <span id="amountDisplay" style="color: #28a745;">$0</span>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- Progress Bar -->
+                                    <div style="margin-top: 12px;">
+                                        <div style="background: #e0e0e0; border-radius: 10px; height: 8px; overflow: hidden;">
+                                            <div id="progressBar" style="background: #007bff; width: 0%; height: 8px; border-radius: 10px; transition: width 0.3s ease;"></div>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- Range Indicator -->
+                                    <div style="display: flex; justify-content: space-between; margin-top: 5px; font-size: 12px; color: #888;">
+                                        <span>0</span>
+                                        <span>250</span>
+                                        <span>500</span>
+                                        <span>750</span>
+                                        <span>1000</span>
+                                    </div>
+                                </div>
+                            </div>
 
                             <div class="ul-about-block">
                                 <div class="block-left">
@@ -261,7 +306,165 @@
                         </div>
                     </div>
                 </div>
-            </div>
+
+<!-- JavaScript -->
+<script>
+    // Get elements
+    const selectElement = document.getElementById('serviceSelect');
+    const container = document.getElementById('numberInputContainer');
+    const numberInput = document.getElementById('numberInput');
+    const numberDisplay = document.getElementById('numberDisplay');
+    const amountDisplay = document.getElementById('amountDisplay');
+    const fieldLabel = document.getElementById('fieldLabel');
+    const numberLimitMsg = document.getElementById('numberLimitMsg');
+    const progressBar = document.getElementById('progressBar');
+
+    // Label configurations for each service
+    const labelConfig = {
+        Research: "1. Research Quantity (Number of units)",
+        "IT Project": "2. IT Project Size (Number of tasks)",
+        "Report with ppt": "3. Number of Slides/Pages"
+    };
+
+    // Amount calculation based on number value
+    // $5 per unit (Example: 100 units = $500)
+    function calculateAmount(value) {
+        const ratePerUnit = 5; // $5 per unit
+        return value * ratePerUnit;
+    }
+
+    // Update number display and amount
+    function updateNumber() {
+        let value = parseInt(numberInput.value) || 0;
+        
+        // Apply max limit
+        const maxLimit = 1000;
+        if (value > maxLimit) {
+            value = maxLimit;
+            numberInput.value = maxLimit;
+            numberLimitMsg.textContent = `⚠️ Max limit ${maxLimit} reached!`;
+            numberLimitMsg.style.color = '#dc3545';
+        } else if (value < 0) {
+            value = 0;
+            numberInput.value = 0;
+            numberLimitMsg.textContent = '';
+        } else {
+            numberLimitMsg.textContent = '';
+        }
+        
+        // Update number display
+        numberDisplay.textContent = value.toLocaleString();
+        
+        // Calculate and update amount
+        const amount = calculateAmount(value);
+        amountDisplay.textContent = `$${amount.toLocaleString()}`;
+        
+        // Update progress bar (max 1000)
+        const maxValue = 1000;
+        let progressPercent = (value / maxValue) * 100;
+        if (progressPercent > 100) progressPercent = 100;
+        progressBar.style.width = `${progressPercent}%`;
+        
+        // Change colors based on value
+        if (value >= 800) {
+            progressBar.style.background = '#dc3545'; // Red
+            if (value >= 1000) {
+                numberLimitMsg.textContent = '⚠️ Maximum limit reached!';
+                numberLimitMsg.style.color = '#dc3545';
+            }
+        } else if (value >= 500) {
+            progressBar.style.background = '#ffc107'; // Yellow
+        } else {
+            progressBar.style.background = '#007bff'; // Blue
+        }
+        
+        // Change amount color based on value
+        const amountValue = amount;
+        if (amountValue >= 5000) {
+            amountDisplay.style.color = '#dc3545';
+        } else if (amountValue >= 2500) {
+            amountDisplay.style.color = '#ffc107';
+        } else {
+            amountDisplay.style.color = '#28a745';
+        }
+    }
+
+    // Handle dropdown change
+    function handleServiceChange() {
+        const selectedValue = selectElement.value;
+        
+        if (!selectedValue) {
+            container.style.display = 'none';
+            return;
+        }
+        
+        // Show container
+        container.style.display = 'block';
+        
+        // Update label based on selection
+        if (labelConfig[selectedValue]) {
+            fieldLabel.textContent = labelConfig[selectedValue];
+        } else {
+            fieldLabel.textContent = `1. ${selectedValue} Quantity`;
+        }
+        
+        // Clear previous value
+        numberInput.value = '';
+        updateNumber();
+    }
+
+    // Add event listeners
+    selectElement.addEventListener('change', handleServiceChange);
+    numberInput.addEventListener('input', updateNumber);
+    numberInput.addEventListener('keypress', function(e) {
+        // Allow only numbers (0-9)
+        const charCode = e.which ? e.which : e.keyCode;
+        if (charCode < 48 || charCode > 57) {
+            e.preventDefault();
+        }
+    });
+    
+    // Initialize
+    handleServiceChange();
+</script>
+
+<style>
+    /* Additional styling */
+    .ul-dropdown-section {
+        margin: 20px 0 10px 0;
+    }
+    
+    #serviceSelect:focus {
+        outline: none;
+        border-color: #007bff;
+        box-shadow: 0 0 0 3px rgba(0,123,255,0.25);
+    }
+    
+    #numberInput:focus {
+        outline: none;
+        border-color: #007bff;
+        box-shadow: 0 0 0 3px rgba(0,123,255,0.1);
+    }
+    
+    /* Remove number input arrows (optional) */
+    #numberInput::-webkit-inner-spin-button, 
+    #numberInput::-webkit-outer-spin-button {
+        opacity: 0.5;
+    }
+    
+    /* Animation for amount */
+    #amountDisplay {
+        transition: all 0.2s ease;
+    }
+    
+    /* Responsive */
+    @media (max-width: 576px) {
+        .number-input-field div {
+            flex-direction: column;
+            align-items: flex-start !important;
+        }
+    }
+</style>
 
             <!-- vector -->
             <div class="ul-about-vectors">
