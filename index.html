@@ -256,7 +256,7 @@
                                             <span id="numberLimitMsg" style="margin-left: 10px;"></span>
                                         </div>
                                         <div style="font-size: 16px; font-weight: bold; background: #f0f8ff; padding: 8px 15px; border-radius: 6px;">
-                                            💰 Amount: <span id="amountDisplay" style="color: #28a745;">$0</span>
+                                            💰 Amount: <span id="amountDisplay" style="color: #28a745;">INR0</span>
                                         </div>
                                     </div>
                                     
@@ -327,9 +327,9 @@
     };
 
     // Amount calculation based on number value
-    // $5 per unit (Example: 100 units = $500)
+    // INR5 per unit (Example: 100 units = INR500)
     function calculateAmount(value) {
-        const ratePerUnit = 5; // $5 per unit
+        const ratePerUnit = 5; // INR5 per unit
         return value * ratePerUnit;
     }
 
@@ -342,7 +342,7 @@
         if (value > maxLimit) {
             value = maxLimit;
             numberInput.value = maxLimit;
-            numberLimitMsg.textContent = `⚠️ Max limit ${maxLimit} reached!`;
+            numberLimitMsg.textContent = `⚠️ Max limit INR{maxLimit} reached!`;
             numberLimitMsg.style.color = '#dc3545';
         } else if (value < 0) {
             value = 0;
@@ -357,13 +357,13 @@
         
         // Calculate and update amount
         const amount = calculateAmount(value);
-        amountDisplay.textContent = `$${amount.toLocaleString()}`;
+        amountDisplay.textContent = `INRINR{amount.toLocaleString()}`;
         
         // Update progress bar (max 1000)
         const maxValue = 1000;
         let progressPercent = (value / maxValue) * 100;
         if (progressPercent > 100) progressPercent = 100;
-        progressBar.style.width = `${progressPercent}%`;
+        progressBar.style.width = `INR{progressPercent}%`;
         
         // Change colors based on value
         if (value >= 800) {
@@ -405,7 +405,7 @@
         if (labelConfig[selectedValue]) {
             fieldLabel.textContent = labelConfig[selectedValue];
         } else {
-            fieldLabel.textContent = `1. ${selectedValue} Quantity`;
+            fieldLabel.textContent = `1. INR{selectedValue} Quantity`;
         }
         
         // Clear previous value
@@ -521,8 +521,8 @@
                                             </div>
                                         </div>
                                         <div class="ul-donation-progress-labels">
-                                            <span class="ul-donation-progress-label">Raised : $25,000</span>
-                                            <span class="ul-donation-progress-label">Goal : $30,000</span>
+                                            <span class="ul-donation-progress-label">Raised : INR25,000</span>
+                                            <span class="ul-donation-progress-label">Goal : INR30,000</span>
                                         </div>
                                     </div>
                                     <a href="donation-details.html" class="ul-donation-title">Lifes kills for Children in South African peoples</a>
@@ -547,8 +547,8 @@
                                             </div>
                                         </div>
                                         <div class="ul-donation-progress-labels">
-                                            <span class="ul-donation-progress-label">Raised : $25,000</span>
-                                            <span class="ul-donation-progress-label">Goal : $30,000</span>
+                                            <span class="ul-donation-progress-label">Raised : INR25,000</span>
+                                            <span class="ul-donation-progress-label">Goal : INR30,000</span>
                                         </div>
                                     </div>
                                     <a href="donation-details.html" class="ul-donation-title">Lifes kills for Children in South African peoples</a>
@@ -573,8 +573,8 @@
                                             </div>
                                         </div>
                                         <div class="ul-donation-progress-labels">
-                                            <span class="ul-donation-progress-label">Raised : $25,000</span>
-                                            <span class="ul-donation-progress-label">Goal : $30,000</span>
+                                            <span class="ul-donation-progress-label">Raised : INR25,000</span>
+                                            <span class="ul-donation-progress-label">Goal : INR30,000</span>
                                         </div>
                                     </div>
                                     <a href="donation-details.html" class="ul-donation-title">Lifes kills for Children in South African peoples</a>
@@ -599,8 +599,8 @@
                                             </div>
                                         </div>
                                         <div class="ul-donation-progress-labels">
-                                            <span class="ul-donation-progress-label">Raised : $25,000</span>
-                                            <span class="ul-donation-progress-label">Goal : $30,000</span>
+                                            <span class="ul-donation-progress-label">Raised : INR25,000</span>
+                                            <span class="ul-donation-progress-label">Goal : INR30,000</span>
                                         </div>
                                     </div>
                                     <a href="donation-details.html" class="ul-donation-title">Lifes kills for Children in South African peoples</a>
@@ -625,8 +625,8 @@
                                             </div>
                                         </div>
                                         <div class="ul-donation-progress-labels">
-                                            <span class="ul-donation-progress-label">Raised : $25,000</span>
-                                            <span class="ul-donation-progress-label">Goal : $30,000</span>
+                                            <span class="ul-donation-progress-label">Raised : INR25,000</span>
+                                            <span class="ul-donation-progress-label">Goal : INR30,000</span>
                                         </div>
                                     </div>
                                     <a href="donation-details.html" class="ul-donation-title">Lifes kills for Children in South African peoples</a>
@@ -651,8 +651,8 @@
                                             </div>
                                         </div>
                                         <div class="ul-donation-progress-labels">
-                                            <span class="ul-donation-progress-label">Raised : $25,000</span>
-                                            <span class="ul-donation-progress-label">Goal : $30,000</span>
+                                            <span class="ul-donation-progress-label">Raised : INR25,000</span>
+                                            <span class="ul-donation-progress-label">Goal : INR30,000</span>
                                         </div>
                                     </div>
                                     <a href="donation-details.html" class="ul-donation-title">Lifes kills for Children in South African peoples</a>
@@ -677,8 +677,8 @@
                                             </div>
                                         </div>
                                         <div class="ul-donation-progress-labels">
-                                            <span class="ul-donation-progress-label">Raised : $25,000</span>
-                                            <span class="ul-donation-progress-label">Goal : $30,000</span>
+                                            <span class="ul-donation-progress-label">Raised : INR25,000</span>
+                                            <span class="ul-donation-progress-label">Goal : INR30,000</span>
                                         </div>
                                     </div>
                                     <a href="donation-details.html" class="ul-donation-title">Lifes kills for Children in South African peoples</a>
@@ -703,8 +703,8 @@
                                             </div>
                                         </div>
                                         <div class="ul-donation-progress-labels">
-                                            <span class="ul-donation-progress-label">Raised : $25,000</span>
-                                            <span class="ul-donation-progress-label">Goal : $30,000</span>
+                                            <span class="ul-donation-progress-label">Raised : INR25,000</span>
+                                            <span class="ul-donation-progress-label">Goal : INR30,000</span>
                                         </div>
                                     </div>
                                     <a href="donation-details.html" class="ul-donation-title">Lifes kills for Children in South African peoples</a>
@@ -734,27 +734,27 @@
                                 <form action="#" class="ul-donate-form">
                                     <div>
                                         <input type="radio" name="donate-amount" id="donate-amount-1" checked hidden>
-                                        <label for="donate-amount-1" class="ul-donate-form-label">$10</label>
+                                        <label for="donate-amount-1" class="ul-donate-form-label">INR10</label>
                                     </div>
 
                                     <div>
                                         <input type="radio" name="donate-amount" id="donate-amount-2" hidden>
-                                        <label for="donate-amount-2" class="ul-donate-form-label">$20</label>
+                                        <label for="donate-amount-2" class="ul-donate-form-label">INR20</label>
                                     </div>
 
                                     <div>
                                         <input type="radio" name="donate-amount" id="donate-amount-3" hidden>
-                                        <label for="donate-amount-3" class="ul-donate-form-label">$30</label>
+                                        <label for="donate-amount-3" class="ul-donate-form-label">INR30</label>
                                     </div>
 
                                     <div>
                                         <input type="radio" name="donate-amount" id="donate-amount-4" hidden>
-                                        <label for="donate-amount-4" class="ul-donate-form-label">$40</label>
+                                        <label for="donate-amount-4" class="ul-donate-form-label">INR40</label>
                                     </div>
 
                                     <div>
                                         <input type="radio" name="donate-amount" id="donate-amount-5" hidden>
-                                        <label for="donate-amount-5" class="ul-donate-form-label">$50</label>
+                                        <label for="donate-amount-5" class="ul-donate-form-label">INR50</label>
                                     </div>
 
                                     <div class="custom-amount-wrapper">
@@ -785,8 +785,8 @@
                                         </div>
                                     </div>
                                     <div class="ul-donation-progress-labels">
-                                        <span class="ul-donation-progress-label">Raised : $25,000</span>
-                                        <span class="ul-donation-progress-label">Goal : $30,000</span>
+                                        <span class="ul-donation-progress-label">Raised : INR25,000</span>
+                                        <span class="ul-donation-progress-label">Goal : INR30,000</span>
                                     </div>
                                 </div>
                             </div>
