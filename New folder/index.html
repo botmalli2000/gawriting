@@ -212,342 +212,101 @@
 
 
         <!-- ABOUT SECTION START -->
-
-            <div class="row row-cols-md-2 row-cols-1 align-items-center gy-4 ul-about-row">
-    <div class="col">
-        <div class="ul-about-imgs">
-            <div class="img-wrapper">
-                <img src="assets/img/about-img.png" alt="Image">
-            </div>
-            <div class="ul-about-imgs-vectors">
-                <img src="assets/img/about-img-vector-1.svg" alt="Image" class="vector-1">
-                <img src="assets/img/about-img-vector-2.svg" alt="Image" class="vector-2">
-            </div>
-        </div>
-    </div>
-
-    <!-- txt -->
-    <div class="col">
-        <div class="ul-about-txt">
-            <span class="ul-section-sub-title ul-section-sub-title--2">About US</span>
-            <h2 class="ul-section-title">Helping Each Other can Make World Better</h2>
-            <p class="ul-section-descr">Dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit The aspernaturaut odit aut fugit, sed quia consequuntur. Nonprofits around the world apply and join us to access more funding.</p>
-
-            <!-- Dropdown Section with Categories -->
-            <div class="ul-dropdown-section" style="margin-bottom: 25px;">
-                <label for="categorySelect" style="display: block; margin-bottom: 10px; font-weight: 600; color: #333; font-size: 16px;">Select Project Type:</label>
-                <select id="categorySelect" style="width: 100%; padding: 12px 15px; border: 1px solid #ddd; border-radius: 8px; font-size: 16px; background-color: #fff;">
-                    <option value="">-- Select a category --</option>
-                    <option value="Business Administration" data-category="Business Administration">▶️ Business Administration</option>
-                    <option value="Business Management" data-parent="Business Administration" style="padding-left: 20px;">&nbsp;&nbsp;&nbsp;└ Business Management</option>
-                    <option value="Entrepreneurship" data-parent="Business Administration" style="padding-left: 20px;">&nbsp;&nbsp;&nbsp;└ Entrepreneurship</option>
-                    <option value="International Business" data-parent="Business Administration" style="padding-left: 20px;">&nbsp;&nbsp;&nbsp;└ International Business</option>
-                    <option value="Strategic Management" data-parent="Business Administration" style="padding-left: 20px;">&nbsp;&nbsp;&nbsp;└ Strategic Management</option>
-                    
-                    <option value="Project Management" data-category="Project Management">▶️ Project Management</option>
-                    <option value="Project Planning" data-parent="Project Management" style="padding-left: 20px;">&nbsp;&nbsp;&nbsp;└ Project Planning</option>
-                    <option value="Risk Management" data-parent="Project Management" style="padding-left: 20px;">&nbsp;&nbsp;&nbsp;└ Risk Management</option>
-                    <option value="Report" data-parent="Project Management" style="padding-left: 20px;">&nbsp;&nbsp;&nbsp;└ Report</option>
-                    
-                    <option value="Marketing" data-category="Marketing">▶️ Marketing</option>
-                    <option value="Digital Marketing" data-parent="Marketing" style="padding-left: 20px;">&nbsp;&nbsp;&nbsp;└ Digital Marketing</option>
-                    <option value="Branding" data-parent="Marketing" style="padding-left: 20px;">&nbsp;&nbsp;&nbsp;└ Branding</option>
-                    <option value="Consumer Behaviour" data-parent="Marketing" style="padding-left: 20px;">&nbsp;&nbsp;&nbsp;└ Consumer Behaviour</option>
-                    <option value="Market Research" data-parent="Marketing" style="padding-left: 20px;">&nbsp;&nbsp;&nbsp;└ Market Research</option>
-                    
-                    <option value="Human Resource" data-category="Human Resource">▶️ Human Resource</option>
-                    <option value="Recruitment & Selection" data-parent="Human Resource" style="padding-left: 20px;">&nbsp;&nbsp;&nbsp;└ Recruitment & Selection</option>
-                    <option value="Employee Relations" data-parent="Human Resource" style="padding-left: 20px;">&nbsp;&nbsp;&nbsp;└ Employee Relations</option>
-                    <option value="Organizational Behaviour" data-parent="Human Resource" style="padding-left: 20px;">&nbsp;&nbsp;&nbsp;└ Organizational Behaviour</option>
-                    <option value="Training & Development" data-parent="Human Resource" style="padding-left: 20px;">&nbsp;&nbsp;&nbsp;└ Training & Development</option>
-                    
-                    <option value="Accounting" data-category="Accounting">▶️ Accounting</option>
-                    <option value="Financial Accounting" data-parent="Accounting" style="padding-left: 20px;">&nbsp;&nbsp;&nbsp;└ Financial Accounting</option>
-                    <option value="Management Accounting" data-parent="Accounting" style="padding-left: 20px;">&nbsp;&nbsp;&nbsp;└ Management Accounting</option>
-                    <option value="Taxation" data-parent="Accounting" style="padding-left: 20px;">&nbsp;&nbsp;&nbsp;└ Taxation</option>
-                    <option value="Auditing" data-parent="Accounting" style="padding-left: 20px;">&nbsp;&nbsp;&nbsp;└ Auditing</option>
-                    
-                    <option value="Finance" data-category="Finance">▶️ Finance</option>
-                    <option value="Corporate Finance" data-parent="Finance" style="padding-left: 20px;">&nbsp;&nbsp;&nbsp;└ Corporate Finance</option>
-                    <option value="Investment Analysis" data-parent="Finance" style="padding-left: 20px;">&nbsp;&nbsp;&nbsp;└ Investment Analysis</option>
-                    <option value="Banking" data-parent="Finance" style="padding-left: 20px;">&nbsp;&nbsp;&nbsp;└ Banking</option>
-                    <option value="Financial Markets" data-parent="Finance" style="padding-left: 20px;">&nbsp;&nbsp;&nbsp;└ Financial Markets</option>
-                    
-                    <option value="Information Technology" data-category="Information Technology">▶️ Information Technology</option>
-                    <option value="Web Development" data-parent="Information Technology" style="padding-left: 20px;">&nbsp;&nbsp;&nbsp;└ Web Development</option>
-                    <option value="Database Systems" data-parent="Information Technology" style="padding-left: 20px;">&nbsp;&nbsp;&nbsp;└ Database Systems</option>
-                    <option value="Networking" data-parent="Information Technology" style="padding-left: 20px;">&nbsp;&nbsp;&nbsp;└ Networking</option>
-                    <option value="Cybersecurity" data-parent="Information Technology" style="padding-left: 20px;">&nbsp;&nbsp;&nbsp;└ Cybersecurity</option>
-                    
-                    <option value="Computer Science" data-category="Computer Science">▶️ Computer Science</option>
-                    <option value="Desktop Applications" data-parent="Computer Science" style="padding-left: 20px;">&nbsp;&nbsp;&nbsp;└ Desktop Applications (Java, Python, C++, C#)</option>
-                    <option value="Web Applications" data-parent="Computer Science" style="padding-left: 20px;">&nbsp;&nbsp;&nbsp;└ Web Applications (Laravel, Django, Node)</option>
-                    <option value="Mobile Application" data-parent="Computer Science" style="padding-left: 20px;">&nbsp;&nbsp;&nbsp;└ Mobile Application (React Native, Flutter, Kotlin)</option>
-                    <option value="Software Engineering report" data-parent="Computer Science" style="padding-left: 20px;">&nbsp;&nbsp;&nbsp;└ Software Engineering report</option>
-                    <option value="Artificial Intelligence" data-parent="Computer Science" style="padding-left: 20px;">&nbsp;&nbsp;&nbsp;└ Artificial Intelligence</option>
-                    <option value="Data Structures" data-parent="Computer Science" style="padding-left: 20px;">&nbsp;&nbsp;&nbsp;└ Data Structures</option>
-                    
-                    <option value="Law" data-category="Law">▶️ Law</option>
-                    <option value="Criminal Law" data-parent="Law" style="padding-left: 20px;">&nbsp;&nbsp;&nbsp;└ Criminal Law</option>
-                    <option value="Business Law" data-parent="Law" style="padding-left: 20px;">&nbsp;&nbsp;&nbsp;└ Business Law</option>
-                    <option value="International Law" data-parent="Law" style="padding-left: 20px;">&nbsp;&nbsp;&nbsp;└ International Law</option>
-                    <option value="Human Rights" data-parent="Law" style="padding-left: 20px;">&nbsp;&nbsp;&nbsp;└ Human Rights</option>
-                    
-                    <option value="Economics" data-category="Economics">▶️ Economics</option>
-                    <option value="Microeconomics" data-parent="Economics" style="padding-left: 20px;">&nbsp;&nbsp;&nbsp;└ Microeconomics</option>
-                    <option value="Macroeconomics" data-parent="Economics" style="padding-left: 20px;">&nbsp;&nbsp;&nbsp;└ Macroeconomics</option>
-                    <option value="Development Economics" data-parent="Economics" style="padding-left: 20px;">&nbsp;&nbsp;&nbsp;└ Development Economics</option>
-                    <option value="International Trade" data-parent="Economics" style="padding-left: 20px;">&nbsp;&nbsp;&nbsp;└ International Trade</option>
-                    
-                    <option value="Psychology" data-category="Psychology">▶️ Psychology</option>
-                    <option value="Clinical Psychology" data-parent="Psychology" style="padding-left: 20px;">&nbsp;&nbsp;&nbsp;└ Clinical Psychology</option>
-                    <option value="Cognitive Psychology" data-parent="Psychology" style="padding-left: 20px;">&nbsp;&nbsp;&nbsp;└ Cognitive Psychology</option>
-                    <option value="Social Psychology" data-parent="Psychology" style="padding-left: 20px;">&nbsp;&nbsp;&nbsp;└ Social Psychology</option>
-                    
-                    <option value="Nursing" data-category="Nursing">▶️ Nursing</option>
-                    <option value="Patient Care" data-parent="Nursing" style="padding-left: 20px;">&nbsp;&nbsp;&nbsp;└ Patient Care</option>
-                    <option value="Clinical Practice" data-parent="Nursing" style="padding-left: 20px;">&nbsp;&nbsp;&nbsp;└ Clinical Practice</option>
-                    <option value="Health Assessment" data-parent="Nursing" style="padding-left: 20px;">&nbsp;&nbsp;&nbsp;└ Health Assessment</option>
-                    <option value="Case Studies" data-parent="Nursing" style="padding-left: 20px;">&nbsp;&nbsp;&nbsp;└ Case Studies</option>
-                    
-                    <option value="Public Health" data-category="Public Health">▶️ Public Health</option>
-                    <option value="Global Health" data-parent="Public Health" style="padding-left: 20px;">&nbsp;&nbsp;&nbsp;└ Global Health</option>
-                    
-                    <option value="Engineering" data-category="Engineering">▶️ Engineering</option>
-                    <option value="Civil Engineering" data-parent="Engineering" style="padding-left: 20px;">&nbsp;&nbsp;&nbsp;└ Civil Engineering</option>
-                    <option value="Mechanical Engineering" data-parent="Engineering" style="padding-left: 20px;">&nbsp;&nbsp;&nbsp;└ Mechanical Engineering</option>
-                    <option value="Electrical Engineering" data-parent="Engineering" style="padding-left: 20px;">&nbsp;&nbsp;&nbsp;└ Electrical Engineering</option>
-                    
-                    <option value="Education" data-category="Education">▶️ Education</option>
-                    <option value="Teaching Methods" data-parent="Education" style="padding-left: 20px;">&nbsp;&nbsp;&nbsp;└ Teaching Methods</option>
-                    <option value="Educational Psychology" data-parent="Education" style="padding-left: 20px;">&nbsp;&nbsp;&nbsp;└ Educational Psychology</option>
-                    <option value="Curriculum Development" data-parent="Education" style="padding-left: 20px;">&nbsp;&nbsp;&nbsp;└ Curriculum Development</option>
-                    
-                    <option value="Hospitality & Tourism" data-category="Hospitality & Tourism">▶️ Hospitality & Tourism</option>
-                    <option value="Hotel Management" data-parent="Hospitality & Tourism" style="padding-left: 20px;">&nbsp;&nbsp;&nbsp;└ Hotel Management</option>
-                    <option value="Tourism Management" data-parent="Hospitality & Tourism" style="padding-left: 20px;">&nbsp;&nbsp;&nbsp;└ Tourism Management</option>
-                    <option value="Event Management" data-parent="Hospitality & Tourism" style="padding-left: 20px;">&nbsp;&nbsp;&nbsp;└ Event Management</option>
-                    
-                    <option value="Research" data-category="Research">▶️ Research</option>
-                    <option value="Essay Writing" data-parent="Research" style="padding-left: 20px;">&nbsp;&nbsp;&nbsp;└ Essay Writing</option>
-                    <option value="Research Papers" data-parent="Research" style="padding-left: 20px;">&nbsp;&nbsp;&nbsp;└ Research Papers</option>
-                    <option value="Research Proposal" data-parent="Research" style="padding-left: 20px;">&nbsp;&nbsp;&nbsp;└ Research Proposal</option>
-                    <option value="Viva PPT Zoom" data-parent="Research" style="padding-left: 20px;">&nbsp;&nbsp;&nbsp;└ Viva PPT Zoom</option>
-                    <option value="PowerPoint Presentations" data-parent="Research" style="padding-left: 20px;">&nbsp;&nbsp;&nbsp;└ PowerPoint Presentations</option>
-                    <option value="Proofreading & Editing" data-parent="Research" style="padding-left: 20px;">&nbsp;&nbsp;&nbsp;└ Proofreading & Editing</option>
-                    <option value="AI Reports" data-parent="Research" style="padding-left: 20px;">&nbsp;&nbsp;&nbsp;└ AI Reports</option>
-                </select>
-            </div>
-
-            <!-- Dynamic Number Input Section -->
-            <div id="numberInputContainer" style="margin-top: 20px; display: none;">
-                <div class="number-input-field" style="margin-bottom: 20px;">
-                    <label id="fieldLabel" style="display: block; margin-bottom: 8px; font-weight: 500; color: #333; font-size: 14px;">Enter Number of Units</label>
-                    <input type="number" id="numberInput" min="1000" max="60001" step="1" style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 8px; font-size: 14px; font-family: inherit;" placeholder="Enter a number (e.g., 1000)">
-                    
-                    <!-- Selected Category Display -->
-                    <div id="selectedCategoryDisplay" style="margin-top: 10px; padding: 8px 12px; background: #e8f4fd; border-radius: 6px; font-size: 13px; color: #0056b3;">
-                        <span>📁 Selected: </span>
-                        <span id="selectedCategoryName" style="font-weight: bold;">None</span>
-                    </div>
-                    
-                    <!-- Number & Amount Display -->
-                    <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 10px; flex-wrap: wrap; gap: 10px;">
-                        <div style="font-size: 14px; color: #666;">
-                            <span>🔢 Entered Value: </span>
-                            <span id="numberDisplay" style="font-weight: bold; color: #007bff;">0</span>
-                            <span id="numberLimitMsg" style="margin-left: 10px;"></span>
-                        </div>
-                        <div style="font-size: 16px; font-weight: bold; background: #f0f8ff; padding: 8px 15px; border-radius: 6px;">
-                            💰 Amount: <span id="amountDisplay" style="color: #28a745;">INR 0</span>
+        <div class="row row-cols-md-2 row-cols-1 align-items-center gy-4 ul-about-row">
+                    <div class="col">
+                        <div class="ul-about-imgs">
+                            <div class="img-wrapper">
+                                <img src="assets/img/about-img.png" alt="Image">
+                            </div>
+                            <div class="ul-about-imgs-vectors">
+                                <img src="assets/img/about-img-vector-1.svg" alt="Image" class="vector-1">
+                                <img src="assets/img/about-img-vector-2.svg" alt="Image" class="vector-2">
+                            </div>
                         </div>
                     </div>
-                    
-                    <!-- Progress Bar -->
-                    <div style="margin-top: 12px;">
-                        <div style="background: #e0e0e0; border-radius: 10px; height: 8px; overflow: hidden;">
-                            <div id="progressBar" style="background: #007bff; width: 0%; height: 8px; border-radius: 10px; transition: width 0.3s ease;"></div>
+
+                    <!-- txt -->
+                    <div class="col">
+                        <div class="ul-about-txt">
+                            <span class="ul-section-sub-title ul-section-sub-title--2">About US</span>
+                            <h2 class="ul-section-title">Helping Each Other can Make World Better</h2>
+                            <p class="ul-section-descr">Dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit The aspernaturaut odit aut fugit, sed quia consequuntur. Nonprofits around the world apply and join us to access more funding.</p>
+
+                            <!-- Dropdown Section -->
+                            <div class="ul-dropdown-section" style="margin-bottom: 25px;">
+                                <label for="serviceSelect" style="display: block; margin-bottom: 10px; font-weight: 600; color: #333; font-size: 16px;">Select Project Type:</label>
+                                <select id="serviceSelect" style="width: 100%; padding: 12px 15px; border: 1px solid #ddd; border-radius: 8px; font-size: 16px; background-color: #fff;">
+                                    <option value="">-- Select an option --</option>
+                                    <option value="Research">Research</option>
+                                    <option value="IT Project">IT Project</option>
+                                    <option value="Report with ppt">Report with ppt</option>
+                                </select>
+                            </div>
+
+                            <!-- Dynamic Number Input Section -->
+                            <div id="numberInputContainer" style="margin-top: 20px; display: none;">
+                                <div class="number-input-field" style="margin-bottom: 20px;">
+                                    <label id="fieldLabel" style="display: block; margin-bottom: 8px; font-weight: 500; color: #333; font-size: 14px;">1. Enter Quantity</label>
+                                    <input type="number" id="numberInput" min="1000" max="60001" step="1" style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 8px; font-size: 14px; font-family: inherit;" placeholder="Enter a number (e.g., 1000)">
+                                    
+                                    <!-- Number & Amount Display -->
+                                    <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 10px; flex-wrap: wrap; gap: 10px;">
+                                        <div style="font-size: 14px; color: #666;">
+                                            <span>🔢 Entered Value: </span>
+                                            <span id="numberDisplay" style="font-weight: bold; color: #007bff;">0</span>
+                                            <span id="numberLimitMsg" style="margin-left: 10px;"></span>
+                                        </div>
+                                        <div style="font-size: 16px; font-weight: bold; background: #f0f8ff; padding: 8px 15px; border-radius: 6px;">
+                                            💰 Amount: <span id="amountDisplay" style="color: #28a745;">INR 0</span>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- Progress Bar -->
+                                    <div style="margin-top: 12px;">
+                                        <div style="background: #e0e0e0; border-radius: 10px; height: 8px; overflow: hidden;">
+                                            <div id="progressBar" style="background: #007bff; width: 0%; height: 8px; border-radius: 10px; transition: width 0.3s ease;"></div>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- Range Indicator -->
+                                    <div style="display: flex; justify-content: space-between; margin-top: 5px; font-size: 12px; color: #888;">
+                                        <span>1000</span>
+                                        <span>20000</span>
+                                        <span>40000</span>
+                                        <span>50000</span>
+                                        <span>60000</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="ul-about-block">
+                                <div class="block-left">
+                                    <div class="block-heading">
+                                        <div class="icon"><i class="flaticon-love"></i></div>
+                                        <h3 class="block-title">Start Helping Team</h3>
+                                    </div>
+
+                                    <ul class="block-list">
+                                        <li>There are many variations of solve</li>
+                                    </ul>
+                                </div>
+                                <div class="block-right"><img src="assets/img/about-block-img.jpg" alt="Image"></div>
+                            </div>
+
+                            <div class="ul-about-bottom">
+                                <a href="about.html" class="ul-btn"><i class="flaticon-fast-forward-double-right-arrows-symbol"></i> Explore More</a>
+
+                                <div class="ul-about-call">
+                                    <div class="icon"><i class="flaticon-telephone-call"></i></div>
+                                    <div class="txt">
+                                        <span class="call-title">Call Any Time</span>
+                                        <a href="tel:+612345678990">+61 2345 678 990</a>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    
-                    <!-- Range Indicator -->
-                    <div style="display: flex; justify-content: space-between; margin-top: 5px; font-size: 12px; color: #888;">
-                        <span>1,000</span>
-                        <span>15,000</span>
-                        <span>30,000</span>
-                        <span>45,000</span>
-                        <span>60,000</span>
-                    </div>
                 </div>
-            </div>
-
-            <div class="ul-about-block">
-                <div class="block-left">
-                    <div class="block-heading">
-                        <div class="icon"><i class="flaticon-love"></i></div>
-                        <h3 class="block-title">Start Helping Team</h3>
-                    </div>
-
-                    <ul class="block-list">
-                        <li>There are many variations of solve</li>
-                    </ul>
-                </div>
-                <div class="block-right"><img src="assets/img/about-block-img.jpg" alt="Image"></div>
-            </div>
-
-            <div class="ul-about-bottom">
-                <a href="about.html" class="ul-btn"><i class="flaticon-fast-forward-double-right-arrows-symbol"></i> Explore More</a>
-
-                <div class="ul-about-call">
-                    <div class="icon"><i class="flaticon-telephone-call"></i></div>
-                    <div class="txt">
-                        <span class="call-title">Call Any Time</span>
-                        <a href="tel:+612345678990">+61 2345 678 990</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- JavaScript -->
-<script>
-    // Get elements
-    const selectElement = document.getElementById('categorySelect');
-    const container = document.getElementById('numberInputContainer');
-    const numberInput = document.getElementById('numberInput');
-    const numberDisplay = document.getElementById('numberDisplay');
-    const amountDisplay = document.getElementById('amountDisplay');
-    const fieldLabel = document.getElementById('fieldLabel');
-    const numberLimitMsg = document.getElementById('numberLimitMsg');
-    const progressBar = document.getElementById('progressBar');
-    const selectedCategoryName = document.getElementById('selectedCategoryName');
-
-    // Constants
-    const MIN_VALUE = 1000;
-    const MAX_VALUE = 60000;
-    const RANGE = MAX_VALUE - MIN_VALUE;
-
-    // Rate per unit (INR)
-    const RATE_PER_UNIT = 5;
-
-    // Calculate amount
-    function calculateAmount(value) {
-        return value * RATE_PER_UNIT;
-    }
-
-    // Update number display and amount
-    function updateNumber() {
-        let value = parseInt(numberInput.value) || MIN_VALUE;
-        
-        // Apply min and max limits
-        if (value < MIN_VALUE) {
-            value = MIN_VALUE;
-            numberInput.value = MIN_VALUE;
-            numberLimitMsg.textContent = `⚠️ Minimum value is ${MIN_VALUE.toLocaleString()}!`;
-            numberLimitMsg.style.color = '#dc3545';
-        } else if (value > MAX_VALUE) {
-            value = MAX_VALUE;
-            numberInput.value = MAX_VALUE;
-            numberLimitMsg.textContent = `⚠️ Maximum value is ${MAX_VALUE.toLocaleString()}!`;
-            numberLimitMsg.style.color = '#dc3545';
-        } else {
-            numberLimitMsg.textContent = '';
-        }
-        
-        // Update number display
-        numberDisplay.textContent = value.toLocaleString();
-        
-        // Calculate and update amount
-        const amount = calculateAmount(value);
-        amountDisplay.textContent = `INR ${amount.toLocaleString()}`;
-        
-        // Update progress bar
-        let progressPercent = ((value - MIN_VALUE) / RANGE) * 100;
-        if (progressPercent < 0) progressPercent = 0;
-        if (progressPercent > 100) progressPercent = 100;
-        progressBar.style.width = `${progressPercent}%`;
-        
-        // Change color based on value range
-        if (value >= 45000) {
-            progressBar.style.background = '#dc3545';
-            amountDisplay.style.color = '#dc3545';
-        } else if (value >= 30000) {
-            progressBar.style.background = '#ffc107';
-            amountDisplay.style.color = '#ffc107';
-        } else if (value >= 15000) {
-            progressBar.style.background = '#17a2b8';
-            amountDisplay.style.color = '#17a2b8';
-        } else {
-            progressBar.style.background = '#28a745';
-            amountDisplay.style.color = '#28a745';
-        }
-    }
-
-    // Handle dropdown change
-    function handleCategoryChange() {
-        const selectedOption = selectElement.options[selectElement.selectedIndex];
-        const selectedValue = selectElement.value;
-        
-        if (!selectedValue) {
-            container.style.display = 'none';
-            selectedCategoryName.textContent = 'None';
-            return;
-        }
-        
-        // Show container
-        container.style.display = 'block';
-        
-        // Update selected category display
-        selectedCategoryName.textContent = selectedValue;
-        
-        // Update field label based on selection
-        fieldLabel.textContent = `Enter Number of Units (${selectedValue})`;
-        
-        // Reset input to min value
-        numberInput.value = MIN_VALUE;
-        updateNumber();
-    }
-
-    // Add event listeners
-    selectElement.addEventListener('change', handleCategoryChange);
-    numberInput.addEventListener('input', updateNumber);
-    
-    // Initialize
-    handleCategoryChange();
-</script>
-
-<style>
-    /* Dropdown styling for nested look */
-    #categorySelect option {
-        padding: 10px;
-        font-size: 14px;
-    }
-    
-    #categorySelect option[style*="padding-left: 20px"] {
-        background-color: #f9f9f9;
-        color: #555;
-    }
-    
-    #categorySelect:focus {
-        outline: none;
-        border-color: #007bff;
-        box-shadow: 0 0 0 3px rgba(0,123,255,0.25);
-    }
-    
-    #numberInput:focus {
-        outline: none;
-        border-color: #007bff;
-        box-shadow: 0 0 0 3px rgba(0,123,255,0.1);
-    }
-    
-    @media (max-width: 576px) {
-        .number-input-field div {
-            flex-direction: column;
-            align-items: flex-start !important;
-        }
-    }
-</style>
 
 <!-- JavaScript -->
 <script>
