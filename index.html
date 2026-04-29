@@ -214,6 +214,7 @@
         <!-- ABOUT SECTION START -->
 
    <!-- Font Awesome CDN -->
+<!-- Font Awesome CDN -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
 <div class="row row-cols-md-2 row-cols-1 align-items-center gy-4 ul-about-row">
@@ -273,20 +274,17 @@
                 <select id="categorySelect" style="width: 100%; padding: 12px 15px; border: 1px solid #ddd; border-radius: 8px; font-size: 16px; background-color: #fff;">
                     <option value="">-- Select a category --</option>
                     
-                    <!-- Business Administration (INR 3.50) -->
                     <option value="Business Administration" data-price="3.50" data-category="Business Administration">▶️ Business Administration (INR 3.50/word)</option>
                     <option value="Business Management" data-parent="Business Administration" data-price="3.50" style="padding-left: 20px;">&nbsp;&nbsp;&nbsp;└ Business Management</option>
                     <option value="Entrepreneurship" data-parent="Business Administration" data-price="3.50" style="padding-left: 20px;">&nbsp;&nbsp;&nbsp;└ Entrepreneurship</option>
                     <option value="International Business" data-parent="Business Administration" data-price="3.50" style="padding-left: 20px;">&nbsp;&nbsp;&nbsp;└ International Business</option>
                     <option value="Strategic Management" data-parent="Business Administration" data-price="3.50" style="padding-left: 20px;">&nbsp;&nbsp;&nbsp;└ Strategic Management</option>
                     
-                    <!-- Project Management (INR 5.50) -->
                     <option value="Project Management" data-price="5.50" data-category="Project Management">▶️ Project Management (INR 5.50/word)</option>
                     <option value="Project Planning" data-parent="Project Management" data-price="5.50" style="padding-left: 20px;">&nbsp;&nbsp;&nbsp;└ Project Planning</option>
                     <option value="Risk Management" data-parent="Project Management" data-price="5.50" style="padding-left: 20px;">&nbsp;&nbsp;&nbsp;└ Risk Management</option>
                     <option value="Report" data-parent="Project Management" data-price="5.50" style="padding-left: 20px;">&nbsp;&nbsp;&nbsp;└ Report</option>
                     
-                    <!-- Marketing (INR 4.50) -->
                     <option value="Marketing" data-price="4.50" data-category="Marketing">▶️ Marketing (INR 4.50/word)</option>
                     <option value="Digital Marketing" data-parent="Marketing" data-price="4.50" style="padding-left: 20px;">&nbsp;&nbsp;&nbsp;└ Digital Marketing</option>
                     <option value="Branding" data-parent="Marketing" data-price="4.50" style="padding-left: 20px;">&nbsp;&nbsp;&nbsp;└ Branding</option>
@@ -297,25 +295,21 @@
                     <option value="Accounting" data-price="6.50" data-category="Accounting">▶️ Accounting (INR 6.50/word)</option>
                     <option value="Finance" data-price="6.50" data-category="Finance">▶️ Finance (INR 6.50/word)</option>
                     
-                    <!-- Information Technology -->
                     <option value="Information Technology" data-price="0" data-category="Information Technology">▶️ Information Technology</option>
                     <option value="Web Development" data-parent="Information Technology" data-price="7.00" style="padding-left: 20px;">&nbsp;&nbsp;&nbsp;└ Web Development (INR 7.00/word)</option>
                     <option value="Database Systems" data-parent="Information Technology" data-price="6.50" style="padding-left: 20px;">&nbsp;&nbsp;&nbsp;└ Database Systems (INR 6.50/word)</option>
                     <option value="Networking" data-parent="Information Technology" data-price="6.50" style="padding-left: 20px;">&nbsp;&nbsp;&nbsp;└ Networking (INR 6.50/word)</option>
                     <option value="Cybersecurity" data-parent="Information Technology" data-price="7.00" style="padding-left: 20px;">&nbsp;&nbsp;&nbsp;└ Cybersecurity (INR 7.00/word)</option>
                     
-                    <!-- Computer Science -->
                     <option value="Computer Science" data-price="6.50" data-category="Computer Science">▶️ Computer Science (INR 6.50/word)</option>
                     <option value="Desktop Applications" data-parent="Computer Science" data-price="6.50" style="padding-left: 20px;">&nbsp;&nbsp;&nbsp;└ Desktop Applications</option>
                     <option value="Web Applications" data-parent="Computer Science" data-price="6.50" style="padding-left: 20px;">&nbsp;&nbsp;&nbsp;└ Web Applications</option>
                     <option value="Mobile Application" data-parent="Computer Science" data-price="6.50" style="padding-left: 20px;">&nbsp;&nbsp;&nbsp;└ Mobile Application</option>
                     
-                    <!-- Engineering -->
                     <option value="Engineering" data-price="6.50" data-category="Engineering">▶️ Engineering (INR 6.50/word)</option>
                     <option value="Mechanical Engineering" data-parent="Engineering" data-price="7.50" style="padding-left: 20px;">&nbsp;&nbsp;&nbsp;└ Mechanical Engineering (INR 7.50/word)</option>
                     <option value="Electrical Engineering" data-parent="Engineering" data-price="7.50" style="padding-left: 20px;">&nbsp;&nbsp;&nbsp;└ Electrical Engineering (INR 7.50/word)</option>
                     
-                    <!-- Research -->
                     <option value="Research" data-price="0" data-category="Research">▶️ Research</option>
                     <option value="Essay Writing" data-parent="Research" data-price="3.50" style="padding-left: 20px;">&nbsp;&nbsp;&nbsp;└ Essay Writing (INR 3.50/word)</option>
                     <option value="Research Papers" data-parent="Research" data-price="6.50" style="padding-left: 20px;">&nbsp;&nbsp;&nbsp;└ Research Papers (INR 6.50/word)</option>
@@ -354,7 +348,6 @@
                         </div>
                     </div>
                     
-                    <!-- Generate Quotation Button -->
                     <button id="generateQuotationBtn" style="width: 100%; margin-top: 20px; padding: 12px; background: linear-gradient(135deg, #28a745, #20c997); color: white; border: none; border-radius: 8px; font-size: 16px; font-weight: bold; cursor: pointer; transition: transform 0.2s;">
                         📄 Generate Quotation
                     </button>
@@ -381,7 +374,7 @@
 <div id="quotationModal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.7); z-index: 9999; justify-content: center; align-items: center; padding: 20px;">
     <div style="background: white; max-width: 500px; width: 100%; border-radius: 15px; padding: 25px; position: relative; max-height: 90%; overflow-y: auto;">
         <div style="display: flex; justify-content: flex-end; gap: 10px; margin-bottom: 15px;">
-            <button id="doneBtnInModal" style="background: #28a745; color: white; border: none; border-radius: 8px; padding: 8px 20px; cursor: pointer; font-weight: bold;">✅ Done</button>
+            <button id="doneBtnInModal" style="background: #28a745; color: white; border: none; border-radius: 8px; padding: 8px 20px; cursor: pointer; font-weight: bold;">✅ Send to Admin</button>
             <button onclick="closeQuotation()" style="background: #dc3545; color: white; border: none; border-radius: 8px; padding: 8px 20px; cursor: pointer; font-weight: bold;">✖ Close</button>
         </div>
         <div id="quotationContent"></div>
@@ -402,7 +395,6 @@
     const selectedPriceDisplay = document.getElementById('selectedPriceDisplay');
     const perHourNotice = document.getElementById('perHourNotice');
     
-    // User details elements
     const userNameInput = document.getElementById('userName');
     const countryCodeSelect = document.getElementById('countryCode');
     const whatsappNumberInput = document.getElementById('whatsappNumber');
@@ -412,12 +404,10 @@
     let isPerHourService = false;
     let currentQuotationData = null;
 
-    // Calculate total amount
     function calculateAmount(units, unitPrice) {
         return units * unitPrice;
     }
 
-    // Format number
     function formatNumber(num) {
         return num.toLocaleString('en-IN', {
             minimumFractionDigits: 2,
@@ -425,7 +415,6 @@
         });
     }
 
-    // Update number display
     function updateNumber() {
         let units = parseFloat(numberInput.value) || 0;
         if (units < 0) {
@@ -445,7 +434,6 @@
         }
     }
 
-    // Clear input and set focus
     function clearAndFocusInput() {
         numberInput.value = '';
         numberDisplay.textContent = '0';
@@ -454,7 +442,6 @@
         numberInput.focus();
     }
 
-    // Validate phone number
     function validatePhoneNumber() {
         const phoneNumber = whatsappNumberInput.value.trim();
         if (phoneNumber.length < 5) {
@@ -465,37 +452,7 @@
         return true;
     }
 
-    // Send WhatsApp Message
-    function sendWhatsAppMessage(quotationData, userPhoneNumber) {
-        // Create message text
-        const message = `*📄 NEW QUOTATION REQUEST*
-        
-*👤 Client Details:*
-Name: ${quotationData.userName}
-WhatsApp: +${quotationData.countryCode} ${quotationData.whatsappNumber}
-
-*📋 Project Details:*
-Project Type: ${quotationData.projectType}
-Unit Price: INR ${quotationData.unitPrice.toFixed(2)} / ${quotationData.isPerHour ? 'hour' : 'word'}
-${quotationData.isPerHour ? 'Hours' : 'Words'}: ${quotationData.quantity.toLocaleString('en-IN')}
-
-*💰 Total Amount:*
-Subtotal: INR ${quotationData.subtotal}
-Total: INR ${quotationData.totalAmount}
-
-*📅 Date: ${new Date().toLocaleString()}*
-
-Thank you for your inquiry! We will get back to you soon.`;
-
-        // Encode message for URL
-        const encodedMessage = encodeURIComponent(message);
-        
-        // Open WhatsApp with the message (User's WhatsApp first)
-        const userWhatsAppUrl = `https://wa.me/${userPhoneNumber}?text=${encodedMessage}`;
-        window.open(userWhatsAppUrl, '_blank');
-    }
-
-    // Send to Admin WhatsApp
+    // Send ONLY to Admin WhatsApp
     function sendToAdminWhatsApp(quotationData) {
         const adminNumber = '94763055150';
         const message = `*📄 NEW QUOTATION REQUEST RECEIVED*
@@ -521,7 +478,6 @@ Please contact the client for further discussion.`;
         window.open(adminWhatsAppUrl, '_blank');
     }
 
-    // Generate Quotation
     function generateQuotation() {
         const userName = userNameInput.value.trim();
         const countryCode = countryCodeSelect.value;
@@ -532,7 +488,6 @@ Please contact the client for further discussion.`;
         const unitPrice = currentUnitPrice;
         const totalAmount = quantity * unitPrice;
         
-        // Validation
         if (!userName) {
             alert('⚠️ Please enter your name!');
             userNameInput.focus();
@@ -559,7 +514,6 @@ Please contact the client for further discussion.`;
             return;
         }
         
-        // Store quotation data
         currentQuotationData = {
             userName: userName,
             countryCode: countryCode,
@@ -573,7 +527,6 @@ Please contact the client for further discussion.`;
             date: new Date().toLocaleString()
         };
         
-        // Generate Quotation HTML
         const quotationHTML = `
             <div style="text-align: center; margin-bottom: 20px;">
                 <h2 style="color: #28a745; margin-bottom: 5px;">📄 QUOTATION</h2>
@@ -613,13 +566,11 @@ Please contact the client for further discussion.`;
         document.getElementById('quotationContent').innerHTML = quotationHTML;
         document.getElementById('quotationModal').style.display = 'flex';
         
-        // Add event listener to Done button
         document.getElementById('doneBtnInModal').onclick = function() {
-            const userFullNumber = `${countryCode}${whatsappNumber.replace(/\D/g, '')}`;
-            sendWhatsAppMessage(currentQuotationData, userFullNumber);
+            // Send ONLY to Admin - NOT to user
             sendToAdminWhatsApp(currentQuotationData);
+            alert('✅ Quotation sent to Admin successfully!');
             closeQuotation();
-            // Reset form
             numberInput.value = '';
             updateNumber();
         };
@@ -638,7 +589,6 @@ Please contact the client for further discussion.`;
         document.getElementById('quotationModal').style.display = 'none';
     }
 
-    // Handle dropdown change
     function handleCategoryChange() {
         const selectedOption = selectElement.options[selectElement.selectedIndex];
         const selectedValue = selectElement.value;
@@ -681,7 +631,6 @@ Please contact the client for further discussion.`;
         clearAndFocusInput();
     }
 
-    // Event listeners
     selectElement.addEventListener('change', handleCategoryChange);
     numberInput.addEventListener('input', updateNumber);
     whatsappNumberInput.addEventListener('input', validatePhoneNumber);
@@ -689,7 +638,6 @@ Please contact the client for further discussion.`;
     
     handleCategoryChange();
     
-    // Close modal when clicking outside
     window.onclick = function(event) {
         const modal = document.getElementById('quotationModal');
         if (event.target === modal) {
@@ -697,6 +645,36 @@ Please contact the client for further discussion.`;
         }
     }
 </script>
+
+<style>
+    #categorySelect option {
+        padding: 10px;
+        font-size: 14px;
+    }
+    
+    #categorySelect option[style*="padding-left: 20px"] {
+        background-color: #f9f9f9;
+        color: #555;
+    }
+    
+    #categorySelect:focus, #numberInput:focus {
+        outline: none;
+        border-color: #007bff;
+        box-shadow: 0 0 0 3px rgba(0,123,255,0.25);
+    }
+    
+    #generateQuotationBtn:hover {
+        transform: scale(1.02);
+        opacity: 0.9;
+    }
+    
+    @media (max-width: 576px) {
+        .number-input-field div {
+            flex-direction: column;
+            align-items: flex-start !important;
+        }
+    }
+</style>
 
 <style>
     #categorySelect option {
