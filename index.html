@@ -1,629 +1,783 @@
-
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Charitics - NGO & Non Profit HTML Template</title>
-
-    <!-- libraries CSS -->
-    <link rel="stylesheet" href="assets/icon/flaticon_charitics.css">
-    <link rel="stylesheet" href="assets/vendor/bootstrap/bootstrap.min.css">
-    <link rel="stylesheet" href="assets/vendor/splide/splide.min.css">
-    <link rel="stylesheet" href="assets/vendor/swiper/swiper-bundle.min.css">
-    <link rel="stylesheet" href="assets/vendor/slim-select/slimselect.css">
-    <link rel="stylesheet" href="assets/vendor/animate-wow/animate.min.css">
-    <link rel="stylesheet" href="assets/vendor/flatpickr/flatpickr.min.css">
-
-    <!-- custom CSS -->
-    <link rel="stylesheet" href="assets/css/style.css">
+    <title>Quotation System - Academic & Business Services</title>
+    
+    <!-- Font Awesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+        
+        .main-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+        
+        .row {
+            display: flex;
+            flex-wrap: wrap;
+        }
+        
+        .col {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        /* Image Section */
+        .ul-about-imgs {
+            position: relative;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 400px;
+            height: 100%;
+        }
+        
+        .img-wrapper img {
+            max-width: 100%;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+        }
+        
+        /* Text Section */
+        .ul-about-txt {
+            padding: 40px;
+        }
+        
+        .ul-section-sub-title {
+            display: inline-block;
+            font-size: 14px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #667eea;
+            margin-bottom: 15px;
+        }
+        
+        .ul-section-title {
+            font-size: 32px;
+            font-weight: 700;
+            color: #333;
+            margin-bottom: 20px;
+            line-height: 1.3;
+        }
+        
+        .ul-section-descr {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 30px;
+        }
+        
+        /* User Details Section */
+        .user-details-section {
+            margin-bottom: 25px;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 15px;
+            border: 1px solid #e9ecef;
+        }
+        
+        .user-details-section h4 {
+            margin-bottom: 15px;
+            color: #333;
+            font-size: 18px;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #333;
+            font-size: 14px;
+        }
+        
+        input, select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 14px;
+            font-family: inherit;
+            transition: all 0.3s ease;
+        }
+        
+        input:focus, select:focus {
+            outline: none;
+            border-color: #007bff;
+            box-shadow: 0 0 0 3px rgba(0,123,255,0.25);
+        }
+        
+        .phone-input-group {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        
+        .phone-input-group select {
+            width: 140px;
+        }
+        
+        .phone-input-group input {
+            flex: 1;
+        }
+        
+        .error-msg {
+            font-size: 12px;
+            color: #dc3545;
+            margin-top: 5px;
+            display: none;
+        }
+        
+        .success-msg {
+            font-size: 11px;
+            color: #28a745;
+            margin-top: 5px;
+            display: none;
+        }
+        
+        /* Dropdown Styling */
+        #categorySelect {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 16px;
+            background-color: #fff;
+        }
+        
+        #categorySelect option {
+            padding: 10px;
+            font-size: 14px;
+        }
+        
+        #categorySelect option[style*="padding-left: 20px"] {
+            background-color: #f9f9f9;
+            color: #555;
+        }
+        
+        .price-info {
+            margin-top: 8px;
+            padding: 8px 12px;
+            border-radius: 6px;
+            font-size: 13px;
+        }
+        
+        .price-info-blue {
+            background: #e8f4fd;
+            color: #0056b3;
+        }
+        
+        .price-info-orange {
+            background: #fff3e0;
+            color: #e67e22;
+        }
+        
+        .amount-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 15px;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        
+        .total-amount {
+            font-size: 18px;
+            font-weight: bold;
+            background: linear-gradient(135deg, #f0f8ff, #e8f4fd);
+            padding: 10px 20px;
+            border-radius: 8px;
+            border-left: 4px solid #28a745;
+        }
+        
+        .total-amount span {
+            color: #28a745;
+            font-size: 20px;
+        }
+        
+        .generate-btn {
+            width: 100%;
+            margin-top: 20px;
+            padding: 12px;
+            background: linear-gradient(135deg, #28a745, #20c997);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+        
+        .generate-btn:hover {
+            transform: scale(1.02);
+            opacity: 0.9;
+        }
+        
+        .ul-about-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+        }
+        
+        .ul-about-call {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .ul-about-call .icon {
+            width: 50px;
+            height: 50px;
+            background: #25D366;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.3s;
+        }
+        
+        .ul-about-call .icon:hover {
+            transform: scale(1.1);
+        }
+        
+        .ul-about-call .icon i {
+            font-size: 28px;
+            color: white;
+        }
+        
+        .call-title {
+            font-size: 12px;
+            color: #999;
+            display: block;
+        }
+        
+        .ul-about-call a {
+            font-size: 16px;
+            font-weight: bold;
+            color: #333;
+            text-decoration: none;
+        }
+        
+        /* Modal */
+        .quotation-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.7);
+            z-index: 9999;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        
+        .modal-content {
+            background: white;
+            max-width: 500px;
+            width: 100%;
+            border-radius: 15px;
+            padding: 25px;
+            position: relative;
+            max-height: 90%;
+            overflow-y: auto;
+        }
+        
+        .modal-buttons {
+            display: flex;
+            justify-content: flex-end;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+        
+        .btn-done {
+            background: #28a745;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            padding: 8px 20px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        
+        .btn-close {
+            background: #dc3545;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            padding: 8px 20px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        
+        /* Unit Type Badge */
+        .unit-type-badge {
+            display: inline-block;
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 11px;
+            font-weight: bold;
+            margin-left: 8px;
+        }
+        
+        .unit-type-words {
+            background: #e3f2fd;
+            color: #1976d2;
+        }
+        
+        .unit-type-sliders {
+            background: #fff3e0;
+            color: #e67e22;
+        }
+        
+        .unit-type-hours {
+            background: #ffebee;
+            color: #c62828;
+        }
+        
+        .unit-type-report {
+            background: #e8f5e9;
+            color: #388e3c;
+        }
+        
+        @media (max-width: 768px) {
+            .row {
+                flex-direction: column;
+            }
+            .ul-about-txt {
+                padding: 25px;
+            }
+            .phone-input-group select {
+                width: 100px;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .amount-wrapper {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .phone-input-group {
+                flex-direction: column;
+            }
+            .phone-input-group select {
+                width: 100%;
+            }
+        }
+    </style>
 </head>
 
 <body>
-    <div class="preloader" id="preloader">
-        <div class="loader"></div>
-    </div>
-
-    <!-- SIDEBAR SECTION START -->
-    <div class="ul-sidebar">
-        <!-- header -->
-        <div class="ul-sidebar-header">
-            <div class="ul-sidebar-header-logo">
-                <a href="index.html">
-                    <img src="assets/img/logo.svg" alt="logo" class="logo">
-                </a>
-            </div>
-            <!-- sidebar closer -->
-            <button class="ul-sidebar-closer"><i class="flaticon-close"></i></button>
-        </div>
-
-        <div class="ul-sidebar-header-nav-wrapper d-block d-lg-none"></div>
-
-
-        <!-- sidebar footer -->
-        <div class="ul-sidebar-footer">
-            <span class="ul-sidebar-footer-title">Follow us</span>
-
-            <div class="ul-sidebar-footer-social">
-                <a href="#"><i class="flaticon-facebook"></i></a>
-                <a href="#"><i class="flaticon-twitter"></i></a>
-                <a href="#"><i class="flaticon-instagram"></i></a>
-                <a href="#"><i class="flaticon-youtube"></i></a>
-            </div>
-        </div>
-    </div>
-    <!-- SIDEBAR SECTION END -->
-
-    <!-- SEARCH MODAL SECTION START -->
-    <div class="ul-search-form-wrapper flex-grow-1 flex-shrink-0">
-        <button class="ul-search-closer"><i class="flaticon-close"></i></button>
-
-        <form action="#" class="ul-search-form">
-            <div class="ul-search-form-right">
-                <input type="search" name="search" id="ul-search" placeholder="Search Here">
-                <button type="submit"><span class="icon"><i class="flaticon-search"></i></span></button>
-            </div>
-        </form>
-    </div>
-    <!-- SEARCH MODAL SECTION END -->
-
-    <!-- HEADER SECTION START -->
-    <header class="ul-header">
-        <div class="ul-header-bottom to-be-sticky">
-            <div class="ul-header-bottom-wrapper ul-header-container">
-                <div class="logo-container">
-                    <a href="index.html" class="d-inline-block"><img src="assets/img/logo.svg" alt="logo" class="logo"></a>
-                </div>
-
-                <!-- header nav -->
-                <div class="ul-header-nav-wrapper">
-                    <div class="to-go-to-sidebar-in-mobile">
-                        <nav class="ul-header-nav">
-                            <div class="has-sub-menu">
-                                <a role="button">Home</a>
-
-                                <div class="ul-header-submenu">
-                                    <ul>
-                                        <li><a href="index.html">Home 1</a></li>
-                                        <li><a href="index-2.html">Home 2</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <a href="about.html">About</a>
-                            <div class="has-sub-menu">
-                                <a role="button">Pages</a>
-
-                                <div class="ul-header-submenu">
-                                    <ul>
-                                        <li><a href="services.html">Services</a></li>
-                                        <li><a href="service-details.html">Service Details</a></li>
-                                        <li><a href="projects.html">Projects</a></li>
-                                        <li><a href="project-details.html">Project Details</a></li>
-                                        <li><a href="team.html">Team</a></li>
-                                        <li><a href="team-details.html">Team Member Details</a></li>
-                                        <li><a href="pricing.html">Pricing Plans</a></li>
-                                        <li><a href="faq.html">FAQs</a></li>
-                                        <li><a href="404.html">404</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-
-                            <div class="has-sub-menu">
-                                <a role="button">Donation</a>
-
-                                <div class="ul-header-submenu">
-                                    <ul>
-                                        <li><a href="donations.html">Donation Listing</a></li>
-                                        <li><a href="donation-details.html">Donation Details</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-
-                            <div class="has-sub-menu">
-                                <a role="button">Event</a>
-
-                                <div class="ul-header-submenu">
-                                    <ul>
-                                        <li><a href="events.html">Events</a></li>
-                                        <li><a href="event-details.html">Event Details</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-
-                            <div class="has-sub-menu">
-                                <a role="button">Blog</a>
-
-                                <div class="ul-header-submenu">
-                                    <ul>
-                                        <li><a href="blog.html">Blogs</a></li>
-                                        <li><a href="blog-2.html">Blogs Layout 2</a></li>
-                                        <li><a href="blog-details.html">Blog Details</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <a href="contact.html">Contact</a>
-                        </nav>
+    <div class="main-container">
+        <div class="row">
+            <div class="col">
+                <div class="ul-about-imgs">
+                    <div class="img-wrapper">
+                        <img src="https://via.placeholder.com/500x400?text=Quotation+System" alt="Image">
                     </div>
                 </div>
-
-                <!-- actions -->
-                <div class="ul-header-actions">
-                    <button class="ul-header-search-opener"><i class="flaticon-search"></i></button>
-                    <a href="contact.html" class="ul-btn d-sm-inline-flex d-none"><i class="flaticon-fast-forward-double-right-arrows-symbol"></i> Join With us </a>
-                    <button class="ul-header-sidebar-opener d-lg-none d-inline-flex"><i class="flaticon-menu"></i></button>
-                </div>
             </div>
-        </div>
-    </header>
-    <!-- HEADER SECTION END -->
 
+            <div class="col">
+                <div class="ul-about-txt">
+                    <span class="ul-section-sub-title">Quotation</span>
+                    <h2 class="ul-section-title">Place Your Quotation</h2>
+                    <p class="ul-section-descr">Please fill in your details below to get a quotation for your project.</p>
 
-    <main class="overflow-hidden">
-        <!-- BANNER SECTION START -->
-        <section class="ul-banner">
-            <div class="ul-banner-container">
-                <div class="row gy-4 row-cols-lg-2 row-cols-1 align-items-center flex-column-reverse flex-lg-row">
-                    <!-- banner text -->
-                    <div class="col">
-                        <div class="ul-banner-txt">
-                            <div class="wow animate__fadeInUp">
-                                <span class="ul-banner-sub-title ul-section-sub-title">Change The World Together</span>
-                                <h1 class="ul-banner-title">For The People & Cause You Care About</h1>
-                                <p class="ul-banner-descr">It is a long established fact that a reader will be distracted lorem the readable content of a page when looking at layout the point lorem established fact that It is a long established</p>
-                                <div class="ul-banner-btns">
-                                    <a href="donations.html" class="ul-btn"><i class="flaticon-fast-forward-double-right-arrows-symbol"></i> Make Donation</a>
-
-                                    <div class="ul-banner-stat">
-                                        <div class="imgs">
-                                            <img src="assets/img/user-1.png" alt="Person">
-                                            <img src="assets/img/user-3.png" alt="Person">
-                                            <img src="assets/img/user-2.png" alt="Person">
-                                            <span class="number">2.M</span>
-                                        </div>
-                                        <span class="txt">Active donors</span>
-                                    </div>
-                                </div>
+                    <!-- User Details Section -->
+                    <div class="user-details-section">
+                        <h4>📋 Your Details</h4>
+                        
+                        <div style="margin-bottom: 15px;">
+                            <label>👤 Full Name</label>
+                            <input type="text" id="userName" placeholder="Enter your full name">
+                        </div>
+                        
+                        <div style="margin-bottom: 15px;">
+                            <label>📱 WhatsApp Number</label>
+                            <div class="phone-input-group">
+                                <select id="countryCode">
+                                    <option value="94">🇱🇰 +94 (Sri Lanka)</option>
+                                    <option value="91">🇮🇳 +91 (India)</option>
+                                    <option value="1">🇺🇸 +1 (USA)</option>
+                                    <option value="44">🇬🇧 +44 (UK)</option>
+                                    <option value="61">🇦🇺 +61 (Australia)</option>
+                                    <option value="971">🇦🇪 +971 (UAE)</option>
+                                    <option value="966">🇸🇦 +966 (Saudi Arabia)</option>
+                                    <option value="65">🇸🇬 +65 (Singapore)</option>
+                                    <option value="60">🇲🇾 +60 (Malaysia)</option>
+                                </select>
+                                <input type="tel" id="whatsappNumber" placeholder="Enter WhatsApp number">
                             </div>
-
-                            <img src="assets/img/vector-img.png" alt="Vector" class="ul-banner-txt-vector">
+                            <div id="phoneError" class="error-msg">⚠️ Please enter a valid phone number</div>
+                            <div id="countryDetectedMsg" class="success-msg">✓ Country code detected! Auto-selected.</div>
                         </div>
                     </div>
 
-                    <!-- img -->
-                    <div class="col align-self-start">
-                        <div class="ul-banner-img">
-                            <div class="img-wrapper">
-                                <img src="assets/img/banner-img.png" alt="Banner Image">
-                                <!-- <div class="ul-banner-video-btn">
-                                    <a href=""></a>
-                                </div> -->
-                            </div>
-                            <div class="ul-banner-img-vectors">
-                                <img src="assets/img/banner-img-vector-1.png" alt="vector" class="vector-1 wow animate__fadeInRight">
-                                <img src="assets/img/banner-img-vector-2.png" alt="vector" class="vector-2 wow animate__fadeInDown">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- BANNER SECTION END -->
-
-
-        <!-- ABOUT SECTION START -->
-
-<!-- Font Awesome CDN -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-
-<div class="row row-cols-md-2 row-cols-1 align-items-center gy-4 ul-about-row">
-    <div class="col">
-        <div class="ul-about-imgs">
-            <div class="img-wrapper">
-                <img src="assets/img/about-img.png" alt="Image">
-            </div>
-            <div class="ul-about-imgs-vectors">
-                <img src="assets/img/about-img-vector-1.svg" alt="Image" class="vector-1">
-                <img src="assets/img/about-img-vector-2.svg" alt="Image" class="vector-2">
-            </div>
-        </div>
-    </div>
-
-    <!-- txt -->
-    <div class="col">
-        <div class="ul-about-txt">
-            <span class="ul-section-sub-title ul-section-sub-title--2">Quotation</span>
-            <h2 class="ul-section-title">Place Your Quotation</h2>
-            <p class="ul-section-descr">Please fill in your details below to get a quotation for your project.</p>
-
-            <!-- User Details Section -->
-            <div class="user-details-section" style="margin-bottom: 25px; padding: 15px; background: #f8f9fa; border-radius: 10px;">
-                <h4 style="margin-bottom: 15px; color: #333;">📋 Your Details</h4>
-                
-                <!-- Name Input -->
-                <div style="margin-bottom: 15px;">
-                    <label for="userName" style="display: block; margin-bottom: 8px; font-weight: 600; color: #333; font-size: 14px;">👤 Full Name</label>
-                    <input type="text" id="userName" style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 8px; font-size: 14px;" placeholder="Enter your full name">
-                </div>
-                
-                <!-- WhatsApp Number with Country Code -->
-                <div style="margin-bottom: 15px;">
-                    <label style="display: block; margin-bottom: 8px; font-weight: 600; color: #333; font-size: 14px;">📱 WhatsApp Number</label>
-                    <div style="display: flex; gap: 10px; flex-wrap: wrap;">
-                        <select id="countryCode" style="width: 140px; padding: 12px; border: 1px solid #ddd; border-radius: 8px; font-size: 14px; background: white;">
-                            <option value="94">🇱🇰 +94 (Sri Lanka)</option>
-                            <option value="91">🇮🇳 +91 (India)</option>
-                            <option value="1">🇺🇸 +1 (USA)</option>
-                            <option value="44">🇬🇧 +44 (UK)</option>
-                            <option value="61">🇦🇺 +61 (Australia)</option>
-                            <option value="971">🇦🇪 +971 (UAE)</option>
-                            <option value="966">🇸🇦 +966 (Saudi Arabia)</option>
-                            <option value="65">🇸🇬 +65 (Singapore)</option>
-                            <option value="60">🇲🇾 +60 (Malaysia)</option>
-                            <option value="852">🇭🇰 +852 (Hong Kong)</option>
-                            <option value="86">🇨🇳 +86 (China)</option>
-                            <option value="81">🇯🇵 +81 (Japan)</option>
-                            <option value="49">🇩🇪 +49 (Germany)</option>
-                            <option value="33">🇫🇷 +33 (France)</option>
-                            <option value="39">🇮🇹 +39 (Italy)</option>
-                            <option value="7">🇷🇺 +7 (Russia)</option>
-                            <option value="55">🇧🇷 +55 (Brazil)</option>
-                            <option value="27">🇿🇦 +27 (South Africa)</option>
-                            <option value="20">🇪🇬 +20 (Egypt)</option>
-                            <option value="90">🇹🇷 +90 (Turkey)</option>
-                            <option value="82">🇰🇷 +82 (South Korea)</option>
-                            <option value="62">🇮🇩 +62 (Indonesia)</option>
-                            <option value="63">🇵🇭 +63 (Philippines)</option>
-                            <option value="66">🇹🇭 +66 (Thailand)</option>
-                            <option value="84">🇻🇳 +84 (Vietnam)</option>
-                            <option value="92">🇵🇰 +92 (Pakistan)</option>
-                            <option value="880">🇧🇩 +880 (Bangladesh)</option>
-                            <option value="977">🇳🇵 +977 (Nepal)</option>
-                            <option value="960">🇲🇻 +960 (Maldives)</option>
-                            <option value="358">🇫🇮 +358 (Finland)</option>
-                            <option value="47">🇳🇴 +47 (Norway)</option>
-                            <option value="46">🇸🇪 +46 (Sweden)</option>
-                            <option value="45">🇩🇰 +45 (Denmark)</option>
-                            <option value="31">🇳🇱 +31 (Netherlands)</option>
-                            <option value="32">🇧🇪 +32 (Belgium)</option>
-                            <option value="41">🇨🇭 +41 (Switzerland)</option>
-                            <option value="43">🇦🇹 +43 (Austria)</option>
-                            <option value="34">🇪🇸 +34 (Spain)</option>
-                            <option value="351">🇵🇹 +351 (Portugal)</option>
-                            <option value="30">🇬🇷 +30 (Greece)</option>
-                            <option value="48">🇵🇱 +48 (Poland)</option>
-                            <option value="420">🇨🇿 +420 (Czech Republic)</option>
-                            <option value="36">🇭🇺 +36 (Hungary)</option>
-                            <option value="40">🇷🇴 +40 (Romania)</option>
-                            <option value="380">🇺🇦 +380 (Ukraine)</option>
-                            <option value="370">🇱🇹 +370 (Lithuania)</option>
-                            <option value="371">🇱🇻 +371 (Latvia)</option>
-                            <option value="372">🇪🇪 +372 (Estonia)</option>
-                            <option value="353">🇮🇪 +353 (Ireland)</option>
-                            <option value="354">🇮🇸 +354 (Iceland)</option>
-                            <option value="356">🇲🇹 +356 (Malta)</option>
-                            <option value="389">🇲🇰 +389 (North Macedonia)</option>
-                            <option value="387">🇧🇦 +387 (Bosnia)</option>
-                            <option value="381">🇷🇸 +381 (Serbia)</option>
-                            <option value="385">🇭🇷 +385 (Croatia)</option>
-                            <option value="386">🇸🇮 +386 (Slovenia)</option>
-                            <option value="421">🇸🇰 +421 (Slovakia)</option>
-                            <option value="373">🇲🇩 +373 (Moldova)</option>
-                            <option value="998">🇺🇿 +998 (Uzbekistan)</option>
-                            <option value="7">🇰🇿 +7 (Kazakhstan)</option>
-                            <option value="995">🇬🇪 +995 (Georgia)</option>
-                            <option value="374">🇦🇲 +374 (Armenia)</option>
-                            <option value="994">🇦🇿 +994 (Azerbaijan)</option>
-                            <option value="996">🇰🇬 +996 (Kyrgyzstan)</option>
-                            <option value="992">🇹🇯 +992 (Tajikistan)</option>
-                            <option value="993">🇹🇲 +993 (Turkmenistan)</option>
-                            <option value="973">🇧🇭 +973 (Bahrain)</option>
-                            <option value="965">🇰🇼 +965 (Kuwait)</option>
-                            <option value="968">🇴🇲 +968 (Oman)</option>
-                            <option value="974">🇶🇦 +974 (Qatar)</option>
-                            <option value="961">🇱🇧 +961 (Lebanon)</option>
-                            <option value="962">🇯🇴 +962 (Jordan)</option>
-                            <option value="972">🇮🇱 +972 (Israel)</option>
-                            <option value="357">🇨🇾 +357 (Cyprus)</option>
-                            <option value="212">🇲🇦 +212 (Morocco)</option>
-                            <option value="216">🇹🇳 +216 (Tunisia)</option>
-                            <option value="213">🇩🇿 +213 (Algeria)</option>
-                            <option value="20">🇪🇬 +20 (Egypt)</option>
-                            <option value="234">🇳🇬 +234 (Nigeria)</option>
-                            <option value="254">🇰🇪 +254 (Kenya)</option>
-                            <option value="255">🇹🇿 +255 (Tanzania)</option>
-                            <option value="256">🇺🇬 +256 (Uganda)</option>
-                            <option value="263">🇿🇼 +263 (Zimbabwe)</option>
-                            <option value="260">🇿🇲 +260 (Zambia)</option>
-                            <option value="265">🇲🇼 +265 (Malawi)</option>
-                            <option value="258">🇲🇿 +258 (Mozambique)</option>
-                            <option value="264">🇳🇦 +264 (Namibia)</option>
-                            <option value="267">🇧🇼 +267 (Botswana)</option>
-                            <option value="268">🇸🇿 +268 (Eswatini)</option>
-                            <option value="266">🇱🇸 +266 (Lesotho)</option>
-                            <option value="230">🇲🇺 +230 (Mauritius)</option>
-                            <option value="248">🇸🇨 +248 (Seychelles)</option>
+                    <!-- Dropdown Section -->
+                    <div style="margin-bottom: 25px;">
+                        <label for="categorySelect">Select Project Type:</label>
+                        <select id="categorySelect">
+                            <option value="">-- Select a category --</option>
+                            
+                            <!-- Business Administration (INR 3.50) -->
+                            <option value="Business Administration" data-price="3.50" data-unit="words" data-category="Business Administration">▶️ Business Administration (INR 3.50/word)</option>
+                            <option value="Business Management" data-parent="Business Administration" data-price="3.50" data-unit="words" style="padding-left: 20px;">&nbsp;&nbsp;&nbsp;└ Business Management</option>
+                            <option value="Entrepreneurship" data-parent="Business Administration" data-price="3.50" data-unit="words" style="padding-left: 20px;">&nbsp;&nbsp;&nbsp;└ Entrepreneurship</option>
+                            <option value="International Business" data-parent="Business Administration" data-price="3.50" data-unit="words" style="padding-left: 20px;">&nbsp;&nbsp;&nbsp;└ International Business</option>
+                            <option value="Strategic Management" data-parent="Business Administration" data-price="3.50" data-unit="words" style="padding-left: 20px;">&nbsp;&nbsp;&nbsp;└ Strategic Management</option>
+                            
+                            <!-- Project Management (INR 5.50) -->
+                            <option value="Project Management" data-price="5.50" data-unit="words" data-category="Project Management">▶️ Project Management (INR 5.50/word)</option>
+                            <option value="Project Planning" data-parent="Project Management" data-price="5.50" data-unit="words" style="padding-left: 20px;">&nbsp;&nbsp;&nbsp;└ Project Planning</option>
+                            <option value="Risk Management" data-parent="Project Management" data-price="5.50" data-unit="words" style="padding-left: 20px;">&nbsp;&nbsp;&nbsp;└ Risk Management</option>
+                            <option value="Report" data-parent="Project Management" data-price="5.50" data-unit="words" style="padding-left: 20px;">&nbsp;&nbsp;&nbsp;└ Report</option>
+                            
+                            <!-- Marketing (INR 4.50) -->
+                            <option value="Marketing" data-price="4.50" data-unit="words" data-category="Marketing">▶️ Marketing (INR 4.50/word)</option>
+                            <option value="Digital Marketing" data-parent="Marketing" data-price="4.50" data-unit="words" style="padding-left: 20px;">&nbsp;&nbsp;&nbsp;└ Digital Marketing</option>
+                            <option value="Branding" data-parent="Marketing" data-price="4.50" data-unit="words" style="padding-left: 20px;">&nbsp;&nbsp;&nbsp;└ Branding</option>
+                            <option value="Consumer Behaviour" data-parent="Marketing" data-price="4.50" data-unit="words" style="padding-left: 20px;">&nbsp;&nbsp;&nbsp;└ Consumer Behaviour</option>
+                            <option value="Market Research" data-parent="Marketing" data-price="4.50" data-unit="words" style="padding-left: 20px;">&nbsp;&nbsp;&nbsp;└ Market Research</option>
+                            
+                            <!-- Human Resource (INR 3.50) -->
+                            <option value="Human Resource" data-price="3.50" data-unit="words" data-category="Human Resource">▶️ Human Resource (INR 3.50/word)</option>
+                            <option value="Recruitment & Selection" data-parent="Human Resource" data-price="3.50" data-unit="words" style="padding-left: 20px;">&nbsp;&nbsp;&nbsp;└ Recruitment & Selection</option>
+                            <option value="Employee Relations" data-parent="Human Resource" data-price="3.50" data-unit="words" style="padding-left: 20px;">&nbsp;&nbsp;&nbsp;└ Employee Relations</option>
+                            <option value="Organizational Behaviour" data-parent="Human Resource" data-price="3.50" data-unit="words" style="padding-left: 20px;">&nbsp;&nbsp;&nbsp;└ Organizational Behaviour</option>
+                            <option value="Training & Development" data-parent="Human Resource" data-price="3.50" data-unit="words" style="padding-left: 20px;">&nbsp;&nbsp;&nbsp;└ Training & Development</option>
+                            
+                            <!-- Accounting (INR 6.50) -->
+                            <option value="Accounting" data-price="6.50" data-unit="words" data-category="Accounting">▶️ Accounting (INR 6.50/word)</option>
+                            <option value="Financial Accounting" data-parent="Accounting" data-price="6.50" data-unit="words" style="padding-left: 20px;">&nbsp;&nbsp;&nbsp;└ Financial Accounting</option>
+                            <option value="Management Accounting" data-parent="Accounting" data-price="6.50" data-unit="words" style="padding-left: 20px;">&nbsp;&nbsp;&nbsp;└ Management Accounting</option>
+                            <option value="Taxation" data-parent="Accounting" data-price="6.50" data-unit="words" style="padding-left: 20px;">&nbsp;&nbsp;&nbsp;└ Taxation</option>
+                            <option value="Auditing" data-parent="Accounting" data-price="6.50" data-unit="words" style="padding-left: 20px;">&nbsp;&nbsp;&nbsp;└ Auditing</option>
+                            
+                            <!-- Finance (INR 6.50) -->
+                            <option value="Finance" data-price="6.50" data-unit="words" data-category="Finance">▶️ Finance (INR 6.50/word)</option>
+                            <option value="Corporate Finance" data-parent="Finance" data-price="6.50" data-unit="words" style="padding-left: 20px;">&nbsp;&nbsp;&nbsp;└ Corporate Finance</option>
+                            <option value="Investment Analysis" data-parent="Finance" data-price="6.50" data-unit="words" style="padding-left: 20px;">&nbsp;&nbsp;&nbsp;└ Investment Analysis</option>
+                            <option value="Banking" data-parent="Finance" data-price="6.50" data-unit="words" style="padding-left: 20px;">&nbsp;&nbsp;&nbsp;└ Banking</option>
+                            <option value="Financial Markets" data-parent="Finance" data-price="6.50" data-unit="words" style="padding-left: 20px;">&nbsp;&nbsp;&nbsp;└ Financial Markets</option>
+                            
+                            <!-- Information Technology -->
+                            <option value="Information Technology" data-price="0" data-unit="words" data-category="Information Technology">▶️ Information Technology</option>
+                            <option value="Web Development" data-parent="Information Technology" data-price="7.00" data-unit="words" style="padding-left: 20px;">&nbsp;&nbsp;&nbsp;└ Web Development (INR 7.00/word)</option>
+                            <option value="Database Systems" data-parent="Information Technology" data-price="6.50" data-unit="words" style="padding-left: 20px;">&nbsp;&nbsp;&nbsp;└ Database Systems (INR 6.50/word)</option>
+                            <option value="Networking" data-parent="Information Technology" data-price="6.50" data-unit="words" style="padding-left: 20px;">&nbsp;&nbsp;&nbsp;└ Networking (INR 6.50/word)</option>
+                            <option value="Cybersecurity" data-parent="Information Technology" data-price="7.00" data-unit="words" style="padding-left: 20px;">&nbsp;&nbsp;&nbsp;└ Cybersecurity (INR 7.00/word)</option>
+                            
+                            <!-- Computer Science (INR 6.50) -->
+                            <option value="Computer Science" data-price="6.50" data-unit="words" data-category="Computer Science">▶️ Computer Science (INR 6.50/word)</option>
+                            <option value="Desktop Applications" data-parent="Computer Science" data-price="6.50" data-unit="words" style="padding-left: 20px;">&nbsp;&nbsp;&nbsp;└ Desktop Applications (Java, Python, C++, C#)</option>
+                            <option value="Web Applications" data-parent="Computer Science" data-price="6.50" data-unit="words" style="padding-left: 20px;">&nbsp;&nbsp;&nbsp;└ Web Applications (Laravel, Django, Node)</option>
+                            <option value="Mobile Application" data-parent="Computer Science" data-price="6.50" data-unit="words" style="padding-left: 20px;">&nbsp;&nbsp;&nbsp;└ Mobile Application (React Native, Flutter, Kotlin)</option>
+                            <option value="Software Engineering report" data-parent="Computer Science" data-price="6.50" data-unit="system" style="padding-left: 20px;">&nbsp;&nbsp;&nbsp;└ Software Engineering report (INR 6.50/word + System Charge)</option>
+                            <option value="Artificial Intelligence" data-parent="Computer Science" data-price="6.50" data-unit="words" style="padding-left: 20px;">&nbsp;&nbsp;&nbsp;└ Artificial Intelligence (INR 6.50/word)</option>
+                            <option value="Data Structures" data-parent="Computer Science" data-price="6.50" data-unit="words" style="padding-left: 20px;">&nbsp;&nbsp;&nbsp;└ Data Structures (INR 6.50/word)</option>
+                            
+                            <!-- Law (INR 4.50) -->
+                            <option value="Law" data-price="4.50" data-unit="words" data-category="Law">▶️ Law (INR 4.50/word)</option>
+                            <option value="Criminal Law" data-parent="Law" data-price="4.50" data-unit="words" style="padding-left: 20px;">&nbsp;&nbsp;&nbsp;└ Criminal Law</option>
+                            <option value="Business Law" data-parent="Law" data-price="4.50" data-unit="words" style="padding-left: 20px;">&nbsp;&nbsp;&nbsp;└ Business Law</option>
+                            <option value="International Law" data-parent="Law" data-price="4.50" data-unit="words" style="padding-left: 20px;">&nbsp;&nbsp;&nbsp;└ International Law</option>
+                            <option value="Human Rights" data-parent="Law" data-price="4.50" data-unit="words" style="padding-left: 20px;">&nbsp;&nbsp;&nbsp;└ Human Rights</option>
+                            
+                            <!-- Economics (INR 4.50) -->
+                            <option value="Economics" data-price="4.50" data-unit="words" data-category="Economics">▶️ Economics (INR 4.50/word)</option>
+                            <option value="Microeconomics" data-parent="Economics" data-price="4.50" data-unit="words" style="padding-left: 20px;">&nbsp;&nbsp;&nbsp;└ Microeconomics</option>
+                            <option value="Macroeconomics" data-parent="Economics" data-price="4.50" data-unit="words" style="padding-left: 20px;">&nbsp;&nbsp;&nbsp;└ Macroeconomics</option>
+                            <option value="Development Economics" data-parent="Economics" data-price="4.50" data-unit="words" style="padding-left: 20px;">&nbsp;&nbsp;&nbsp;└ Development Economics</option>
+                            <option value="International Trade" data-parent="Economics" data-price="4.50" data-unit="words" style="padding-left: 20px;">&nbsp;&nbsp;&nbsp;└ International Trade</option>
+                            
+                            <!-- Psychology (INR 3.50) -->
+                            <option value="Psychology" data-price="3.50" data-unit="words" data-category="Psychology">▶️ Psychology (INR 3.50/word)</option>
+                            <option value="Clinical Psychology" data-parent="Psychology" data-price="3.50" data-unit="words" style="padding-left: 20px;">&nbsp;&nbsp;&nbsp;└ Clinical Psychology</option>
+                            <option value="Cognitive Psychology" data-parent="Psychology" data-price="3.50" data-unit="words" style="padding-left: 20px;">&nbsp;&nbsp;&nbsp;└ Cognitive Psychology</option>
+                            <option value="Social Psychology" data-parent="Psychology" data-price="3.50" data-unit="words" style="padding-left: 20px;">&nbsp;&nbsp;&nbsp;└ Social Psychology</option>
+                            
+                            <!-- Nursing (INR 3.50) -->
+                            <option value="Nursing" data-price="3.50" data-unit="words" data-category="Nursing">▶️ Nursing (INR 3.50/word)</option>
+                            <option value="Patient Care" data-parent="Nursing" data-price="3.50" data-unit="words" style="padding-left: 20px;">&nbsp;&nbsp;&nbsp;└ Patient Care</option>
+                            <option value="Clinical Practice" data-parent="Nursing" data-price="3.50" data-unit="words" style="padding-left: 20px;">&nbsp;&nbsp;&nbsp;└ Clinical Practice</option>
+                            <option value="Health Assessment" data-parent="Nursing" data-price="3.50" data-unit="words" style="padding-left: 20px;">&nbsp;&nbsp;&nbsp;└ Health Assessment</option>
+                            <option value="Case Studies" data-parent="Nursing" data-price="3.50" data-unit="words" style="padding-left: 20px;">&nbsp;&nbsp;&nbsp;└ Case Studies</option>
+                            
+                            <!-- Public Health (INR 4.50) -->
+                            <option value="Public Health" data-price="4.50" data-unit="words" data-category="Public Health">▶️ Public Health (INR 4.50/word)</option>
+                            <option value="Global Health" data-parent="Public Health" data-price="4.50" data-unit="words" style="padding-left: 20px;">&nbsp;&nbsp;&nbsp;└ Global Health</option>
+                            
+                            <!-- Engineering -->
+                            <option value="Engineering" data-price="6.50" data-unit="words" data-category="Engineering">▶️ Engineering (INR 6.50/word)</option>
+                            <option value="Civil Engineering" data-parent="Engineering" data-price="6.50" data-unit="words" style="padding-left: 20px;">&nbsp;&nbsp;&nbsp;└ Civil Engineering (INR 6.50/word)</option>
+                            <option value="Mechanical Engineering" data-parent="Engineering" data-price="7.50" data-unit="words" style="padding-left: 20px;">&nbsp;&nbsp;&nbsp;└ Mechanical Engineering (INR 7.50/word)</option>
+                            <option value="Electrical Engineering" data-parent="Engineering" data-price="7.50" data-unit="words" style="padding-left: 20px;">&nbsp;&nbsp;&nbsp;└ Electrical Engineering (INR 7.50/word)</option>
+                            
+                            <!-- Education (INR 3.50) -->
+                            <option value="Education" data-price="3.50" data-unit="words" data-category="Education">▶️ Education (INR 3.50/word)</option>
+                            <option value="Teaching Methods" data-parent="Education" data-price="3.50" data-unit="words" style="padding-left: 20px;">&nbsp;&nbsp;&nbsp;└ Teaching Methods</option>
+                            <option value="Educational Psychology" data-parent="Education" data-price="3.50" data-unit="words" style="padding-left: 20px;">&nbsp;&nbsp;&nbsp;└ Educational Psychology</option>
+                            <option value="Curriculum Development" data-parent="Education" data-price="3.50" data-unit="words" style="padding-left: 20px;">&nbsp;&nbsp;&nbsp;└ Curriculum Development</option>
+                            
+                            <!-- Hospitality & Tourism (INR 4.50) -->
+                            <option value="Hospitality & Tourism" data-price="4.50" data-unit="words" data-category="Hospitality & Tourism">▶️ Hospitality & Tourism (INR 4.50/word)</option>
+                            <option value="Hotel Management" data-parent="Hospitality & Tourism" data-price="4.50" data-unit="words" style="padding-left: 20px;">&nbsp;&nbsp;&nbsp;└ Hotel Management</option>
+                            <option value="Tourism Management" data-parent="Hospitality & Tourism" data-price="4.50" data-unit="words" style="padding-left: 20px;">&nbsp;&nbsp;&nbsp;└ Tourism Management</option>
+                            <option value="Event Management" data-parent="Hospitality & Tourism" data-price="4.50" data-unit="words" style="padding-left: 20px;">&nbsp;&nbsp;&nbsp;└ Event Management</option>
+                            
+                            <!-- Research -->
+                            <option value="Research" data-price="0" data-unit="words" data-category="Research">▶️ Research</option>
+                            <option value="Essay Writing" data-parent="Research" data-price="3.50" data-unit="words" style="padding-left: 20px;">&nbsp;&nbsp;&nbsp;└ Essay Writing (INR 3.50/word)</option>
+                            <option value="Research Papers" data-parent="Research" data-price="6.50" data-unit="words" style="padding-left: 20px;">&nbsp;&nbsp;&nbsp;└ Research Papers (INR 6.50/word)</option>
+                            <option value="Research Proposal" data-parent="Research" data-price="3.50" data-unit="words" style="padding-left: 20px;">&nbsp;&nbsp;&nbsp;└ Research Proposal (INR 3.50/word)</option>
+                            <option value="Viva PPT Zoom" data-parent="Research" data-price="4.50" data-unit="words" style="padding-left: 20px;">&nbsp;&nbsp;&nbsp;└ Viva PPT Zoom (INR 4.50/word)</option>
+                            <option value="Viva Zoom Per Hour" data-parent="Research" data-price="4500" data-unit="hours" style="padding-left: 20px;">&nbsp;&nbsp;&nbsp;└ Viva Zoom - Per Hour (INR 4,500/hour)</option>
+                            
+                            <!-- Company Profile, Investor Plan, Business Plan -->
+                            <option value="Company Profile" data-price="4.50" data-unit="words" data-category="Company Profile">▶️ Company Profile (INR 4.50/word)</option>
+                            <option value="Investor Plan" data-price="4.50" data-unit="words" data-category="Investor Plan">▶️ Investor Plan (INR 4.50/word)</option>
+                            <option value="Business Plan" data-price="4.50" data-unit="words" data-category="Business Plan">▶️ Business Plan (INR 4.50/word)</option>
+                            
+                            <!-- SOP - Sliders (3000 words replaced with sliders) -->
+                            <option value="SOP" data-price="0" data-unit="sliders" data-category="SOP">▶️ SOP (INR 3,000/slider)</option>
+                            
+                            <!-- PowerPoint Presentations - Per Slide -->
+                            <option value="PowerPoint Presentations" data-price="800" data-unit="slides" data-category="PowerPoint Presentations">▶️ PowerPoint Presentations (INR 800/slide)</option>
+                            
+                            <!-- Proofreading & Editing -->
+                            <option value="Proofreading & Editing" data-price="3.00" data-unit="words" data-category="Proofreading & Editing">▶️ Proofreading & Editing (INR 3.00/word)</option>
+                            
+                            <!-- AI Reports - Per Report -->
+                            <option value="AI Reports" data-price="1500" data-unit="reports" data-category="AI Reports">▶️ AI Reports (INR 1,500/report)</option>
                         </select>
-                        <input type="tel" id="whatsappNumber" style="flex: 1; padding: 12px; border: 1px solid #ddd; border-radius: 8px; font-size: 14px;" placeholder="Enter WhatsApp number with county code (e.g., +94)">
                     </div>
-                    <div id="phoneError" style="font-size: 12px; color: #dc3545; margin-top: 5px; display: none;">⚠️ Please enter a valid phone number</div>
-                    <div id="countryDetectedMsg" style="font-size: 11px; color: #28a745; margin-top: 5px; display: none;">✓ Country code detected! Auto-selected.</div>
-                </div>
-            </div>
 
-            <!-- Dropdown Section with Categories -->
-            <div class="ul-dropdown-section" style="margin-bottom: 25px;">
-                <label for="categorySelect" style="display: block; margin-bottom: 10px; font-weight: 600; color: #333; font-size: 16px;">Select Project Type:</label>
-                <select id="categorySelect" style="width: 100%; padding: 12px 15px; border: 1px solid #ddd; border-radius: 8px; font-size: 16px; background-color: #fff;">
-                    <option value="">-- Select a category --</option>
-                    
-                    <option value="Business Administration" data-price="3.50" data-category="Business Administration">▶️ Business Administration (INR 3.50/word)</option>
-                    <option value="Business Management" data-parent="Business Administration" data-price="3.50" style="padding-left: 20px;">&nbsp;&nbsp;&nbsp;└ Business Management</option>
-                    <option value="Entrepreneurship" data-parent="Business Administration" data-price="3.50" style="padding-left: 20px;">&nbsp;&nbsp;&nbsp;└ Entrepreneurship</option>
-                    <option value="International Business" data-parent="Business Administration" data-price="3.50" style="padding-left: 20px;">&nbsp;&nbsp;&nbsp;└ International Business</option>
-                    <option value="Strategic Management" data-parent="Business Administration" data-price="3.50" style="padding-left: 20px;">&nbsp;&nbsp;&nbsp;└ Strategic Management</option>
-                    
-                    <option value="Project Management" data-price="5.50" data-category="Project Management">▶️ Project Management (INR 5.50/word)</option>
-                    <option value="Project Planning" data-parent="Project Management" data-price="5.50" style="padding-left: 20px;">&nbsp;&nbsp;&nbsp;└ Project Planning</option>
-                    <option value="Risk Management" data-parent="Project Management" data-price="5.50" style="padding-left: 20px;">&nbsp;&nbsp;&nbsp;└ Risk Management</option>
-                    <option value="Report" data-parent="Project Management" data-price="5.50" style="padding-left: 20px;">&nbsp;&nbsp;&nbsp;└ Report</option>
-                    
-                    <option value="Marketing" data-price="4.50" data-category="Marketing">▶️ Marketing (INR 4.50/word)</option>
-                    <option value="Digital Marketing" data-parent="Marketing" data-price="4.50" style="padding-left: 20px;">&nbsp;&nbsp;&nbsp;└ Digital Marketing</option>
-                    <option value="Branding" data-parent="Marketing" data-price="4.50" style="padding-left: 20px;">&nbsp;&nbsp;&nbsp;└ Branding</option>
-                    <option value="Consumer Behaviour" data-parent="Marketing" data-price="4.50" style="padding-left: 20px;">&nbsp;&nbsp;&nbsp;└ Consumer Behaviour</option>
-                    <option value="Market Research" data-parent="Marketing" data-price="4.50" style="padding-left: 20px;">&nbsp;&nbsp;&nbsp;└ Market Research</option>
-                    
-                    <option value="Human Resource" data-price="3.50" data-category="Human Resource">▶️ Human Resource (INR 3.50/word)</option>
-                    <option value="Accounting" data-price="6.50" data-category="Accounting">▶️ Accounting (INR 6.50/word)</option>
-                    <option value="Finance" data-price="6.50" data-category="Finance">▶️ Finance (INR 6.50/word)</option>
-                    
-                    <option value="Information Technology" data-price="0" data-category="Information Technology">▶️ Information Technology</option>
-                    <option value="Web Development" data-parent="Information Technology" data-price="7.00" style="padding-left: 20px;">&nbsp;&nbsp;&nbsp;└ Web Development (INR 7.00/word)</option>
-                    <option value="Database Systems" data-parent="Information Technology" data-price="6.50" style="padding-left: 20px;">&nbsp;&nbsp;&nbsp;└ Database Systems (INR 6.50/word)</option>
-                    <option value="Networking" data-parent="Information Technology" data-price="6.50" style="padding-left: 20px;">&nbsp;&nbsp;&nbsp;└ Networking (INR 6.50/word)</option>
-                    <option value="Cybersecurity" data-parent="Information Technology" data-price="7.00" style="padding-left: 20px;">&nbsp;&nbsp;&nbsp;└ Cybersecurity (INR 7.00/word)</option>
-                    
-                    <option value="Computer Science" data-price="6.50" data-category="Computer Science">▶️ Computer Science (INR 6.50/word)</option>
-                    <option value="Desktop Applications" data-parent="Computer Science" data-price="6.50" style="padding-left: 20px;">&nbsp;&nbsp;&nbsp;└ Desktop Applications</option>
-                    <option value="Web Applications" data-parent="Computer Science" data-price="6.50" style="padding-left: 20px;">&nbsp;&nbsp;&nbsp;└ Web Applications</option>
-                    <option value="Mobile Application" data-parent="Computer Science" data-price="6.50" style="padding-left: 20px;">&nbsp;&nbsp;&nbsp;└ Mobile Application</option>
-                    
-                    <option value="Engineering" data-price="6.50" data-category="Engineering">▶️ Engineering (INR 6.50/word)</option>
-                    <option value="Mechanical Engineering" data-parent="Engineering" data-price="7.50" style="padding-left: 20px;">&nbsp;&nbsp;&nbsp;└ Mechanical Engineering (INR 7.50/word)</option>
-                    <option value="Electrical Engineering" data-parent="Engineering" data-price="7.50" style="padding-left: 20px;">&nbsp;&nbsp;&nbsp;└ Electrical Engineering (INR 7.50/word)</option>
-                    
-                    <option value="Research" data-price="0" data-category="Research">▶️ Research</option>
-                    <option value="Essay Writing" data-parent="Research" data-price="3.50" style="padding-left: 20px;">&nbsp;&nbsp;&nbsp;└ Essay Writing (INR 3.50/word)</option>
-                    <option value="Research Papers" data-parent="Research" data-price="6.50" style="padding-left: 20px;">&nbsp;&nbsp;&nbsp;└ Research Papers (INR 6.50/word)</option>
-                    <option value="AI Reports" data-parent="Research" data-price="1500" style="padding-left: 20px;">&nbsp;&nbsp;&nbsp;└ AI Reports (INR 1,500/report)</option>
-                    <option value="Viva Zoom Per Hour" data-parent="Research" data-price="4500" style="padding-left: 20px;">&nbsp;&nbsp;&nbsp;└ Viva Zoom - Per Hour (INR 4,500/hour)</option>
-                </select>
-            </div>
-
-            <!-- Dynamic Number Input Section -->
-            <div id="numberInputContainer" style="margin-top: 20px; display: none;">
-                <div class="number-input-field" style="margin-bottom: 20px;">
-                    <label id="fieldLabel" style="display: block; margin-bottom: 8px; font-weight: 500; color: #333; font-size: 14px;">Enter Number of Words</label>
-                    <input type="number" id="numberInput" step="1" style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 8px; font-size: 14px; font-family: inherit;" placeholder="Enter number of words (e.g., 100, 500, 1000)">
-                    
-                    <div id="selectedCategoryDisplay" style="margin-top: 10px; padding: 8px 12px; background: #e8f4fd; border-radius: 6px; font-size: 13px; color: #0056b3;">
-                        <span>📁 Selected: </span>
-                        <span id="selectedCategoryName" style="font-weight: bold;">None</span>
-                        <span id="selectedPriceDisplay" style="margin-left: 10px; font-size: 12px; color: #28a745;"></span>
-                    </div>
-                    
-                    <div id="unitPriceInfo" style="margin-top: 8px; padding: 6px 12px; background: #fff3e0; border-radius: 6px; font-size: 13px; color: #e67e22; display: none;">
-                        💵 Unit Price: <span id="unitPriceValue">0.00</span> INR per word
-                    </div>
-                    
-                    <div id="perHourNotice" style="margin-top: 8px; padding: 6px 12px; background: #ffebee; border-radius: 6px; font-size: 12px; color: #c62828; display: none;">
-                        ⏰ Note: This service is charged per hour. Enter number of hours.
-                    </div>
-                    
-                    <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 15px; flex-wrap: wrap; gap: 10px;">
-                        <div style="font-size: 14px; color: #666;">
-                            <span>🔢 Words Count: </span>
-                            <span id="numberDisplay" style="font-weight: bold; color: #007bff;">0</span>
-                        </div>
-                        <div style="font-size: 18px; font-weight: bold; background: linear-gradient(135deg, #f0f8ff, #e8f4fd); padding: 10px 20px; border-radius: 8px; border-left: 4px solid #28a745;">
-                            💰 Total Amount: <span id="amountDisplay" style="color: #28a745; font-size: 20px;">INR 0.00</span>
+                    <!-- Dynamic Number Input Section -->
+                    <div id="numberInputContainer" style="margin-top: 20px; display: none;">
+                        <div class="number-input-field">
+                            <label id="fieldLabel" style="display: block; margin-bottom: 8px; font-weight: 500; color: #333; font-size: 14px;">Enter Quantity</label>
+                            <input type="number" id="numberInput" step="1" style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 8px; font-size: 14px;" placeholder="Enter quantity">
+                            
+                            <div id="selectedCategoryDisplay" class="price-info price-info-blue" style="margin-top: 10px; display: none;">
+                                <span>📁 Selected: </span>
+                                <span id="selectedCategoryName" style="font-weight: bold;">None</span>
+                                <span id="selectedPriceDisplay" style="margin-left: 10px;"></span>
+                                <span id="unitTypeBadge" class="unit-type-badge"></span>
+                            </div>
+                            
+                            <div id="unitPriceInfo" class="price-info price-info-orange" style="display: none;">
+                                💵 Unit Price: <span id="unitPriceValue">0.00</span> INR per <span id="unitTypeText">word</span>
+                            </div>
+                            
+                            <div class="amount-wrapper">
+                                <div class="word-count">
+                                    <span id="quantityLabel">🔢 Quantity: </span>
+                                    <span id="numberDisplay" style="font-weight: bold; color: #007bff;">0</span>
+                                    <span id="quantityUnitLabel">words</span>
+                                </div>
+                                <div class="total-amount">
+                                    💰 Total Amount: <span id="amountDisplay" style="color: #28a745;">INR 0.00</span>
+                                </div>
+                            </div>
+                            
+                            <button id="generateQuotationBtn" class="generate-btn">
+                                📄 Generate Quotation
+                            </button>
                         </div>
                     </div>
-                    
-                    <button id="generateQuotationBtn" style="width: 100%; margin-top: 20px; padding: 12px; background: linear-gradient(135deg, #28a745, #20c997); color: white; border: none; border-radius: 8px; font-size: 16px; font-weight: bold; cursor: pointer; transition: transform 0.2s;">
-                        📄 Generate Quotation
-                    </button>
-                </div>
-            </div>
 
-            <div class="ul-about-bottom">
-                <a href="about.html" class="ul-btn"><i class="flaticon-fast-forward-double-right-arrows-symbol"></i> Explore More</a>
-                <div class="ul-about-call">
-                    <a href="https://wa.me/94763055150" target="_blank">
-                        <div class="icon"><i class="fab fa-whatsapp"></i></div>
-                    </a>
-                    <div class="txt">
-                        <span class="call-title">Call Any Time WhatsApp</span>
-                        <a href="https://wa.me/94763055150">+94763055150</a>
+                    <div class="ul-about-bottom">
+                        <a href="#" class="ul-btn" style="text-decoration: none; color: #667eea; font-weight: bold;">Explore More</a>
+                        <div class="ul-about-call">
+                            <a href="https://wa.me/94763055150" target="_blank">
+                                <div class="icon">
+                                    <i class="fab fa-whatsapp"></i>
+                                </div>
+                            </a>
+                            <div class="txt">
+                                <span class="call-title">Call Any Time WhatsApp</span>
+                                <a href="https://wa.me/94763055150">+94763055150</a>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
 
-<!-- Quotation Modal -->
-<div id="quotationModal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.7); z-index: 9999; justify-content: center; align-items: center; padding: 20px;">
-    <div style="background: white; max-width: 500px; width: 100%; border-radius: 15px; padding: 25px; position: relative; max-height: 90%; overflow-y: auto;">
-        <div style="display: flex; justify-content: flex-end; gap: 10px; margin-bottom: 15px;">
-            <button id="doneBtnInModal" style="background: #28a745; color: white; border: none; border-radius: 8px; padding: 8px 20px; cursor: pointer; font-weight: bold;">✅ Send to Admin</button>
-            <button onclick="closeQuotation()" style="background: #dc3545; color: white; border: none; border-radius: 8px; padding: 8px 20px; cursor: pointer; font-weight: bold;">✖ Close</button>
+    <!-- Quotation Modal -->
+    <div id="quotationModal" class="quotation-modal">
+        <div class="modal-content">
+            <div class="modal-buttons">
+                <button id="doneBtnInModal" class="btn-done">✅ Send to Admin</button>
+                <button onclick="closeQuotation()" class="btn-close">✖ Close</button>
+            </div>
+            <div id="quotationContent"></div>
         </div>
-        <div id="quotationContent"></div>
     </div>
-</div>
 
-<script>
-    // Get elements
-    const selectElement = document.getElementById('categorySelect');
-    const container = document.getElementById('numberInputContainer');
-    const numberInput = document.getElementById('numberInput');
-    const numberDisplay = document.getElementById('numberDisplay');
-    const amountDisplay = document.getElementById('amountDisplay');
-    const fieldLabel = document.getElementById('fieldLabel');
-    const selectedCategoryName = document.getElementById('selectedCategoryName');
-    const unitPriceInfo = document.getElementById('unitPriceInfo');
-    const unitPriceValue = document.getElementById('unitPriceValue');
-    const selectedPriceDisplay = document.getElementById('selectedPriceDisplay');
-    const perHourNotice = document.getElementById('perHourNotice');
-    
-    const userNameInput = document.getElementById('userName');
-    const countryCodeSelect = document.getElementById('countryCode');
-    const whatsappNumberInput = document.getElementById('whatsappNumber');
-    const phoneError = document.getElementById('phoneError');
-    const countryDetectedMsg = document.getElementById('countryDetectedMsg');
-    
-    let currentUnitPrice = 0;
-    let isPerHourService = false;
-    let currentQuotationData = null;
+    <script>
+        // Get elements
+        const selectElement = document.getElementById('categorySelect');
+        const container = document.getElementById('numberInputContainer');
+        const numberInput = document.getElementById('numberInput');
+        const numberDisplay = document.getElementById('numberDisplay');
+        const amountDisplay = document.getElementById('amountDisplay');
+        const fieldLabel = document.getElementById('fieldLabel');
+        const selectedCategoryName = document.getElementById('selectedCategoryName');
+        const unitPriceInfo = document.getElementById('unitPriceInfo');
+        const unitPriceValue = document.getElementById('unitPriceValue');
+        const selectedPriceDisplay = document.getElementById('selectedPriceDisplay');
+        const quantityLabel = document.getElementById('quantityLabel');
+        const quantityUnitLabel = document.getElementById('quantityUnitLabel');
+        const unitTypeBadge = document.getElementById('unitTypeBadge');
+        const unitTypeText = document.getElementById('unitTypeText');
+        
+        const userNameInput = document.getElementById('userName');
+        const countryCodeSelect = document.getElementById('countryCode');
+        const whatsappNumberInput = document.getElementById('whatsappNumber');
+        const phoneError = document.getElementById('phoneError');
+        const countryDetectedMsg = document.getElementById('countryDetectedMsg');
+        
+        let currentUnitPrice = 0;
+        let currentUnitType = 'words';
+        let currentQuotationData = null;
 
-    // Country code mapping (key: country code string, value: option value)
-    // This covers all major country codes (supports exact matches)
-    function detectAndSetCountryCode(inputValue) {
-        // Remove any non-digit characters except '+'
-        let cleanValue = inputValue.replace(/[^\d+]/g, '');
-        
-        // Check if starts with '+'
-        if (cleanValue.startsWith('+')) {
-            cleanValue = cleanValue.substring(1);
-        }
-        
-        // Try to match country codes (longest first to avoid partial matches)
-        const countryCodes = [
-            '971', '966', '880', '852', '855', '856', '994', '996', '998', '992', '993',
-            '977', '960', '358', '351', '356', '354', '353', '372', '371', '370', '380',
-            '389', '387', '386', '385', '381', '421', '420', '423', '373', '374', '995',
-            '992', '993', '994', '996', '998', '263', '267', '268', '265', '264', '260',
-            '258', '256', '255', '254', '253', '252', '251', '250', '249', '248', '247',
-            '246', '245', '244', '243', '242', '241', '240', '239', '238', '237', '236',
-            '235', '234', '233', '232', '231', '230', '229', '228', '227', '226', '225',
-            '224', '223', '222', '221', '220', '218', '216', '215', '214', '213', '212',
-            '211', '210', '975', '974', '973', '972', '971', '970', '968', '967', '966',
-            '965', '964', '963', '962', '961', '960', '94', '93', '92', '91', '90', '89',
-            '88', '86', '84', '82', '81', '66', '65', '64', '63', '62', '61', '60', '58',
-            '57', '56', '55', '54', '53', '52', '51', '50', '49', '48', '47', '46', '45',
-            '44', '43', '42', '41', '40', '39', '38', '37', '36', '35', '34', '33', '32',
-            '31', '30', '27', '20', '1', '7'
-        ];
-        
-        for (let code of countryCodes) {
-            if (cleanValue.startsWith(code)) {
-                // Check if the option exists
-                let optionExists = false;
-                for (let i = 0; i < countryCodeSelect.options.length; i++) {
-                    if (countryCodeSelect.options[i].value === code) {
-                        countryCodeSelect.value = code;
-                        optionExists = true;
-                        break;
+        // Unit type labels
+        const unitLabels = {
+            'words': 'words',
+            'sliders': 'sliders',
+            'slides': 'slides',
+            'hours': 'hours',
+            'reports': 'reports',
+            'system': 'words (plus system charge)'
+        };
+
+        function detectAndSetCountryCode(inputValue) {
+            let cleanValue = inputValue.replace(/[^\d+]/g, '');
+            if (cleanValue.startsWith('+')) {
+                cleanValue = cleanValue.substring(1);
+            }
+            const countryCodes = ['971', '966', '880', '852', '94', '91', '1', '44', '61', '65', '60', '86', '81', '49', '33', '39', '7', '55', '27', '20', '90', '82', '62', '63', '66', '84', '92', '977', '960'];
+            for (let code of countryCodes) {
+                if (cleanValue.startsWith(code)) {
+                    for (let i = 0; i < countryCodeSelect.options.length; i++) {
+                        if (countryCodeSelect.options[i].value === code) {
+                            countryCodeSelect.value = code;
+                            countryDetectedMsg.style.display = 'block';
+                            setTimeout(() => {
+                                countryDetectedMsg.style.display = 'none';
+                            }, 2000);
+                            return true;
+                        }
                     }
                 }
-                
-                if (optionExists) {
-                    countryDetectedMsg.style.display = 'block';
-                    setTimeout(() => {
-                        countryDetectedMsg.style.display = 'none';
-                    }, 2000);
-                    return true;
-                }
             }
-        }
-        
-        return false;
-    }
-
-    // Detect country code from input (when user types with +)
-    function handleWhatsAppInput(e) {
-        const inputValue = e.target.value;
-        
-        // Check if user is typing a country code (starts with +)
-        if (inputValue.startsWith('+')) {
-            const detected = detectAndSetCountryCode(inputValue);
-            if (detected) {
-                // Remove the country code from the number field so user continues with local number
-                const countryCode = countryCodeSelect.value;
-                let remainingNumber = inputValue.substring(1);
-                // Remove the matched country code from the beginning
-                if (remainingNumber.startsWith(countryCode)) {
-                    remainingNumber = remainingNumber.substring(countryCode.length);
-                    whatsappNumberInput.value = remainingNumber;
-                }
-            }
-        }
-        
-        validatePhoneNumber();
-    }
-
-    function calculateAmount(units, unitPrice) {
-        return units * unitPrice;
-    }
-
-    function formatNumber(num) {
-        return num.toLocaleString('en-IN', {
-            minimumFractionDigits: 2,
-            maximumFractionDigits: 2
-        });
-    }
-
-    function updateNumber() {
-        let units = parseFloat(numberInput.value) || 0;
-        if (units < 0) {
-            units = 0;
-            numberInput.value = 0;
-        }
-        numberDisplay.textContent = units.toLocaleString('en-IN');
-        const totalAmount = calculateAmount(units, currentUnitPrice);
-        amountDisplay.textContent = `INR ${formatNumber(totalAmount)}`;
-        
-        if (totalAmount >= 50000) {
-            amountDisplay.style.color = '#dc3545';
-        } else if (totalAmount >= 25000) {
-            amountDisplay.style.color = '#ffc107';
-        } else {
-            amountDisplay.style.color = '#28a745';
-        }
-    }
-
-    function clearAndFocusInput() {
-        numberInput.value = '';
-        numberDisplay.textContent = '0';
-        amountDisplay.textContent = 'INR 0.00';
-        amountDisplay.style.color = '#28a745';
-        numberInput.focus();
-    }
-
-    function validatePhoneNumber() {
-        const phoneNumber = whatsappNumberInput.value.trim();
-        if (phoneNumber.length < 5) {
-            phoneError.style.display = 'block';
             return false;
         }
-        phoneError.style.display = 'none';
-        return true;
-    }
 
-    function sendToAdminWhatsApp(quotationData) {
-        const adminNumber = '94763055150';
-        const message = `*📄 NEW QUOTATION REQUEST RECEIVED*
-        
+        function handleWhatsAppInput(e) {
+            const inputValue = e.target.value;
+            if (inputValue.startsWith('+')) {
+                const detected = detectAndSetCountryCode(inputValue);
+                if (detected) {
+                    const countryCode = countryCodeSelect.value;
+                    let remainingNumber = inputValue.substring(1);
+                    if (remainingNumber.startsWith(countryCode)) {
+                        remainingNumber = remainingNumber.substring(countryCode.length);
+                        whatsappNumberInput.value = remainingNumber;
+                    }
+                }
+            }
+            validatePhoneNumber();
+        }
+
+        function calculateAmount(quantity, unitPrice) {
+            return quantity * unitPrice;
+        }
+
+        function formatNumber(num) {
+            return num.toLocaleString('en-IN', {
+                minimumFractionDigits: 2,
+                maximumFractionDigits: 2
+            });
+        }
+
+        function updateNumber() {
+            let quantity = parseFloat(numberInput.value) || 0;
+            if (quantity < 0) {
+                quantity = 0;
+                numberInput.value = 0;
+            }
+            numberDisplay.textContent = quantity.toLocaleString('en-IN');
+            const totalAmount = calculateAmount(quantity, currentUnitPrice);
+            amountDisplay.textContent = `INR ${formatNumber(totalAmount)}`;
+            
+            if (totalAmount >= 50000) {
+                amountDisplay.style.color = '#dc3545';
+            } else if (totalAmount >= 25000) {
+                amountDisplay.style.color = '#ffc107';
+            } else {
+                amountDisplay.style.color = '#28a745';
+            }
+        }
+
+        function clearAndFocusInput() {
+            numberInput.value = '';
+            numberDisplay.textContent = '0';
+            amountDisplay.textContent = 'INR 0.00';
+            amountDisplay.style.color = '#28a745';
+            numberInput.focus();
+        }
+
+        function validatePhoneNumber() {
+            const phoneNumber = whatsappNumberInput.value.trim();
+            if (phoneNumber.length < 5) {
+                phoneError.style.display = 'block';
+                return false;
+            }
+            phoneError.style.display = 'none';
+            return true;
+        }
+
+        function sendToAdminWhatsApp(quotationData) {
+            const adminNumber = '94763055150';
+            const message = `*📄 NEW QUOTATION REQUEST RECEIVED*
+            
 *👤 Client Details:*
 Name: ${quotationData.userName}
 WhatsApp: +${quotationData.countryCode} ${quotationData.whatsappNumber}
 
 *📋 Project Details:*
 Project Type: ${quotationData.projectType}
-Unit Price: INR ${quotationData.unitPrice.toFixed(2)} / ${quotationData.isPerHour ? 'hour' : 'word'}
-${quotationData.isPerHour ? 'Hours' : 'Words'}: ${quotationData.quantity.toLocaleString('en-IN')}
+Unit Price: INR ${quotationData.unitPrice.toFixed(2)} / ${quotationData.unitType}
+${quotationData.unitType === 'words' ? 'Words' : (quotationData.unitType === 'sliders' ? 'Sliders' : (quotationData.unitType === 'slides' ? 'Slides' : (quotationData.unitType === 'hours' ? 'Hours' : 'Reports')))}: ${quotationData.quantity.toLocaleString('en-IN')}
 
 *💰 Total Amount:*
 Total: INR ${quotationData.totalAmount}
@@ -632,1427 +786,228 @@ Total: INR ${quotationData.totalAmount}
 
 Please contact the client for further discussion.`;
 
-        const encodedMessage = encodeURIComponent(message);
-        const adminWhatsAppUrl = `https://wa.me/${adminNumber}?text=${encodedMessage}`;
-        window.open(adminWhatsAppUrl, '_blank');
-    }
+            const encodedMessage = encodeURIComponent(message);
+            const adminWhatsAppUrl = `https://wa.me/${adminNumber}?text=${encodedMessage}`;
+            window.open(adminWhatsAppUrl, '_blank');
+        }
 
-    function generateQuotation() {
-        const userName = userNameInput.value.trim();
-        const countryCode = countryCodeSelect.value;
-        const whatsappNumber = whatsappNumberInput.value.trim();
-        const selectedOption = selectElement.options[selectElement.selectedIndex];
-        const selectedValue = selectElement.value;
-        const quantity = parseFloat(numberInput.value) || 0;
-        const unitPrice = currentUnitPrice;
-        const totalAmount = quantity * unitPrice;
-        
-        if (!userName) {
-            alert('⚠️ Please enter your name!');
-            userNameInput.focus();
-            return;
-        }
-        if (!whatsappNumber) {
-            alert('⚠️ Please enter your WhatsApp number!');
-            whatsappNumberInput.focus();
-            return;
-        }
-        if (!validatePhoneNumber()) {
-            alert('⚠️ Please enter a valid phone number!');
-            whatsappNumberInput.focus();
-            return;
-        }
-        if (!selectedValue) {
-            alert('⚠️ Please select a project type!');
-            selectElement.focus();
-            return;
-        }
-        if (quantity === 0) {
-            alert('⚠️ Please enter number of words/hours!');
-            numberInput.focus();
-            return;
-        }
-        
-        currentQuotationData = {
-            userName: userName,
-            countryCode: countryCode,
-            whatsappNumber: whatsappNumber,
-            projectType: selectedValue,
-            unitPrice: unitPrice,
-            quantity: quantity,
-            subtotal: formatNumber(quantity * unitPrice),
-            totalAmount: formatNumber(totalAmount),
-            isPerHour: isPerHourService,
-            date: new Date().toLocaleString()
-        };
-        
-        const quotationHTML = `
-            <div style="text-align: center; margin-bottom: 20px;">
-                <h2 style="color: #28a745; margin-bottom: 5px;">📄 QUOTATION</h2>
-                <p style="color: #666; font-size: 12px;">Generated on: ${new Date().toLocaleString()}</p>
-                <hr>
-            </div>
+        function generateQuotation() {
+            const userName = userNameInput.value.trim();
+            const countryCode = countryCodeSelect.value;
+            const whatsappNumber = whatsappNumberInput.value.trim();
+            const selectedOption = selectElement.options[selectElement.selectedIndex];
+            const selectedValue = selectElement.value;
+            const quantity = parseFloat(numberInput.value) || 0;
+            const unitPrice = currentUnitPrice;
+            const totalAmount = quantity * unitPrice;
             
-            <div style="margin-bottom: 20px;">
-                <h3 style="color: #333;">👤 Client Details</h3>
-                <table style="width: 100%;">
-                    <tr><td style="padding: 5px 0;"><strong>Name:</strong></td><td>${escapeHtml(userName)}</td></tr>
-                    <tr><td style="padding: 5px 0;"><strong>WhatsApp:</strong></td><td>+${countryCode} ${escapeHtml(whatsappNumber)}</td></tr>
-                </table>
-            </div>
+            if (!userName) {
+                alert('⚠️ Please enter your name!');
+                userNameInput.focus();
+                return;
+            }
+            if (!whatsappNumber) {
+                alert('⚠️ Please enter your WhatsApp number!');
+                whatsappNumberInput.focus();
+                return;
+            }
+            if (!validatePhoneNumber()) {
+                alert('⚠️ Please enter a valid phone number!');
+                whatsappNumberInput.focus();
+                return;
+            }
+            if (!selectedValue) {
+                alert('⚠️ Please select a project type!');
+                selectElement.focus();
+                return;
+            }
+            if (quantity === 0) {
+                alert(`⚠️ Please enter number of ${currentUnitType}!`);
+                numberInput.focus();
+                return;
+            }
             
-            <div style="margin-bottom: 20px;">
-                <h3 style="color: #333;">📋 Project Details</h3>
-                <table style="width: 100%;">
-                    <tr><td style="padding: 5px 0;"><strong>Project Type:</strong></td><td>${escapeHtml(selectedValue)}</td></tr>
-                    <tr><td style="padding: 5px 0;"><strong>Unit Price:</strong></td><td>INR ${unitPrice.toFixed(2)} / ${isPerHourService ? 'hour' : 'word'}</td></tr>
-                    <tr><td style="padding: 5px 0;"><strong>${isPerHourService ? 'Hours' : 'Words'}:</strong></td><td>${quantity.toLocaleString('en-IN')}</td></tr>
-                </table>
-            </div>
+            currentQuotationData = {
+                userName: userName,
+                countryCode: countryCode,
+                whatsappNumber: whatsappNumber,
+                projectType: selectedValue,
+                unitPrice: unitPrice,
+                quantity: quantity,
+                unitType: currentUnitType,
+                totalAmount: formatNumber(totalAmount),
+                date: new Date().toLocaleString()
+            };
             
-            <div style="margin-bottom: 20px; background: #f8f9fa; padding: 15px; border-radius: 10px;">
-                <h3 style="color: #333;">💰 Total Amount</h3>
-                <table style="width: 100%;">
-                    <tr><td style="padding: 5px 0;"><strong>Total Amount:</strong></td><td><strong style="color: #28a745; font-size: 18px;">INR ${formatNumber(totalAmount)}</strong></td></tr>
-                </table>
-            </div>
+            const unitDisplay = currentUnitType === 'words' ? 'Words' : (currentUnitType === 'sliders' ? 'Sliders' : (currentUnitType === 'slides' ? 'Slides' : (currentUnitType === 'hours' ? 'Hours' : 'Reports')));
             
-            <div style="text-align: center; padding-top: 20px; border-top: 1px solid #ddd;">
-                <p style="color: #666;">Thank you for choosing us!</p>
-            </div>
-        `;
-        
-        document.getElementById('quotationContent').innerHTML = quotationHTML;
-        document.getElementById('quotationModal').style.display = 'flex';
-        
-        document.getElementById('doneBtnInModal').onclick = function() {
-            sendToAdminWhatsApp(currentQuotationData);
-            alert('✅ Quotation sent to Admin successfully!');
-            closeQuotation();
-            numberInput.value = '';
-            updateNumber();
-        };
-    }
-    
-    function escapeHtml(str) {
-        return str.replace(/[&<>]/g, function(m) {
-            if (m === '&') return '&amp;';
-            if (m === '<') return '&lt;';
-            if (m === '>') return '&gt;';
-            return m;
-        });
-    }
-    
-    function closeQuotation() {
-        document.getElementById('quotationModal').style.display = 'none';
-    }
-
-    function handleCategoryChange() {
-        const selectedOption = selectElement.options[selectElement.selectedIndex];
-        const selectedValue = selectElement.value;
-        
-        if (!selectedValue) {
-            container.style.display = 'none';
-            selectedCategoryName.textContent = 'None';
-            selectedPriceDisplay.textContent = '';
-            unitPriceInfo.style.display = 'none';
-            perHourNotice.style.display = 'none';
-            return;
+            const quotationHTML = `
+                <div style="text-align: center; margin-bottom: 20px;">
+                    <h2 style="color: #28a745; margin-bottom: 5px;">📄 QUOTATION</h2>
+                    <p style="color: #666; font-size: 12px;">Generated on: ${new Date().toLocaleString()}</p>
+                    <hr>
+                </div>
+                
+                <div style="margin-bottom: 20px;">
+                    <h3 style="color: #333;">👤 Client Details</h3>
+                    <table style="width: 100%;">
+                        <tr><td style="padding: 5px 0;"><strong>Name:</strong></td><td>${escapeHtml(userName)}</td></tr>
+                        <tr><td style="padding: 5px 0;"><strong>WhatsApp:</strong></td><td>+${countryCode} ${escapeHtml(whatsappNumber)}</td></tr>
+                    </table>
+                </div>
+                
+                <div style="margin-bottom: 20px;">
+                    <h3 style="color: #333;">📋 Project Details</h3>
+                    <table style="width: 100%;">
+                        <tr><td style="padding: 5px 0;"><strong>Project Type:</strong></td><td>${escapeHtml(selectedValue)}</td></tr>
+                        <tr><td style="padding: 5px 0;"><strong>Unit Price:</strong></td><td>INR ${unitPrice.toFixed(2)} / ${currentUnitType}</td></tr>
+                        <tr><td style="padding: 5px 0;"><strong>${unitDisplay}:</strong></td><td>${quantity.toLocaleString('en-IN')}</td></tr>
+                    </table>
+                </div>
+                
+                <div style="margin-bottom: 20px; background: #f8f9fa; padding: 15px; border-radius: 10px;">
+                    <h3 style="color: #333;">💰 Total Amount</h3>
+                    <table style="width: 100%;">
+                        <tr><td style="padding: 5px 0;"><strong>Total Amount:</strong></td><td><strong style="color: #28a745; font-size: 18px;">INR ${formatNumber(totalAmount)}</strong></td></tr>
+                    </table>
+                </div>
+                
+                <div style="text-align: center; padding-top: 20px; border-top: 1px solid #ddd;">
+                    <p style="color: #666;">Thank you for choosing us!</p>
+                </div>
+            `;
+            
+            document.getElementById('quotationContent').innerHTML = quotationHTML;
+            document.getElementById('quotationModal').style.display = 'flex';
+            
+            document.getElementById('doneBtnInModal').onclick = function() {
+                sendToAdminWhatsApp(currentQuotationData);
+                alert('✅ Quotation sent to Admin successfully!');
+                closeQuotation();
+                // Reset form
+                numberInput.value = '';
+                updateNumber();
+                userNameInput.value = '';
+                whatsappNumberInput.value = '';
+                countryCodeSelect.value = '94';
+                selectElement.value = '';
+                container.style.display = 'none';
+            };
         }
         
-        const unitPrice = parseFloat(selectedOption.getAttribute('data-price')) || 0;
-        currentUnitPrice = unitPrice;
-        isPerHourService = selectedValue.includes('Per Hour') || selectedValue.includes('per hour');
-        
-        container.style.display = 'block';
-        selectedCategoryName.textContent = selectedValue;
-        
-        if (unitPrice > 0) {
-            selectedPriceDisplay.textContent = `(₹${unitPrice.toFixed(2)}/${isPerHourService ? 'hour' : 'word'})`;
-            unitPriceValue.textContent = unitPrice.toFixed(2);
-            unitPriceInfo.style.display = 'block';
-        } else {
-            selectedPriceDisplay.textContent = '';
-            unitPriceInfo.style.display = 'none';
+        function escapeHtml(str) {
+            return str.replace(/[&<>]/g, function(m) {
+                if (m === '&') return '&amp;';
+                if (m === '<') return '&lt;';
+                if (m === '>') return '&gt;';
+                return m;
+            });
         }
         
-        perHourNotice.style.display = isPerHourService ? 'block' : 'none';
+        function closeQuotation() {
+            document.getElementById('quotationModal').style.display = 'none';
+        }
+
+        function handleCategoryChange() {
+            const selectedOption = selectElement.options[selectElement.selectedIndex];
+            const selectedValue = selectElement.value;
+            
+            if (!selectedValue) {
+                container.style.display = 'none';
+                selectedCategoryName.textContent = 'None';
+                selectedPriceDisplay.textContent = '';
+                unitPriceInfo.style.display = 'none';
+                return;
+            }
+            
+            // Get unit price and unit type from data attributes
+            const unitPrice = parseFloat(selectedOption.getAttribute('data-price')) || 0;
+            const unitType = selectedOption.getAttribute('data-unit') || 'words';
+            currentUnitPrice = unitPrice;
+            currentUnitType = unitType;
+            
+            container.style.display = 'block';
+            selectedCategoryName.textContent = selectedValue;
+            
+            // Update UI based on unit type
+            const unitDisplayName = unitType === 'words' ? 'words' : (unitType === 'sliders' ? 'sliders' : (unitType === 'slides' ? 'slides' : (unitType === 'hours' ? 'hours' : 'reports')));
+            
+            if (unitPrice > 0) {
+                selectedPriceDisplay.textContent = `(₹${unitPrice.toFixed(2)}/${unitDisplayName})`;
+                unitPriceValue.textContent = unitPrice.toFixed(2);
+                unitPriceInfo.style.display = 'block';
+                unitTypeText.textContent = unitDisplayName;
+                
+                // Update badge
+                unitTypeBadge.style.display = 'inline-block';
+                if (unitType === 'words') {
+                    unitTypeBadge.className = 'unit-type-badge unit-type-words';
+                    unitTypeBadge.textContent = '📝 Per Word';
+                } else if (unitType === 'sliders') {
+                    unitTypeBadge.className = 'unit-type-badge unit-type-sliders';
+                    unitTypeBadge.textContent = '🎚️ Per Slider';
+                } else if (unitType === 'slides') {
+                    unitTypeBadge.className = 'unit-type-badge unit-type-sliders';
+                    unitTypeBadge.textContent = '📊 Per Slide';
+                } else if (unitType === 'hours') {
+                    unitTypeBadge.className = 'unit-type-badge unit-type-hours';
+                    unitTypeBadge.textContent = '⏰ Per Hour';
+                } else if (unitType === 'reports') {
+                    unitTypeBadge.className = 'unit-type-badge unit-type-report';
+                    unitTypeBadge.textContent = '📄 Per Report';
+                }
+            } else {
+                selectedPriceDisplay.textContent = '';
+                unitPriceInfo.style.display = 'none';
+                unitTypeBadge.style.display = 'none';
+            }
+            
+            // Update field label and placeholder
+            if (unitType === 'words') {
+                fieldLabel.textContent = `Enter Number of Words (${selectedValue})`;
+                numberInput.placeholder = "Enter number of words (e.g., 100, 500, 1000)";
+                quantityLabel.textContent = '🔢 Words Count: ';
+                quantityUnitLabel.textContent = 'words';
+            } else if (unitType === 'sliders') {
+                fieldLabel.textContent = `Enter Number of Sliders (${selectedValue})`;
+                numberInput.placeholder = "Enter number of sliders (e.g., 1, 2, 5)";
+                quantityLabel.textContent = '🎚️ Sliders Count: ';
+                quantityUnitLabel.textContent = 'sliders';
+            } else if (unitType === 'slides') {
+                fieldLabel.textContent = `Enter Number of Slides (${selectedValue})`;
+                numberInput.placeholder = "Enter number of slides (e.g., 5, 10, 20)";
+                quantityLabel.textContent = '📊 Slides Count: ';
+                quantityUnitLabel.textContent = 'slides';
+            } else if (unitType === 'hours') {
+                fieldLabel.textContent = `Enter Number of Hours (${selectedValue})`;
+                numberInput.placeholder = "Enter number of hours (e.g., 1, 2, 5)";
+                quantityLabel.textContent = '⏰ Hours Count: ';
+                quantityUnitLabel.textContent = 'hours';
+            } else if (unitType === 'reports') {
+                fieldLabel.textContent = `Enter Number of Reports (${selectedValue})`;
+                numberInput.placeholder = "Enter number of reports (e.g., 1, 2, 3)";
+                quantityLabel.textContent = '📄 Reports Count: ';
+                quantityUnitLabel.textContent = 'reports';
+            }
+            
+            clearAndFocusInput();
+        }
+
+        // Event listeners
+        selectElement.addEventListener('change', handleCategoryChange);
+        numberInput.addEventListener('input', updateNumber);
+        whatsappNumberInput.addEventListener('input', handleWhatsAppInput);
+        whatsappNumberInput.addEventListener('blur', validatePhoneNumber);
+        document.getElementById('generateQuotationBtn').addEventListener('click', generateQuotation);
         
-        if (isPerHourService) {
-            fieldLabel.textContent = `Enter Number of Hours (${selectedValue})`;
-            numberInput.placeholder = "Enter number of hours (e.g., 1, 2, 5)";
-        } else {
-            fieldLabel.textContent = `Enter Number of Words (${selectedValue})`;
-            numberInput.placeholder = "Enter number of words (e.g., 100, 500, 1000)";
-        }
+        handleCategoryChange();
         
-        clearAndFocusInput();
-    }
-
-    // Event listeners
-    selectElement.addEventListener('change', handleCategoryChange);
-    numberInput.addEventListener('input', updateNumber);
-    whatsappNumberInput.addEventListener('input', handleWhatsAppInput);
-    whatsappNumberInput.addEventListener('blur', validatePhoneNumber);
-    document.getElementById('generateQuotationBtn').addEventListener('click', generateQuotation);
-    
-    handleCategoryChange();
-    
-    window.onclick = function(event) {
-        const modal = document.getElementById('quotationModal');
-        if (event.target === modal) {
-            closeQuotation();
+        window.onclick = function(event) {
+            const modal = document.getElementById('quotationModal');
+            if (event.target === modal) {
+                closeQuotation();
+            }
         }
-    }
-</script>
-
-<style>
-    #categorySelect option {
-        padding: 10px;
-        font-size: 14px;
-    }
-    
-    #categorySelect option[style*="padding-left: 20px"] {
-        background-color: #f9f9f9;
-        color: #555;
-    }
-    
-    #categorySelect:focus, #numberInput:focus {
-        outline: none;
-        border-color: #007bff;
-        box-shadow: 0 0 0 3px rgba(0,123,255,0.25);
-    }
-    
-    #generateQuotationBtn:hover {
-        transform: scale(1.02);
-        opacity: 0.9;
-    }
-    
-    @media (max-width: 576px) {
-        .number-input-field div {
-            flex-direction: column;
-            align-items: flex-start !important;
-        }
-    }
-</style>
-
-<style>
-    #categorySelect option {
-        padding: 10px;
-        font-size: 14px;
-    }
-    
-    #categorySelect option[style*="padding-left: 20px"] {
-        background-color: #f9f9f9;
-        color: #555;
-    }
-    
-    #categorySelect:focus, #numberInput:focus {
-        outline: none;
-        border-color: #007bff;
-        box-shadow: 0 0 0 3px rgba(0,123,255,0.25);
-    }
-    
-    #generateQuotationBtn:hover {
-        transform: scale(1.02);
-        opacity: 0.9;
-    }
-    
-    @media (max-width: 576px) {
-        .number-input-field div {
-            flex-direction: column;
-            align-items: flex-start !important;
-        }
-    }
-</style>
-
-            <!-- vector -->
-            <div class="ul-about-vectors">
-                <img src="assets/img/about-vector-1.png" alt="vector" class="vector-1">
-            </div>
-        </section>
-        <!-- ABOUT SECTION END -->
-
-
-        <!-- DONTATIONS SECTION START -->
-        <section class="ul-donations ul-section-spacing overflow-hidden">
-            <!-- heading -->
-            <div class="ul-container">
-                <div class="ul-section-heading ul-donations-heading justify-content-between text-center">
-                    <div class="left">
-                        <span class="ul-section-sub-title"><span class="txt">Help & Donate us</span></span>
-                        <h2 class="ul-section-title">Inspiring and Helping for Better Lifestyle</h2>
-                    </div>
-
-                    <div class="flex-shrink-0">
-                        <div class="ul-banner-stat">
-                            <div class="imgs">
-                                <img src="assets/img/user-1.png" alt="Person">
-                                <img src="assets/img/user-3.png" alt="Person">
-                                <img src="assets/img/user-2.png" alt="Person">
-                                <span class="number">2.M</span>
-                            </div>
-                            <span class="txt text-white">Active donors</span>
-                        </div>
-                    </div>
-                    <div class="ul-slider-nav ul-donations-slider-nav">
-                        <button class="prev"><i class="flaticon-back"></i></button>
-                        <button class="next"><i class="flaticon-next"></i></button>
-                    </div>
-                </div>
-            </div>
-
-            <!-- DONTATIONS slider -->
-            <div class="ul-container wow animate__fadeInUp">
-                <div class="ul-donations-slider swiper overflow-visible">
-                    <div class="swiper-wrapper">
-                        <!-- single item -->
-                        <div class="swiper-slide">
-                            <div class="ul-donation">
-                                <div class="ul-donation-img">
-                                    <img src="assets/img/donation-1.jpg" alt="donation Image">
-                                    <span class="tag">Foods</span>
-                                </div>
-                                <div class="ul-donation-txt">
-                                    <div class="ul-donation-progress">
-                                        <div class="donation-progress-container ul-progress-container">
-                                            <div class="donation-progressbar ul-progressbar" data-ul-progress-value="55">
-                                                <div class="donation-progress-label ul-progress-label"></div>
-                                            </div>
-                                        </div>
-                                        <div class="ul-donation-progress-labels">
-                                            <span class="ul-donation-progress-label">Raised : $25,000</span>
-                                            <span class="ul-donation-progress-label">Goal : $30,000</span>
-                                        </div>
-                                    </div>
-                                    <a href="donation-details.html" class="ul-donation-title">Lifes kills for Children in South African peoples</a>
-                                    <p class="ul-donation-descr">We work together to make a lasting difference, helping people. With kindness and hard work</p>
-                                    <a href="donation-details.html" class="ul-donation-btn">Donate now <i class="flaticon-up-right-arrow"></i></a>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- single item -->
-                        <div class="swiper-slide">
-                            <div class="ul-donation">
-                                <div class="ul-donation-img">
-                                    <img src="assets/img/donation-2.jpg" alt="donation Image">
-                                    <span class="tag">Foods</span>
-                                </div>
-                                <div class="ul-donation-txt">
-                                    <div class="ul-donation-progress">
-                                        <div class="donation-progress-container ul-progress-container">
-                                            <div class="donation-progressbar ul-progressbar" data-ul-progress-value="95">
-                                                <div class="donation-progress-label ul-progress-label"></div>
-                                            </div>
-                                        </div>
-                                        <div class="ul-donation-progress-labels">
-                                            <span class="ul-donation-progress-label">Raised : $25,000</span>
-                                            <span class="ul-donation-progress-label">Goal : $30,000</span>
-                                        </div>
-                                    </div>
-                                    <a href="donation-details.html" class="ul-donation-title">Lifes kills for Children in South African peoples</a>
-                                    <p class="ul-donation-descr">We work together to make a lasting difference, helping people. With kindness and hard work</p>
-                                    <a href="donation-details.html" class="ul-donation-btn">Donate now <i class="flaticon-up-right-arrow"></i></a>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- single item -->
-                        <div class="swiper-slide">
-                            <div class="ul-donation">
-                                <div class="ul-donation-img">
-                                    <img src="assets/img/donation-3.jpg" alt="donation Image">
-                                    <span class="tag">Foods</span>
-                                </div>
-                                <div class="ul-donation-txt">
-                                    <div class="ul-donation-progress">
-                                        <div class="donation-progress-container ul-progress-container">
-                                            <div class="donation-progressbar ul-progressbar" data-ul-progress-value="50">
-                                                <div class="donation-progress-label ul-progress-label"></div>
-                                            </div>
-                                        </div>
-                                        <div class="ul-donation-progress-labels">
-                                            <span class="ul-donation-progress-label">Raised : $25,000</span>
-                                            <span class="ul-donation-progress-label">Goal : $30,000</span>
-                                        </div>
-                                    </div>
-                                    <a href="donation-details.html" class="ul-donation-title">Lifes kills for Children in South African peoples</a>
-                                    <p class="ul-donation-descr">We work together to make a lasting difference, helping people. With kindness and hard work</p>
-                                    <a href="donation-details.html" class="ul-donation-btn">Donate now <i class="flaticon-up-right-arrow"></i></a>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- single item -->
-                        <div class="swiper-slide">
-                            <div class="ul-donation">
-                                <div class="ul-donation-img">
-                                    <img src="assets/img/donation-4.jpg" alt="donation Image">
-                                    <span class="tag">Foods</span>
-                                </div>
-                                <div class="ul-donation-txt">
-                                    <div class="ul-donation-progress">
-                                        <div class="donation-progress-container ul-progress-container">
-                                            <div class="donation-progressbar ul-progressbar" data-ul-progress-value="64">
-                                                <div class="donation-progress-label ul-progress-label"></div>
-                                            </div>
-                                        </div>
-                                        <div class="ul-donation-progress-labels">
-                                            <span class="ul-donation-progress-label">Raised : $25,000</span>
-                                            <span class="ul-donation-progress-label">Goal : $30,000</span>
-                                        </div>
-                                    </div>
-                                    <a href="donation-details.html" class="ul-donation-title">Lifes kills for Children in South African peoples</a>
-                                    <p class="ul-donation-descr">We work together to make a lasting difference, helping people. With kindness and hard work</p>
-                                    <a href="donation-details.html" class="ul-donation-btn">Donate now <i class="flaticon-up-right-arrow"></i></a>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- single item -->
-                        <div class="swiper-slide">
-                            <div class="ul-donation">
-                                <div class="ul-donation-img">
-                                    <img src="assets/img/donation-1.jpg" alt="donation Image">
-                                    <span class="tag">Foods</span>
-                                </div>
-                                <div class="ul-donation-txt">
-                                    <div class="ul-donation-progress">
-                                        <div class="donation-progress-container ul-progress-container">
-                                            <div class="donation-progressbar ul-progressbar" data-ul-progress-value="80">
-                                                <div class="donation-progress-label ul-progress-label"></div>
-                                            </div>
-                                        </div>
-                                        <div class="ul-donation-progress-labels">
-                                            <span class="ul-donation-progress-label">Raised : $25,000</span>
-                                            <span class="ul-donation-progress-label">Goal : $30,000</span>
-                                        </div>
-                                    </div>
-                                    <a href="donation-details.html" class="ul-donation-title">Lifes kills for Children in South African peoples</a>
-                                    <p class="ul-donation-descr">We work together to make a lasting difference, helping people. With kindness and hard work</p>
-                                    <a href="donation-details.html" class="ul-donation-btn">Donate now <i class="flaticon-up-right-arrow"></i></a>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- single item -->
-                        <div class="swiper-slide">
-                            <div class="ul-donation">
-                                <div class="ul-donation-img">
-                                    <img src="assets/img/donation-2.jpg" alt="donation Image">
-                                    <span class="tag">Foods</span>
-                                </div>
-                                <div class="ul-donation-txt">
-                                    <div class="ul-donation-progress">
-                                        <div class="donation-progress-container ul-progress-container">
-                                            <div class="donation-progressbar ul-progressbar" data-ul-progress-value="95">
-                                                <div class="donation-progress-label ul-progress-label"></div>
-                                            </div>
-                                        </div>
-                                        <div class="ul-donation-progress-labels">
-                                            <span class="ul-donation-progress-label">Raised : $25,000</span>
-                                            <span class="ul-donation-progress-label">Goal : $30,000</span>
-                                        </div>
-                                    </div>
-                                    <a href="donation-details.html" class="ul-donation-title">Lifes kills for Children in South African peoples</a>
-                                    <p class="ul-donation-descr">We work together to make a lasting difference, helping people. With kindness and hard work</p>
-                                    <a href="donation-details.html" class="ul-donation-btn">Donate now <i class="flaticon-up-right-arrow"></i></a>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- single item -->
-                        <div class="swiper-slide">
-                            <div class="ul-donation">
-                                <div class="ul-donation-img">
-                                    <img src="assets/img/donation-3.jpg" alt="donation Image">
-                                    <span class="tag">Foods</span>
-                                </div>
-                                <div class="ul-donation-txt">
-                                    <div class="ul-donation-progress">
-                                        <div class="donation-progress-container ul-progress-container">
-                                            <div class="donation-progressbar ul-progressbar" data-ul-progress-value="50">
-                                                <div class="donation-progress-label ul-progress-label"></div>
-                                            </div>
-                                        </div>
-                                        <div class="ul-donation-progress-labels">
-                                            <span class="ul-donation-progress-label">Raised : $25,000</span>
-                                            <span class="ul-donation-progress-label">Goal : $30,000</span>
-                                        </div>
-                                    </div>
-                                    <a href="donation-details.html" class="ul-donation-title">Lifes kills for Children in South African peoples</a>
-                                    <p class="ul-donation-descr">We work together to make a lasting difference, helping people. With kindness and hard work</p>
-                                    <a href="donation-details.html" class="ul-donation-btn">Donate now <i class="flaticon-up-right-arrow"></i></a>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- single item -->
-                        <div class="swiper-slide">
-                            <div class="ul-donation">
-                                <div class="ul-donation-img">
-                                    <img src="assets/img/donation-4.jpg" alt="donation Image">
-                                    <span class="tag">Foods</span>
-                                </div>
-                                <div class="ul-donation-txt">
-                                    <div class="ul-donation-progress">
-                                        <div class="donation-progress-container ul-progress-container">
-                                            <div class="donation-progressbar ul-progressbar" data-ul-progress-value="64">
-                                                <div class="donation-progress-label ul-progress-label"></div>
-                                            </div>
-                                        </div>
-                                        <div class="ul-donation-progress-labels">
-                                            <span class="ul-donation-progress-label">Raised : $25,000</span>
-                                            <span class="ul-donation-progress-label">Goal : $30,000</span>
-                                        </div>
-                                    </div>
-                                    <a href="donation-details.html" class="ul-donation-title">Lifes kills for Children in South African peoples</a>
-                                    <p class="ul-donation-descr">We work together to make a lasting difference, helping people. With kindness and hard work</p>
-                                    <a href="donation-details.html" class="ul-donation-btn">Donate now <i class="flaticon-up-right-arrow"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="ul-dontations-slider-pagination d-none"></div>
-                </div>
-            </div>
-        </section>
-        <!-- DONTATIONS SECTION END -->
-
-
-        <!-- DONATE SECTION START -->
-        <div class="ul-section-spacing">
-            <div class="ul-container">
-                <div class="ul-donate-form-section">
-                    <div class="row justify-content-between align-items-center">
-                        <!-- donate form -->
-                        <div class="col-lg-6 position-relative">
-                            <div class="ul-donate-form-wrapper">
-                                <h3 class="ul-donate-form-title">Custome Donate Now</h3>
-                                <form action="#" class="ul-donate-form">
-                                    <div>
-                                        <input type="radio" name="donate-amount" id="donate-amount-1" checked hidden>
-                                        <label for="donate-amount-1" class="ul-donate-form-label">$10</label>
-                                    </div>
-
-                                    <div>
-                                        <input type="radio" name="donate-amount" id="donate-amount-2" hidden>
-                                        <label for="donate-amount-2" class="ul-donate-form-label">$20</label>
-                                    </div>
-
-                                    <div>
-                                        <input type="radio" name="donate-amount" id="donate-amount-3" hidden>
-                                        <label for="donate-amount-3" class="ul-donate-form-label">$30</label>
-                                    </div>
-
-                                    <div>
-                                        <input type="radio" name="donate-amount" id="donate-amount-4" hidden>
-                                        <label for="donate-amount-4" class="ul-donate-form-label">$40</label>
-                                    </div>
-
-                                    <div>
-                                        <input type="radio" name="donate-amount" id="donate-amount-5" hidden>
-                                        <label for="donate-amount-5" class="ul-donate-form-label">$50</label>
-                                    </div>
-
-                                    <div class="custom-amount-wrapper">
-                                        <input type="radio" name="donate-amount" id="custom-amount">
-                                        <label for="donate-amount-custom" class="ul-donate-form-label">
-                                            <input type="number" name="custom-amount" id="donate-amount-custom" placeholder="Custom Amount" class="ul-donate-form-custom-input">
-                                        </label>
-                                    </div>
-
-                                    <div>
-                                        <button type="submit" class="ul-btn"><i class="flaticon-fast-forward-double-right-arrows-symbol"></i> Donate Now</button>
-                                    </div>
-                                </form>
-                            </div>
-                            <img src="assets/img/donate-form-vector.svg" alt="vector" class="ul-donate-form-vector">
-                        </div>
-
-                        <!-- donate form  -->
-                        <div class="col-xl-5 col-lg-6">
-                            <div class="ul-donate-form-section-txt">
-                                <span class="ul-section-sub-title text-white">Donate Now</span>
-                                <h2 class="ul-section-title text-white">Support Kids by Raising Valuable Donations</h2>
-
-                                <div class="ul-donation-progress">
-                                    <div class="donation-progress-container ul-progress-container">
-                                        <div class="donation-progressbar ul-progressbar" data-ul-progress-value="64">
-                                            <div class="donation-progress-label ul-progress-label"></div>
-                                        </div>
-                                    </div>
-                                    <div class="ul-donation-progress-labels">
-                                        <span class="ul-donation-progress-label">Raised : $25,000</span>
-                                        <span class="ul-donation-progress-label">Goal : $30,000</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- DONATE SECTION END -->
-
-
-        <!-- STATS SECTION START -->
-        <div class="ul-stats ul-section-spacing">
-            <div class="ul-container">
-                <div class="ul-stats-wrapper wow animate__fadeInUp">
-                    <div class="row row-cols-md-4 row-cols-sm-3 row-cols-2 row-cols-xxs-1 ul-bs-row justify-content-center">
-                        <div class="col">
-                            <div class="ul-stats-item">
-                                <i class="flaticon-costumer"></i>
-                                <span class="number">260+</span>
-                                <span class="txt">Total Happy Children</span>
-                            </div>
-                        </div>
-
-                        <div class="col">
-                            <div class="ul-stats-item">
-                                <i class="flaticon-team"></i>
-                                <span class="number">110+</span>
-                                <span class="txt">Total Our Volunteer</span>
-                            </div>
-                        </div>
-
-                        <div class="col">
-                            <div class="ul-stats-item">
-                                <i class="flaticon-package"></i>
-                                <span class="number">190+</span>
-                                <span class="txt">Our Products & Gifts</span>
-                            </div>
-                        </div>
-
-                        <div class="col">
-                            <div class="ul-stats-item">
-                                <i class="flaticon-relationship"></i>
-                                <span class="number">560+</span>
-                                <span class="txt">Worldwide Donor</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- STATS SECTION END -->
-
-
-        <!-- EVENTS SECTION START -->
-        <section class="ul-events ul-section-spacing pt-0">
-            <div class="ul-container">
-                <!-- heading -->
-                <div class="ul-section-heading align-items-center wow animate__fadeInUp">
-                    <div class="left">
-                        <span class="ul-section-sub-title">Upcoming Events</span>
-                        <h2 class="ul-section-title text-white">Charitics Information Of Event Schedule</h2>
-                    </div>
-                    <a href="events.html" class="ul-btn"><i class="flaticon-fast-forward-double-right-arrows-symbol"></i> Explore More</a>
-                </div>
-
-                <!-- events -->
-                <div class="ul-events-wrapper">
-                    <div class="row ul-bs-row row-cols-lg-2 row-cols-1">
-                        <!-- single event -->
-                        <div class="col wow animate__fadeInUp">
-                            <div class="ul-event">
-                                <div class="ul-event-img">
-                                    <img src="assets/img/event-img.jpg" alt="Event Image">
-                                    <span class="date">29 <span>July</span></span>
-                                </div>
-                                <div class="ul-event-txt">
-                                    <h3 class="ul-event-title"><a href="event-details.html">Manager Disapproved of the Most Recent Work.</a></h3>
-                                    <p class="ul-event-descr">Dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernaturaut</p>
-                                    <div class="ul-event-info">
-                                        <span class="ul-event-info-title">Venue</span>
-                                        <p class="ul-event-info-descr">350 5th AveNew York, NY 118 United States</p>
-                                    </div>
-                                    <a href="event-details.html" class="ul-btn"><i class="flaticon-fast-forward-double-right-arrows-symbol"></i> Event Details</a>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- single event -->
-                        <div class="col wow animate__fadeInUp">
-                            <div class="ul-event">
-                                <div class="ul-event-img">
-                                    <img src="assets/img/blog-b-1.jpg" alt="Event Image">
-                                    <span class="date">29 <span>July</span></span>
-                                </div>
-                                <div class="ul-event-txt">
-                                    <h3 class="ul-event-title"><a href="event-details.html">Manager Disapproved of the Most Recent Work.</a></h3>
-                                    <p class="ul-event-descr">Dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernaturaut</p>
-                                    <div class="ul-event-info">
-                                        <span class="ul-event-info-title">Venue</span>
-                                        <p class="ul-event-info-descr">350 5th AveNew York, NY 118 United States</p>
-                                    </div>
-                                    <a href="event-details.html" class="ul-btn"><i class="flaticon-fast-forward-double-right-arrows-symbol"></i> Event Details</a>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- single event -->
-                        <div class="col wow animate__fadeInUp">
-                            <div class="ul-event">
-                                <div class="ul-event-img">
-                                    <img src="assets/img/blog-2.jpg" alt="Event Image">
-                                    <span class="date">29 <span>July</span></span>
-                                </div>
-                                <div class="ul-event-txt">
-                                    <h3 class="ul-event-title"><a href="event-details.html">Manager Disapproved of the Most Recent Work.</a></h3>
-                                    <p class="ul-event-descr">Dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernaturaut</p>
-                                    <div class="ul-event-info">
-                                        <span class="ul-event-info-title">Venue</span>
-                                        <p class="ul-event-info-descr">350 5th AveNew York, NY 118 United States</p>
-                                    </div>
-                                    <a href="event-details.html" class="ul-btn"><i class="flaticon-fast-forward-double-right-arrows-symbol"></i> Event Details</a>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- single event -->
-                        <div class="col wow animate__fadeInUp">
-                            <div class="ul-event">
-                                <div class="ul-event-img">
-                                    <img src="assets/img/blog-b-3.jpg" alt="Event Image">
-                                    <span class="date">29 <span>July</span></span>
-                                </div>
-                                <div class="ul-event-txt">
-                                    <h3 class="ul-event-title"><a href="event-details.html">Manager Disapproved of the Most Recent Work.</a></h3>
-                                    <p class="ul-event-descr">Dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernaturaut</p>
-                                    <div class="ul-event-info">
-                                        <span class="ul-event-info-title">Venue</span>
-                                        <p class="ul-event-info-descr">350 5th AveNew York, NY 118 United States</p>
-                                    </div>
-                                    <a href="event-details.html" class="ul-btn"><i class="flaticon-fast-forward-double-right-arrows-symbol"></i> Event Details</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-            <!-- vectors -->
-            <div class="ul-events-vectors">
-                <img src="assets/img/events-vector-1.png" alt="Events Image" class="vector-1">
-                <img src="assets/img/events-vector-2.svg" alt="Events Image" class="vector-2">
-            </div>
-        </section>
-        <!-- EVENTS SECTION END -->
-
-
-        <!-- WHY JOIN SECTION START -->
-        <section class="ul-why-join ul-section-spacing">
-            <div class="ul-why-join-wrapper ul-section-spacing">
-                <div class="ul-container">
-                    <div class="row row-cols-md-2 row-cols-1 gy-4 align-items-center">
-                        <div class="col">
-                            <div class="ul-why-join-img">
-                                <img src="assets/img/why-join.jpg" alt="Image">
-                            </div>
-                        </div>
-
-                        <!-- txt -->
-                        <div class="col">
-                            <div class="ul-why-join-txt">
-                                <span class="ul-section-sub-title">Join us</span>
-                                <h2 class="ul-section-title">Why We Need You Become a Volunteer</h2>
-                                <p class="ul-section-descr">We help companies develop powerful corporate social responsibility, grantmaking, and employee engagement strategies.</p>
-
-                                <div class="ul-accordion">
-                                    <div class="ul-single-accordion-item open">
-                                        <div class="ul-single-accordion-item__header">
-                                            <div class="left">
-                                                <h3 class="ul-single-accordion-item__title">Recognition and Fulfillment</h3>
-                                            </div>
-                                            <span class="icon"><i class="flaticon-next"></i></span>
-                                        </div>
-
-                                        <div class="ul-single-accordion-item__body">
-                                            <p>Aonsectetur adipiscing elit Aenean scelerisque augue vitae consequat Juisque eget congue velit in cursus leo sodales the turpis euismod quis sapien euismod quis sapien the. E-learning is suitable for students, professionals, and anyone interested.</p>
-                                        </div>
-                                    </div>
-
-                                    <div class="ul-single-accordion-item">
-                                        <div class="ul-single-accordion-item__header">
-                                            <div class="left">
-                                                <h3 class="ul-single-accordion-item__title">Why Join Us as a Volunteer?</h3>
-                                            </div>
-                                            <span class="icon"><i class="flaticon-next"></i></span>
-                                        </div>
-
-                                        <div class="ul-single-accordion-item__body">
-                                            <p>Aonsectetur adipiscing elit Aenean scelerisque augue vitae consequat Juisque eget congue velit in cursus leo sodales the turpis euismod quis sapien euismod quis sapien the. E-learning is suitable for students, professionals, and anyone interested.</p>
-                                        </div>
-                                    </div>
-
-                                    <div class="ul-single-accordion-item">
-                                        <div class="ul-single-accordion-item__header">
-                                            <div class="left">
-                                                <h3 class="ul-single-accordion-item__title">Be Part of a Community</h3>
-                                            </div>
-                                            <span class="icon"><i class="flaticon-next"></i></span>
-                                        </div>
-
-                                        <div class="ul-single-accordion-item__body">
-                                            <p>Aonsectetur adipiscing elit Aenean scelerisque augue vitae consequat Juisque eget congue velit in cursus leo sodales the turpis euismod quis sapien euismod quis sapien the. E-learning is suitable for students, professionals, and anyone interested.</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- WHY JOIN SECTION END -->
-
-
-        <!-- TEAM SECTION START -->
-        <section class="ul-team ul-section-spacing pt-0">
-            <div class="ul-container">
-                <!-- Heading -->
-                <div class="ul-section-heading justify-content-between">
-                    <div class="left">
-                        <span class="ul-section-sub-title">Our Team</span>
-                        <h2 class="ul-section-title">Skilled Legal Professionals Dedicated to You</h2>
-                    </div>
-                    <div>
-                        <a href="team.html" class="ul-btn"><i class="flaticon-fast-forward-double-right-arrows-symbol"></i> Join With us</a>
-                    </div>
-                </div>
-
-                <div class="row row-cols-md-4 row-cols-sm-3 row-cols-2 row-cols-xxs-1 ul-team-row justify-content-center">
-                    <!-- single member -->
-                    <div class="col">
-                        <div class="ul-team-member">
-                            <div class="ul-team-member-img">
-                                <img src="assets/img/member-1.jpg" alt="Team Member Image">
-                                <div class="ul-team-member-socials">
-                                    <a href="#"><i class="flaticon-facebook"></i></a>
-                                    <a href="#"><i class="flaticon-twitter"></i></a>
-                                    <a href="#"><i class="flaticon-linkedin-big-logo"></i></a>
-                                    <a href="#"><i class="flaticon-instagram"></i></a>
-                                </div>
-                            </div>
-                            <div class="ul-team-member-info">
-                                <h3 class="ul-team-member-name"><a href="team-details.html">John Doe</a></h3>
-                                <p class="ul-team-member-designation">Attorney</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- single member -->
-                    <div class="col">
-                        <div class="ul-team-member">
-                            <div class="ul-team-member-img">
-                                <img src="assets/img/member-2.jpg" alt="Team Member Image">
-                                <div class="ul-team-member-socials">
-                                    <a href="#"><i class="flaticon-facebook"></i></a>
-                                    <a href="#"><i class="flaticon-twitter"></i></a>
-                                    <a href="#"><i class="flaticon-linkedin-big-logo"></i></a>
-                                    <a href="#"><i class="flaticon-instagram"></i></a>
-                                </div>
-                            </div>
-                            <div class="ul-team-member-info">
-                                <h3 class="ul-team-member-name"><a href="team-details.html">John Doe</a></h3>
-                                <p class="ul-team-member-designation">Attorney</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- single member -->
-                    <div class="col">
-                        <div class="ul-team-member">
-                            <div class="ul-team-member-img">
-                                <img src="assets/img/member-3.jpg" alt="Team Member Image">
-                                <div class="ul-team-member-socials">
-                                    <a href="#"><i class="flaticon-facebook"></i></a>
-                                    <a href="#"><i class="flaticon-twitter"></i></a>
-                                    <a href="#"><i class="flaticon-linkedin-big-logo"></i></a>
-                                    <a href="#"><i class="flaticon-instagram"></i></a>
-                                </div>
-                            </div>
-                            <div class="ul-team-member-info">
-                                <h3 class="ul-team-member-name"><a href="team-details.html">John Doe</a></h3>
-                                <p class="ul-team-member-designation">Attorney</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- single member -->
-                    <div class="col">
-                        <div class="ul-team-member">
-                            <div class="ul-team-member-img">
-                                <img src="assets/img/member-4.jpg" alt="Team Member Image">
-                                <div class="ul-team-member-socials">
-                                    <a href="#"><i class="flaticon-facebook"></i></a>
-                                    <a href="#"><i class="flaticon-twitter"></i></a>
-                                    <a href="#"><i class="flaticon-linkedin-big-logo"></i></a>
-                                    <a href="#"><i class="flaticon-instagram"></i></a>
-                                </div>
-                            </div>
-                            <div class="ul-team-member-info">
-                                <h3 class="ul-team-member-name"><a href="team-details.html">John Doe</a></h3>
-                                <p class="ul-team-member-designation">Attorney</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- TEAM SECTION END -->
-
-
-        <!-- TESTIMONIAL SECTION START -->
-        <section class="ul-testimonial ul-section-spacing">
-            <div class="ul-testimonial-container">
-                <div class="ul-section-heading text-center">
-                    <div>
-                        <span class="ul-section-sub-title">Testimonials</span>
-                        <h2 class="ul-section-title">What They Are Talking About Charitics</h2>
-                    </div>
-                </div>
-
-                <div class="ul-testimonial-slider swiper">
-                    <div class="swiper-wrapper">
-                        <!-- single slide -->
-                        <div class="swiper-slide">
-                            <div class="ul-review">
-                                <div class="ul-review-rating">
-                                    <i class="flaticon-star"></i>
-                                    <i class="flaticon-star"></i>
-                                    <i class="flaticon-star"></i>
-                                    <i class="flaticon-star"></i>
-                                    <i class="flaticon-star-1"></i>
-                                </div>
-                                <p class="ul-review-descr">Praesent ut lacus a velit tincidunt aliquam a eget urna. Sed ullamcorper tristique nisl at pharetra turpis accumsan et etiam eu sollicitudin eros. In imperdiet accumsan.</p>
-                                <div class="ul-review-bottom">
-                                    <div class="ul-review-reviewer">
-                                        <div class="reviewer-image"><img src="assets/img/member-1.jpg" alt="reviewer image"></div>
-                                        <div>
-                                            <h3 class="reviewer-name">Esther Howard</h3>
-                                            <span class="reviewer-role">Web Designer</span>
-                                        </div>
-                                    </div>
-
-                                    <!-- icon -->
-                                    <div class="ul-review-icon"><i class="flaticon-left"></i></div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- single slide -->
-                        <div class="swiper-slide">
-                            <div class="ul-review">
-                                <div class="ul-review-rating">
-                                    <i class="flaticon-star"></i>
-                                    <i class="flaticon-star"></i>
-                                    <i class="flaticon-star"></i>
-                                    <i class="flaticon-star"></i>
-                                    <i class="flaticon-star-1"></i>
-                                </div>
-                                <p class="ul-review-descr">Praesent ut lacus a velit tincidunt aliquam a eget urna. Sed ullamcorper tristique nisl at pharetra turpis accumsan et etiam eu sollicitudin eros. In imperdiet accumsan.</p>
-                                <div class="ul-review-bottom">
-                                    <div class="ul-review-reviewer">
-                                        <div class="reviewer-image"><img src="assets/img/member-2.jpg" alt="reviewer image"></div>
-                                        <div>
-                                            <h3 class="reviewer-name">Esther Howard</h3>
-                                            <span class="reviewer-role">Web Designer</span>
-                                        </div>
-                                    </div>
-
-                                    <!-- icon -->
-                                    <div class="ul-review-icon"><i class="flaticon-left"></i></div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- single slide -->
-                        <div class="swiper-slide">
-                            <div class="ul-review">
-                                <div class="ul-review-rating">
-                                    <i class="flaticon-star"></i>
-                                    <i class="flaticon-star"></i>
-                                    <i class="flaticon-star"></i>
-                                    <i class="flaticon-star"></i>
-                                    <i class="flaticon-star-1"></i>
-                                </div>
-                                <p class="ul-review-descr">Praesent ut lacus a velit tincidunt aliquam a eget urna. Sed ullamcorper tristique nisl at pharetra turpis accumsan et etiam eu sollicitudin eros. In imperdiet accumsan.</p>
-                                <div class="ul-review-bottom">
-                                    <div class="ul-review-reviewer">
-                                        <div class="reviewer-image"><img src="assets/img/member-3.jpg" alt="reviewer image"></div>
-                                        <div>
-                                            <h3 class="reviewer-name">Esther Howard</h3>
-                                            <span class="reviewer-role">Web Designer</span>
-                                        </div>
-                                    </div>
-
-                                    <!-- icon -->
-                                    <div class="ul-review-icon"><i class="flaticon-left"></i></div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- single slide -->
-                        <div class="swiper-slide">
-                            <div class="ul-review">
-                                <div class="ul-review-rating">
-                                    <i class="flaticon-star"></i>
-                                    <i class="flaticon-star"></i>
-                                    <i class="flaticon-star"></i>
-                                    <i class="flaticon-star"></i>
-                                    <i class="flaticon-star-1"></i>
-                                </div>
-                                <p class="ul-review-descr">Praesent ut lacus a velit tincidunt aliquam a eget urna. Sed ullamcorper tristique nisl at pharetra turpis accumsan et etiam eu sollicitudin eros. In imperdiet accumsan.</p>
-                                <div class="ul-review-bottom">
-                                    <div class="ul-review-reviewer">
-                                        <div class="reviewer-image"><img src="assets/img/member-4.jpg" alt="reviewer image"></div>
-                                        <div>
-                                            <h3 class="reviewer-name">Esther Howard</h3>
-                                            <span class="reviewer-role">Web Designer</span>
-                                        </div>
-                                    </div>
-
-                                    <!-- icon -->
-                                    <div class="ul-review-icon"><i class="flaticon-left"></i></div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- single slide -->
-                        <div class="swiper-slide">
-                            <div class="ul-review">
-                                <div class="ul-review-rating">
-                                    <i class="flaticon-star"></i>
-                                    <i class="flaticon-star"></i>
-                                    <i class="flaticon-star"></i>
-                                    <i class="flaticon-star"></i>
-                                    <i class="flaticon-star-1"></i>
-                                </div>
-                                <p class="ul-review-descr">Praesent ut lacus a velit tincidunt aliquam a eget urna. Sed ullamcorper tristique nisl at pharetra turpis accumsan et etiam eu sollicitudin eros. In imperdiet accumsan.</p>
-                                <div class="ul-review-bottom">
-                                    <div class="ul-review-reviewer">
-                                        <div class="reviewer-image"><img src="assets/img/member-1.jpg" alt="reviewer image"></div>
-                                        <div>
-                                            <h3 class="reviewer-name">Esther Howard</h3>
-                                            <span class="reviewer-role">Web Designer</span>
-                                        </div>
-                                    </div>
-
-                                    <!-- icon -->
-                                    <div class="ul-review-icon"><i class="flaticon-left"></i></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="ul-testimonial-slider-pagination"></div>
-                </div>
-            </div>
-        </section>
-        <!-- TESTIMONIAL SECTION END -->
-
-
-        <!-- BLOG SECTION START -->
-        <section class="ul-blogs ul-section-spacing">
-            <div class="ul-blogs-container wow animate__fadeInUp">
-                <div class="row gy-3">
-                    <!-- section heading -->
-                    <div class="col-sm-5">
-                        <div class="ul-section-heading">
-                            <div class="left">
-                                <span class="ul-section-sub-title"> Latest Blog </span>
-                                <h2 class="ul-section-title">Read Our Latest News</h2>
-                                <p class="ul-section-descr">We help companies develop powerful corporate social responsibility, grantmaking, and employee engagement strategies.</p>
-                                <div class="ul-blogs-slider-nav ul-slider-nav">
-                                    <button class="prev"><i class="flaticon-back"></i></button>
-                                    <button class="next"><i class="flaticon-next"></i></button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- blog slider -->
-                    <div class="col-sm-7">
-                        <div class="ul-blogs-slider swiper">
-                            <div class="swiper-wrapper">
-                                <!-- single blog -->
-                                <div class="swiper-slide">
-                                    <div class="ul-blog">
-                                        <div class="ul-blog-img"><img src="assets/img/blog-1.jpg" alt="Blog Image">
-                                            <div class="date">
-                                                <span class="number">15</span>
-                                                <span class="txt">Dec</span>
-                                            </div>
-                                        </div>
-                                        <div class="ul-blog-txt">
-                                            <div class="ul-blog-infos">
-                                                <!-- single info -->
-                                                <div class="ul-blog-info">
-                                                    <span class="icon"><i class="flaticon-account"></i></span>
-                                                    <span class="text font-normal text-[14px] text-etGray">By Admin</span>
-                                                </div>
-                                                <!-- single info -->
-                                                <div class="ul-blog-info">
-                                                    <span class="icon"><i class="flaticon-price-tag"></i></span>
-                                                    <span class="text font-normal text-[14px] text-etGray">Donation</span>
-                                                </div>
-                                            </div>
-                                            <a href="blog-details.html" class="ul-blog-title">Give Education, It’s The Best Gift Ever.</a>
-                                            <a href="blog-details.html" class="ul-blog-btn">Read More <span class="icon"><i class="flaticon-next"></i></span></a>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!-- single blog -->
-                                <div class="swiper-slide">
-                                    <div class="ul-blog">
-                                        <div class="ul-blog-img"><img src="assets/img/blog-2.jpg" alt="Blog Image">
-                                            <div class="date">
-                                                <span class="number">15</span>
-                                                <span class="txt">Dec</span>
-                                            </div>
-                                        </div>
-                                        <div class="ul-blog-txt">
-                                            <div class="ul-blog-infos">
-                                                <!-- single info -->
-                                                <div class="ul-blog-info">
-                                                    <span class="icon"><i class="flaticon-account"></i></span>
-                                                    <span class="text font-normal text-[14px] text-etGray">By Admin</span>
-                                                </div>
-                                                <!-- single info -->
-                                                <div class="ul-blog-info">
-                                                    <span class="icon"><i class="flaticon-price-tag"></i></span>
-                                                    <span class="text font-normal text-[14px] text-etGray">Donation</span>
-                                                </div>
-                                            </div>
-                                            <a href="blog-details.html" class="ul-blog-title">Don’t treat oceans as universal garbage cans</a>
-                                            <a href="blog-details.html" class="ul-blog-btn">Read More <span class="icon"><i class="flaticon-next"></i></span></a>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!-- single blog -->
-                                <div class="swiper-slide">
-                                    <div class="ul-blog">
-                                        <div class="ul-blog-img"><img src="assets/img/blog-3.jpg" alt="Blog Image">
-                                            <div class="date">
-                                                <span class="number">15</span>
-                                                <span class="txt">Dec</span>
-                                            </div>
-                                        </div>
-                                        <div class="ul-blog-txt">
-                                            <div class="ul-blog-infos">
-                                                <!-- single info -->
-                                                <div class="ul-blog-info">
-                                                    <span class="icon"><i class="flaticon-account"></i></span>
-                                                    <span class="text font-normal text-[14px] text-etGray">By Admin</span>
-                                                </div>
-                                                <!-- single info -->
-                                                <div class="ul-blog-info">
-                                                    <span class="icon"><i class="flaticon-price-tag"></i></span>
-                                                    <span class="text font-normal text-[14px] text-etGray">Donation</span>
-                                                </div>
-                                            </div>
-                                            <a href="blog-details.html" class="ul-blog-title">The sun and the sand makes beaches beautiful</a>
-                                            <a href="blog-details.html" class="ul-blog-btn">Read More <span class="icon"><i class="flaticon-next"></i></span></a>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!-- single blog -->
-                                <div class="swiper-slide">
-                                    <div class="ul-blog">
-                                        <div class="ul-blog-img"><img src="assets/img/blog-1.jpg" alt="Blog Image">
-                                            <div class="date">
-                                                <span class="number">15</span>
-                                                <span class="txt">Dec</span>
-                                            </div>
-                                        </div>
-                                        <div class="ul-blog-txt">
-                                            <div class="ul-blog-infos">
-                                                <!-- single info -->
-                                                <div class="ul-blog-info">
-                                                    <span class="icon"><i class="flaticon-account"></i></span>
-                                                    <span class="text font-normal text-[14px] text-etGray">By Admin</span>
-                                                </div>
-                                                <!-- single info -->
-                                                <div class="ul-blog-info">
-                                                    <span class="icon"><i class="flaticon-price-tag"></i></span>
-                                                    <span class="text font-normal text-[14px] text-etGray">Donation</span>
-                                                </div>
-                                            </div>
-                                            <a href="blog-details.html" class="ul-blog-title">The sun and the sand makes beaches beautiful</a>
-                                            <a href="blog-details.html" class="ul-blog-btn">Read More <span class="icon"><i class="flaticon-next"></i></span></a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- BLOG SECTION END -->
-
-
-        <!-- GALLERY SECTION START -->
-        <div class="ul-gallery overflow-hidden ul-section-spacing mx-auto pt-0">
-            <div class="ul-gallery-slider swiper">
-                <div class="swiper-wrapper">
-                    <!-- single gallery item -->
-                    <div class="ul-gallery-item swiper-slide">
-                        <img src="assets/img/gallery-item-1.png" alt="Gallery Image">
-                        <div class="ul-gallery-item-btn-wrapper">
-                            <a href="assets/img/gallery-item-1.png" data-fslightbox="gallery"><i class="flaticon-instagram"></i></a>
-                        </div>
-                    </div>
-
-                    <!-- single gallery item -->
-                    <div class="ul-gallery-item swiper-slide">
-                        <img src="assets/img/gallery-item-2.png" alt="Gallery Image">
-                        <div class="ul-gallery-item-btn-wrapper">
-                            <a href="assets/img/gallery-item-2.png" data-fslightbox="gallery"><i class="flaticon-instagram"></i></a>
-                        </div>
-                    </div>
-
-                    <!-- single gallery item -->
-                    <div class="ul-gallery-item swiper-slide">
-                        <img src="assets/img/gallery-item-3.png" alt="Gallery Image">
-                        <div class="ul-gallery-item-btn-wrapper">
-                            <a href="assets/img/gallery-item-3.png" data-fslightbox="gallery"><i class="flaticon-instagram"></i></a>
-                        </div>
-                    </div>
-
-                    <!-- single gallery item -->
-                    <div class="ul-gallery-item swiper-slide">
-                        <img src="assets/img/gallery-item-4.png" alt="Gallery Image">
-                        <div class="ul-gallery-item-btn-wrapper">
-                            <a href="assets/img/gallery-item-4.png" data-fslightbox="gallery"><i class="flaticon-instagram"></i></a>
-                        </div>
-                    </div>
-
-                    <!-- single gallery item -->
-                    <div class="ul-gallery-item swiper-slide">
-                        <img src="assets/img/gallery-item-5.png" alt="Gallery Image">
-                        <div class="ul-gallery-item-btn-wrapper">
-                            <a href="assets/img/gallery-item-5.png" data-fslightbox="gallery"><i class="flaticon-instagram"></i></a>
-                        </div>
-                    </div>
-
-                    <!-- single gallery item -->
-                    <div class="ul-gallery-item swiper-slide">
-                        <img src="assets/img/gallery-item-6.png" alt="Gallery Image">
-                        <div class="ul-gallery-item-btn-wrapper">
-                            <a href="assets/img/gallery-item-6.png" data-fslightbox="gallery"><i class="flaticon-instagram"></i></a>
-                        </div>
-                    </div>
-
-                    <!-- single gallery item -->
-                    <div class="ul-gallery-item swiper-slide">
-                        <img src="assets/img/gallery-item-1.png" alt="Gallery Image">
-                        <div class="ul-gallery-item-btn-wrapper">
-                            <a href="assets/img/gallery-item-1.png" data-fslightbox="gallery"><i class="flaticon-instagram"></i></a>
-                        </div>
-                    </div>
-
-                    <!-- single gallery item -->
-                    <div class="ul-gallery-item swiper-slide">
-                        <img src="assets/img/gallery-item-2.png" alt="Gallery Image">
-                        <div class="ul-gallery-item-btn-wrapper">
-                            <a href="assets/img/gallery-item-2.png" data-fslightbox="gallery"><i class="flaticon-instagram"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- GALLERY SECTION END -->
-    </main>
-
-
-    <!-- FOOTER SECTION START -->
-    <footer class="ul-footer">
-        <div class="ul-footer-top">
-            <div class="ul-footer-container">
-                <div class="ul-footer-top-contact-infos">
-                    <!-- single info -->
-                    <div class="ul-footer-top-contact-info">
-                        <!-- icon -->
-                        <div class="ul-footer-top-contact-info-icon">
-                            <div class="ul-footer-top-contact-info-icon-inner">
-                                <i class="flaticon-pin"></i>
-                            </div>
-                        </div>
-                        <!-- txt -->
-                        <div class="ul-footer-top-contact-info-txt">
-                            <span class="ul-footer-top-contact-info-label">Address</span>
-                            <h5 class="ul-footer-top-contact-info-address">4648 Rocky Road Philadelphia PA, 1920</h5>
-                        </div>
-                    </div>
-
-                    <!-- single info -->
-                    <div class="ul-footer-top-contact-info">
-                        <!-- icon -->
-                        <div class="ul-footer-top-contact-info-icon">
-                            <div class="ul-footer-top-contact-info-icon-inner">
-                                <i class="flaticon-email"></i>
-                            </div>
-                        </div>
-                        <!-- txt -->
-                        <div class="ul-footer-top-contact-info-txt">
-                            <span class="ul-footer-top-contact-info-label">Send Email</span>
-                            <h5 class="ul-footer-top-contact-info-address"><a href="mailto:info@exmple.com">info@exmple.com</a></h5>
-                        </div>
-                    </div>
-
-                    <!-- single info -->
-                    <div class="ul-footer-top-contact-info">
-                        <!-- icon -->
-                        <div class="ul-footer-top-contact-info-icon">
-                            <div class="ul-footer-top-contact-info-icon-inner">
-                                <i class="flaticon-telephone-call-1"></i>
-                            </div>
-                        </div>
-                        <!-- txt -->
-                        <div class="ul-footer-top-contact-info-txt">
-                            <span class="ul-footer-top-contact-info-label">Call Emergency</span>
-                            <h5 class="ul-footer-top-contact-info-address"><a href="tel:88012365499">+88 0123 654 99</a></h5>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="ul-footer-middle">
-            <div class="ul-footer-container">
-                <div class="ul-footer-middle-wrapper wow animate__fadeInUp">
-                    <div class="ul-footer-about">
-                        <a href="index.html"><img src="assets/img/logo-white.svg" alt="logo" class="logo"></a>
-                        <p class="ul-footer-about-txt">Phasellus ultricies aliquam volutpat ullamcorper laoreet neque, a lacinia curabitur lacinia mollis</p>
-                        <div class="ul-footer-socials">
-                            <a href="#"><i class="flaticon-facebook"></i></a>
-                            <a href="#"><i class="flaticon-twitter"></i></a>
-                            <a href="#"><i class="flaticon-linkedin-big-logo"></i></a>
-                            <a href="#"><i class="flaticon-youtube"></i></a>
-                        </div>
-                    </div>
-
-                    <div class="ul-footer-widget">
-                        <h3 class="ul-footer-widget-title">Quick Links</h3>
-
-                        <div class="ul-footer-widget-links">
-                            <a href="about.html">About Us</a>
-                            <a href="services.html">Our Services</a>
-                            <a href="blog.html">Our Blogs</a>
-                            <a href="faq.html">FAQ’S</a>
-                            <a href="contact.html">Contact Us</a>
-                        </div>
-                    </div>
-
-                    <div class="ul-footer-widget ul-footer-recent-posts">
-                        <h3 class="ul-footer-widget-title">Recent Posts</h3>
-
-                        <div class="ul-blog-sidebar-posts">
-                            <!-- single post -->
-                            <div class="ul-blog-sidebar-post ul-footer-post">
-                                <div class="img">
-                                    <img src="assets/img/blog-2.jpg" alt="Post Image">
-                                </div>
-
-                                <div class="txt">
-                                    <span class="date">
-                                        <span class="icon"><i class="flaticon-calendar"></i></span>
-                                        <span>May 12, 2025</span>
-                                    </span>
-
-                                    <h4 class="title"><a href="blog-details.html">There are many vario ns of passages of</a></h4>
-                                </div>
-                            </div>
-
-                            <!-- single post -->
-                            <div class="ul-blog-sidebar-post ul-footer-post">
-                                <div class="img">
-                                    <img src="assets/img/blog-1.jpg" alt="Post Image">
-                                </div>
-
-                                <div class="txt">
-                                    <span class="date">
-                                        <span class="icon"><i class="flaticon-calendar"></i></span>
-                                        <span>May 12, 2025</span>
-                                    </span>
-
-                                    <h4 class="title"><a href="blog-details.html">There are many vario ns of passages of</a></h4>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="ul-footer-widget ul-nwsltr-widget">
-                        <h3 class="ul-footer-widget-title">Contact Us</h3>
-                        <div class="ul-footer-widget-links ul-footer-contact-links">
-                            <a href="mailto:info@example.com"><i class="flaticon-mail"></i> info@example.com</a>
-                            <a href="tel:123-456-7890"><i class="flaticon-telephone-call"></i> 123-456-7890</a>
-                        </div>
-                        <form action="#" class="ul-nwsltr-form">
-                            <div class="top">
-                                <input type="email" name="email" id="nwsltr-email" placeholder="Your Email Address" class="ul-nwsltr-input">
-                                <button type="submit"><i class="flaticon-next"></i></button>
-                            </div>
-
-                            <div class="agreement">
-                                <label for="nwsltr-agreement" class="ul-checkbox-wrapper">
-                                    <input type="checkbox" name="agreement" id="nwsltr-agreement" hidden>
-                                    <span class="ul-checkbox"><i class="flaticon-tick"></i></span>
-                                    <span class="ul-checkbox-txt">I agree with the <a href="#">Privacy Policy</a></span>
-                                </label>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- footer bottom -->
-        <div class="ul-footer-bottom">
-            <div class="ul-footer-container">
-                <div class="ul-footer-bottom-wrapper">
-                    <p class="copyright-txt">&copy;
-                        <span id="footer-copyright-year"></span> Charitics. All rights reserved
-                    </p>
-                    <div class="ul-footer-bottom-nav"><a href="#">Terms & Conditions</a> <a href="#">Privacy Policy</a></div>
-                </div>
-            </div>
-        </div>
-
-        <!-- vector -->
-        <div class="ul-footer-vectors">
-            <img src="assets/img/footer-vector-img.png" alt="Footer Image" class="ul-footer-vector-1">
-        </div>
-    </footer>
-    <!-- FOOTER SECTION END -->
-
-    <!-- libraries JS -->
-    <script src="assets/vendor/bootstrap/bootstrap.bundle.min.js"></script>
-    <script src="assets/vendor/splide/splide.min.js"></script>
-    <script src="assets/vendor/splide/splide-extension-auto-scroll.min.js"></script>
-    <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
-    <script src="assets/vendor/slim-select/slimselect.min.js"></script>
-    <script src="assets/vendor/animate-wow/wow.min.js"></script>
-    <script src="assets/vendor/splittype/index.min.js"></script>
-    <script src="assets/vendor/mixitup/mixitup.min.js"></script>
-    <script src="assets/vendor/fslightbox/fslightbox.js"></script>
-    <script src="assets/vendor/flatpickr/flatpickr.js"></script>
-
-    <!-- custom JS -->
-    <script src="assets/js/main.js"></script>
-    <script src="assets/js/tab.js"></script>
-    <script src="assets/js/accordion.js"></script>
-    <script src="assets/js/progressbar.js"></script>
-    <script src="assets/js/donate-form.js"></script>
+    </script>
 </body>
-
 </html>

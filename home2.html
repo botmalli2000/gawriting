@@ -1,0 +1,426 @@
+<div class="row row-cols-md-2 row-cols-1 align-items-center gy-4 ul-about-row">
+    <div class="col">
+        <div class="ul-about-imgs">
+            <div class="img-wrapper">
+                <img src="assets/img/about-img.png" alt="Image">
+            </div>
+            <div class="ul-about-imgs-vectors">
+                <img src="assets/img/about-img-vector-1.svg" alt="Image" class="vector-1">
+                <img src="assets/img/about-img-vector-2.svg" alt="Image" class="vector-2">
+            </div>
+        </div>
+    </div>
+
+    <!-- txt -->
+    <div class="col">
+        <div class="ul-about-txt">
+            <span class="ul-section-sub-title ul-section-sub-title--2">About US</span>
+            <h2 class="ul-section-title">Helping Each Other can Make World Better</h2>
+            <p class="ul-section-descr">Dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit The aspernaturaut odit aut fugit, sed quia consequuntur. Nonprofits around the world apply and join us to access more funding.</p>
+
+
+
+
+
+
+            <!-- Dropdown Section with Categories -->
+            <div class="ul-dropdown-section" style="margin-bottom: 25px;">
+                <label for="categorySelect" style="display: block; margin-bottom: 10px; font-weight: 600; color: #333; font-size: 16px;">Select Project Type:</label>
+                <select id="categorySelect" style="width: 100%; padding: 12px 15px; border: 1px solid #ddd; border-radius: 8px; font-size: 16px; background-color: #fff;">
+                    <option value="">-- Select a category --</option>
+                    
+                    <!-- Business Administration (INR 3.50) -->
+                    <option value="Business Administration" data-price="3.50" data-category="Business Administration">▶️ Business Administration (INR 3.50/unit)</option>
+                    <option value="Business Management" data-parent="Business Administration" data-price="3.50" style="padding-left: 20px;">&nbsp;&nbsp;&nbsp;└ Business Management</option>
+                    <option value="Entrepreneurship" data-parent="Business Administration" data-price="3.50" style="padding-left: 20px;">&nbsp;&nbsp;&nbsp;└ Entrepreneurship</option>
+                    <option value="International Business" data-parent="Business Administration" data-price="3.50" style="padding-left: 20px;">&nbsp;&nbsp;&nbsp;└ International Business</option>
+                    <option value="Strategic Management" data-parent="Business Administration" data-price="3.50" style="padding-left: 20px;">&nbsp;&nbsp;&nbsp;└ Strategic Management</option>
+                    <option value="Business Administration Other" data-parent="Business Administration" data-price="3.50" style="padding-left: 20px;">&nbsp;&nbsp;&nbsp;└ Other (Business Administration)</option>
+                    
+                    <!-- Project Management (INR 5.50) -->
+                    <option value="Project Management" data-price="5.50" data-category="Project Management">▶️ Project Management (INR 5.50/unit)</option>
+                    <option value="Project Planning" data-parent="Project Management" data-price="5.50" style="padding-left: 20px;">&nbsp;&nbsp;&nbsp;└ Project Planning</option>
+                    <option value="Risk Management" data-parent="Project Management" data-price="5.50" style="padding-left: 20px;">&nbsp;&nbsp;&nbsp;└ Risk Management</option>
+                    <option value="Report" data-parent="Project Management" data-price="5.50" style="padding-left: 20px;">&nbsp;&nbsp;&nbsp;└ Report</option>
+                    <option value="Project Management Other" data-parent="Project Management" data-price="5.50" style="padding-left: 20px;">&nbsp;&nbsp;&nbsp;└ Other (Project Management)</option>
+                    
+                    <!-- Marketing (INR 4.50) -->
+                    <option value="Marketing" data-price="4.50" data-category="Marketing">▶️ Marketing (INR 4.50/unit)</option>
+                    <option value="Digital Marketing" data-parent="Marketing" data-price="4.50" style="padding-left: 20px;">&nbsp;&nbsp;&nbsp;└ Digital Marketing</option>
+                    <option value="Branding" data-parent="Marketing" data-price="4.50" style="padding-left: 20px;">&nbsp;&nbsp;&nbsp;└ Branding</option>
+                    <option value="Consumer Behaviour" data-parent="Marketing" data-price="4.50" style="padding-left: 20px;">&nbsp;&nbsp;&nbsp;└ Consumer Behaviour</option>
+                    <option value="Market Research" data-parent="Marketing" data-price="4.50" style="padding-left: 20px;">&nbsp;&nbsp;&nbsp;└ Market Research</option>
+                    <option value="Marketing Other" data-parent="Marketing" data-price="4.50" style="padding-left: 20px;">&nbsp;&nbsp;&nbsp;└ Other (Marketing)</option>
+                    
+                    <!-- Human Resource (INR 3.50) -->
+                    <option value="Human Resource" data-price="3.50" data-category="Human Resource">▶️ Human Resource (INR 3.50/unit)</option>
+                    <option value="Recruitment & Selection" data-parent="Human Resource" data-price="3.50" style="padding-left: 20px;">&nbsp;&nbsp;&nbsp;└ Recruitment & Selection</option>
+                    <option value="Employee Relations" data-parent="Human Resource" data-price="3.50" style="padding-left: 20px;">&nbsp;&nbsp;&nbsp;└ Employee Relations</option>
+                    <option value="Organizational Behaviour" data-parent="Human Resource" data-price="3.50" style="padding-left: 20px;">&nbsp;&nbsp;&nbsp;└ Organizational Behaviour</option>
+                    <option value="Training & Development" data-parent="Human Resource" data-price="3.50" style="padding-left: 20px;">&nbsp;&nbsp;&nbsp;└ Training & Development</option>
+                    <option value="Human Resource Other" data-parent="Human Resource" data-price="3.50" style="padding-left: 20px;">&nbsp;&nbsp;&nbsp;└ Other (Human Resource)</option>
+                    
+                    <!-- Accounting (INR 6.50) -->
+                    <option value="Accounting" data-price="6.50" data-category="Accounting">▶️ Accounting (INR 6.50/unit)</option>
+                    <option value="Financial Accounting" data-parent="Accounting" data-price="6.50" style="padding-left: 20px;">&nbsp;&nbsp;&nbsp;└ Financial Accounting</option>
+                    <option value="Management Accounting" data-parent="Accounting" data-price="6.50" style="padding-left: 20px;">&nbsp;&nbsp;&nbsp;└ Management Accounting</option>
+                    <option value="Taxation" data-parent="Accounting" data-price="6.50" style="padding-left: 20px;">&nbsp;&nbsp;&nbsp;└ Taxation</option>
+                    <option value="Auditing" data-parent="Accounting" data-price="6.50" style="padding-left: 20px;">&nbsp;&nbsp;&nbsp;└ Auditing</option>
+                    <option value="Accounting Other" data-parent="Accounting" data-price="6.50" style="padding-left: 20px;">&nbsp;&nbsp;&nbsp;└ Other (Accounting)</option>
+                    
+                    <!-- Finance (INR 6.50) -->
+                    <option value="Finance" data-price="6.50" data-category="Finance">▶️ Finance (INR 6.50/unit)</option>
+                    <option value="Corporate Finance" data-parent="Finance" data-price="6.50" style="padding-left: 20px;">&nbsp;&nbsp;&nbsp;└ Corporate Finance</option>
+                    <option value="Investment Analysis" data-parent="Finance" data-price="6.50" style="padding-left: 20px;">&nbsp;&nbsp;&nbsp;└ Investment Analysis</option>
+                    <option value="Banking" data-parent="Finance" data-price="6.50" style="padding-left: 20px;">&nbsp;&nbsp;&nbsp;└ Banking</option>
+                    <option value="Financial Markets" data-parent="Finance" data-price="6.50" style="padding-left: 20px;">&nbsp;&nbsp;&nbsp;└ Financial Markets</option>
+                    <option value="Finance Other" data-parent="Finance" data-price="6.50" style="padding-left: 20px;">&nbsp;&nbsp;&nbsp;└ Other (Finance)</option>
+                    
+                    <!-- Information Technology (Individual Prices) -->
+                    <option value="Information Technology" data-price="0" data-category="Information Technology">▶️ Information Technology</option>
+                    <option value="Web Development" data-parent="Information Technology" data-price="7.00" style="padding-left: 20px;">&nbsp;&nbsp;&nbsp;└ Web Development (INR 7.00/unit)</option>
+                    <option value="Database Systems" data-parent="Information Technology" data-price="6.50" style="padding-left: 20px;">&nbsp;&nbsp;&nbsp;└ Database Systems (INR 6.50/unit)</option>
+                    <option value="Networking" data-parent="Information Technology" data-price="6.50" style="padding-left: 20px;">&nbsp;&nbsp;&nbsp;└ Networking (INR 6.50/unit)</option>
+                    <option value="Cybersecurity" data-parent="Information Technology" data-price="7.00" style="padding-left: 20px;">&nbsp;&nbsp;&nbsp;└ Cybersecurity (INR 7.00/unit)</option>
+                    <option value="Information Technology Other" data-parent="Information Technology" data-price="6.00" style="padding-left: 20px;">&nbsp;&nbsp;&nbsp;└ Other (Information Technology)</option>
+                    
+                    <!-- Computer Science (INR 6.50) -->
+                    <option value="Computer Science" data-price="6.50" data-category="Computer Science">▶️ Computer Science (INR 6.50/unit)</option>
+                    <option value="Desktop Applications" data-parent="Computer Science" data-price="6.50" style="padding-left: 20px;">&nbsp;&nbsp;&nbsp;└ Desktop Applications (Java, Python, C++, C#)</option>
+                    <option value="Web Applications" data-parent="Computer Science" data-price="6.50" style="padding-left: 20px;">&nbsp;&nbsp;&nbsp;└ Web Applications (Laravel, Django, Node)</option>
+                    <option value="Mobile Application" data-parent="Computer Science" data-price="6.50" style="padding-left: 20px;">&nbsp;&nbsp;&nbsp;└ Mobile Application (React Native, Flutter, Kotlin)</option>
+                    <option value="Software Engineering report" data-parent="Computer Science" data-price="6.50" style="padding-left: 20px;">&nbsp;&nbsp;&nbsp;└ Software Engineering report</option>
+                    <option value="Artificial Intelligence" data-parent="Computer Science" data-price="6.50" style="padding-left: 20px;">&nbsp;&nbsp;&nbsp;└ Artificial Intelligence</option>
+                    <option value="Data Structures" data-parent="Computer Science" data-price="6.50" style="padding-left: 20px;">&nbsp;&nbsp;&nbsp;└ Data Structures</option>
+                    <option value="Computer Science Other" data-parent="Computer Science" data-price="6.50" style="padding-left: 20px;">&nbsp;&nbsp;&nbsp;└ Other (Computer Science)</option>
+                    
+                    <!-- Law (INR 4.50) -->
+                    <option value="Law" data-price="4.50" data-category="Law">▶️ Law (INR 4.50/unit)</option>
+                    <option value="Criminal Law" data-parent="Law" data-price="4.50" style="padding-left: 20px;">&nbsp;&nbsp;&nbsp;└ Criminal Law</option>
+                    <option value="Business Law" data-parent="Law" data-price="4.50" style="padding-left: 20px;">&nbsp;&nbsp;&nbsp;└ Business Law</option>
+                    <option value="International Law" data-parent="Law" data-price="4.50" style="padding-left: 20px;">&nbsp;&nbsp;&nbsp;└ International Law</option>
+                    <option value="Human Rights" data-parent="Law" data-price="4.50" style="padding-left: 20px;">&nbsp;&nbsp;&nbsp;└ Human Rights</option>
+                    <option value="Law Other" data-parent="Law" data-price="4.50" style="padding-left: 20px;">&nbsp;&nbsp;&nbsp;└ Other (Law)</option>
+                    
+                    <!-- Economics (INR 4.50) -->
+                    <option value="Economics" data-price="4.50" data-category="Economics">▶️ Economics (INR 4.50/unit)</option>
+                    <option value="Microeconomics" data-parent="Economics" data-price="4.50" style="padding-left: 20px;">&nbsp;&nbsp;&nbsp;└ Microeconomics</option>
+                    <option value="Macroeconomics" data-parent="Economics" data-price="4.50" style="padding-left: 20px;">&nbsp;&nbsp;&nbsp;└ Macroeconomics</option>
+                    <option value="Development Economics" data-parent="Economics" data-price="4.50" style="padding-left: 20px;">&nbsp;&nbsp;&nbsp;└ Development Economics</option>
+                    <option value="International Trade" data-parent="Economics" data-price="4.50" style="padding-left: 20px;">&nbsp;&nbsp;&nbsp;└ International Trade</option>
+                    <option value="Economics Other" data-parent="Economics" data-price="4.50" style="padding-left: 20px;">&nbsp;&nbsp;&nbsp;└ Other (Economics)</option>
+                    
+                    <!-- Psychology (INR 3.50) -->
+                    <option value="Psychology" data-price="3.50" data-category="Psychology">▶️ Psychology (INR 3.50/unit)</option>
+                    <option value="Clinical Psychology" data-parent="Psychology" data-price="3.50" style="padding-left: 20px;">&nbsp;&nbsp;&nbsp;└ Clinical Psychology</option>
+                    <option value="Cognitive Psychology" data-parent="Psychology" data-price="3.50" style="padding-left: 20px;">&nbsp;&nbsp;&nbsp;└ Cognitive Psychology</option>
+                    <option value="Social Psychology" data-parent="Psychology" data-price="3.50" style="padding-left: 20px;">&nbsp;&nbsp;&nbsp;└ Social Psychology</option>
+                    <option value="Psychology Other" data-parent="Psychology" data-price="3.50" style="padding-left: 20px;">&nbsp;&nbsp;&nbsp;└ Other (Psychology)</option>
+                    
+                    <!-- Nursing (INR 3.50) -->
+                    <option value="Nursing" data-price="3.50" data-category="Nursing">▶️ Nursing (INR 3.50/unit)</option>
+                    <option value="Patient Care" data-parent="Nursing" data-price="3.50" style="padding-left: 20px;">&nbsp;&nbsp;&nbsp;└ Patient Care</option>
+                    <option value="Clinical Practice" data-parent="Nursing" data-price="3.50" style="padding-left: 20px;">&nbsp;&nbsp;&nbsp;└ Clinical Practice</option>
+                    <option value="Health Assessment" data-parent="Nursing" data-price="3.50" style="padding-left: 20px;">&nbsp;&nbsp;&nbsp;└ Health Assessment</option>
+                    <option value="Case Studies" data-parent="Nursing" data-price="3.50" style="padding-left: 20px;">&nbsp;&nbsp;&nbsp;└ Case Studies</option>
+                    <option value="Nursing Other" data-parent="Nursing" data-price="3.50" style="padding-left: 20px;">&nbsp;&nbsp;&nbsp;└ Other (Nursing)</option>
+                    
+                    <!-- Public Health (INR 4.50) -->
+                    <option value="Public Health" data-price="4.50" data-category="Public Health">▶️ Public Health (INR 4.50/unit)</option>
+                    <option value="Global Health" data-parent="Public Health" data-price="4.50" style="padding-left: 20px;">&nbsp;&nbsp;&nbsp;└ Global Health</option>
+                    <option value="Public Health Other" data-parent="Public Health" data-price="4.50" style="padding-left: 20px;">&nbsp;&nbsp;&nbsp;└ Other (Public Health)</option>
+                    
+                    <!-- Engineering (With Individual Prices) -->
+                    <option value="Engineering" data-price="6.50" data-category="Engineering">▶️ Engineering (INR 6.50/unit)</option>
+                    <option value="Civil Engineering" data-parent="Engineering" data-price="6.50" style="padding-left: 20px;">&nbsp;&nbsp;&nbsp;└ Civil Engineering (INR 6.50/unit)</option>
+                    <option value="Mechanical Engineering" data-parent="Engineering" data-price="7.50" style="padding-left: 20px;">&nbsp;&nbsp;&nbsp;└ Mechanical Engineering (INR 7.50/unit)</option>
+                    <option value="Electrical Engineering" data-parent="Engineering" data-price="7.50" style="padding-left: 20px;">&nbsp;&nbsp;&nbsp;└ Electrical Engineering (INR 7.50/unit)</option>
+                    <option value="Engineering Other" data-parent="Engineering" data-price="6.50" style="padding-left: 20px;">&nbsp;&nbsp;&nbsp;└ Other (Engineering)</option>
+                    
+                    <!-- Education (INR 3.50) -->
+                    <option value="Education" data-price="3.50" data-category="Education">▶️ Education (INR 3.50/unit)</option>
+                    <option value="Teaching Methods" data-parent="Education" data-price="3.50" style="padding-left: 20px;">&nbsp;&nbsp;&nbsp;└ Teaching Methods</option>
+                    <option value="Educational Psychology" data-parent="Education" data-price="3.50" style="padding-left: 20px;">&nbsp;&nbsp;&nbsp;└ Educational Psychology</option>
+                    <option value="Curriculum Development" data-parent="Education" data-price="3.50" style="padding-left: 20px;">&nbsp;&nbsp;&nbsp;└ Curriculum Development</option>
+                    <option value="Education Other" data-parent="Education" data-price="3.50" style="padding-left: 20px;">&nbsp;&nbsp;&nbsp;└ Other (Education)</option>
+                    
+                    <!-- Hospitality & Tourism (INR 4.50) -->
+                    <option value="Hospitality & Tourism" data-price="4.50" data-category="Hospitality & Tourism">▶️ Hospitality & Tourism (INR 4.50/unit)</option>
+                    <option value="Hotel Management" data-parent="Hospitality & Tourism" data-price="4.50" style="padding-left: 20px;">&nbsp;&nbsp;&nbsp;└ Hotel Management</option>
+                    <option value="Tourism Management" data-parent="Hospitality & Tourism" data-price="4.50" style="padding-left: 20px;">&nbsp;&nbsp;&nbsp;└ Tourism Management</option>
+                    <option value="Event Management" data-parent="Hospitality & Tourism" data-price="4.50" style="padding-left: 20px;">&nbsp;&nbsp;&nbsp;└ Event Management</option>
+                    <option value="Hospitality Other" data-parent="Hospitality & Tourism" data-price="4.50" style="padding-left: 20px;">&nbsp;&nbsp;&nbsp;└ Other (Hospitality & Tourism)</option>
+                    
+                    <!-- Research (Individual Prices) -->
+                    <option value="Research" data-price="0" data-category="Research">▶️ Research</option>
+                    <option value="Essay Writing" data-parent="Research" data-price="3.50" style="padding-left: 20px;">&nbsp;&nbsp;&nbsp;└ Essay Writing (INR 3.50/unit)</option>
+                    <option value="Research Papers" data-parent="Research" data-price="6.50" style="padding-left: 20px;">&nbsp;&nbsp;&nbsp;└ Research Papers (INR 6.50/unit)</option>
+                    <option value="Research Proposal" data-parent="Research" data-price="3.50" style="padding-left: 20px;">&nbsp;&nbsp;&nbsp;└ Research Proposal (INR 3.50/unit)</option>
+                    <option value="Viva PPT Zoom" data-parent="Research" data-price="4.50" style="padding-left: 20px;">&nbsp;&nbsp;&nbsp;└ Viva PPT Zoom (INR 4.50/unit)</option>
+                    <option value="Viva Zoom Per Hour" data-parent="Research" data-price="4500" style="padding-left: 20px;">&nbsp;&nbsp;&nbsp;└ Viva Zoom - Per Hour (INR 4,500/hour)</option>
+                    <option value="PowerPoint Presentations" data-parent="Research" data-price="5.00" style="padding-left: 20px;">&nbsp;&nbsp;&nbsp;└ PowerPoint Presentations (INR 5.00/unit)</option>
+                    <option value="Proofreading & Editing" data-parent="Research" data-price="3.00" style="padding-left: 20px;">&nbsp;&nbsp;&nbsp;└ Proofreading & Editing (INR 3.00/unit)</option>
+                    <option value="AI Reports" data-parent="Research" data-price="1500" style="padding-left: 20px;">&nbsp;&nbsp;&nbsp;└ AI Reports (INR 1,500/unit)</option>
+                    <option value="Research Other" data-parent="Research" data-price="5.00" style="padding-left: 20px;">&nbsp;&nbsp;&nbsp;└ Other (Research)</option>
+                </select>
+            </div>
+
+            <!-- Dynamic Number Input Section -->
+            <div id="numberInputContainer" style="margin-top: 20px; display: none;">
+                <div class="number-input-field" style="margin-bottom: 20px;">
+                    <label id="fieldLabel" style="display: block; margin-bottom: 8px; font-weight: 500; color: #333; font-size: 14px;">Enter Number of Units</label>
+                    <input type="number" id="numberInput" step="1" style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 8px; font-size: 14px; font-family: inherit;" placeholder="Enter number of units (e.g., 100, 500, 1000)">
+                    
+                    <!-- Selected Category & Price Display -->
+                    <div id="selectedCategoryDisplay" style="margin-top: 10px; padding: 8px 12px; background: #e8f4fd; border-radius: 6px; font-size: 13px; color: #0056b3;">
+                        <span>📁 Selected: </span>
+                        <span id="selectedCategoryName" style="font-weight: bold;">None</span>
+                        <span id="selectedPriceDisplay" style="margin-left: 10px; font-size: 12px; color: #28a745;"></span>
+                    </div>
+                    
+                    <!-- Unit Price Info -->
+                    <div id="unitPriceInfo" style="margin-top: 8px; padding: 6px 12px; background: #fff3e0; border-radius: 6px; font-size: 13px; color: #e67e22; display: none;">
+                        💵 Unit Price: <span id="unitPriceValue">0.00</span> INR per unit
+                    </div>
+                    
+                    <!-- Special Notice for Per Hour Services -->
+                    <div id="perHourNotice" style="margin-top: 8px; padding: 6px 12px; background: #ffebee; border-radius: 6px; font-size: 12px; color: #c62828; display: none;">
+                        ⏰ Note: This service is charged per hour. Enter number of hours.
+                    </div>
+                    
+                    <!-- Number & Amount Display -->
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 15px; flex-wrap: wrap; gap: 10px;">
+                        <div style="font-size: 14px; color: #666;">
+                            <span>🔢 Units/Hours: </span>
+                            <span id="numberDisplay" style="font-weight: bold; color: #007bff;">0</span>
+                        </div>
+                        <div style="font-size: 18px; font-weight: bold; background: linear-gradient(135deg, #f0f8ff, #e8f4fd); padding: 10px 20px; border-radius: 8px; border-left: 4px solid #28a745;">
+                            💰 Total Amount: <span id="amountDisplay" style="color: #28a745; font-size: 20px;">INR 0.00</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="ul-about-block">
+                <div class="block-left">
+                    <div class="block-heading">
+                        <div class="icon"><i class="flaticon-love"></i></div>
+                        <h3 class="block-title">Start Helping Team</h3>
+                    </div>
+
+                    <ul class="block-list">
+                        <li>There are many variations of solve</li>
+                    </ul>
+                </div>
+                <div class="block-right"><img src="assets/img/about-block-img.jpg" alt="Image"></div>
+            </div>
+
+            <div class="ul-about-bottom">
+                <a href="about.html" class="ul-btn"><i class="flaticon-fast-forward-double-right-arrows-symbol"></i> Explore More</a>
+
+                <div class="ul-about-call">
+                    <div class="icon"><i class="flaticon-telephone-call"></i></div>
+                    <div class="txt">
+                        <span class="call-title">Call Any Time</span>
+                        <a href="tel:+612345678990">+61 2345 678 990</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- JavaScript -->
+<script>
+    // Get elements
+    const selectElement = document.getElementById('categorySelect');
+    const container = document.getElementById('numberInputContainer');
+    const numberInput = document.getElementById('numberInput');
+    const numberDisplay = document.getElementById('numberDisplay');
+    const amountDisplay = document.getElementById('amountDisplay');
+    const fieldLabel = document.getElementById('fieldLabel');
+    const selectedCategoryName = document.getElementById('selectedCategoryName');
+    const unitPriceInfo = document.getElementById('unitPriceInfo');
+    const unitPriceValue = document.getElementById('unitPriceValue');
+    const selectedPriceDisplay = document.getElementById('selectedPriceDisplay');
+    const perHourNotice = document.getElementById('perHourNotice');
+
+    let currentUnitPrice = 0;
+    let isPerHourService = false;
+
+    // Calculate total amount
+    function calculateAmount(units, unitPrice) {
+        return units * unitPrice;
+    }
+
+    // Format number with 2 decimal places
+    function formatNumber(num) {
+        return num.toLocaleString('en-IN', {
+            minimumFractionDigits: 2,
+            maximumFractionDigits: 2
+        });
+    }
+
+    // Update number display and amount
+    function updateNumber() {
+        let units = parseFloat(numberInput.value) || 0;
+        
+        // Allow negative? No, set to 0 if negative
+        if (units < 0) {
+            units = 0;
+            numberInput.value = 0;
+        }
+        
+        // Update number display
+        numberDisplay.textContent = units.toLocaleString('en-IN');
+        
+        // Calculate and update amount
+        const totalAmount = calculateAmount(units, currentUnitPrice);
+        amountDisplay.textContent = `INR ${formatNumber(totalAmount)}`;
+        
+        // Change amount color based on total
+        if (totalAmount >= 50000) {
+            amountDisplay.style.color = '#dc3545';
+        } else if (totalAmount >= 25000) {
+            amountDisplay.style.color = '#ffc107';
+        } else if (totalAmount >= 10000) {
+            amountDisplay.style.color = '#17a2b8';
+        } else {
+            amountDisplay.style.color = '#28a745';
+        }
+    }
+
+    // Clear input and set focus
+    function clearAndFocusInput() {
+        // Clear the input value (make it empty)
+        numberInput.value = '';
+        
+        // Update displays to show 0
+        numberDisplay.textContent = '0';
+        amountDisplay.textContent = 'INR 0.00';
+        amountDisplay.style.color = '#28a745';
+        
+        // Set focus to the input field
+        numberInput.focus();
+    }
+
+    // Handle dropdown change
+    function handleCategoryChange() {
+        const selectedOption = selectElement.options[selectElement.selectedIndex];
+        const selectedValue = selectElement.value;
+        
+        if (!selectedValue) {
+            container.style.display = 'none';
+            selectedCategoryName.textContent = 'None';
+            selectedPriceDisplay.textContent = '';
+            unitPriceInfo.style.display = 'none';
+            perHourNotice.style.display = 'none';
+            return;
+        }
+        
+        // Get unit price from data attribute
+        const unitPrice = parseFloat(selectedOption.getAttribute('data-price')) || 0;
+        currentUnitPrice = unitPrice;
+        
+        // Check if this is a per-hour service
+        isPerHourService = selectedValue.includes('Per Hour') || selectedValue.includes('per hour');
+        
+        // Show container
+        container.style.display = 'block';
+        
+        // Update selected category display
+        selectedCategoryName.textContent = selectedValue;
+        
+        // Update price display
+        if (unitPrice > 0) {
+            selectedPriceDisplay.textContent = `(₹${unitPrice.toFixed(2)}/unit${isPerHourService ? ' - hour' : ''})`;
+            unitPriceValue.textContent = unitPrice.toFixed(2);
+            unitPriceInfo.style.display = 'block';
+        } else {
+            selectedPriceDisplay.textContent = '';
+            unitPriceInfo.style.display = 'none';
+        }
+        
+        // Show/hide per hour notice
+        if (isPerHourService) {
+            perHourNotice.style.display = 'block';
+        } else {
+            perHourNotice.style.display = 'none';
+        }
+        
+        // Update field label
+        if (isPerHourService) {
+            fieldLabel.textContent = `Enter Number of Hours (${selectedValue})`;
+            numberInput.placeholder = "Enter number of hours (e.g., 1, 2, 5)";
+        } else {
+            fieldLabel.textContent = `Enter Number of Units (${selectedValue})`;
+            numberInput.placeholder = "Enter number of units (e.g., 100, 500, 1000)";
+        }
+        
+        // Clear input, reset display, and set focus
+        clearAndFocusInput();
+    }
+
+    // Add event listeners
+    selectElement.addEventListener('change', handleCategoryChange);
+    numberInput.addEventListener('input', updateNumber);
+    
+    // Initialize
+    handleCategoryChange();
+</script>
+
+<style>
+    /* Dropdown styling for nested look */
+    #categorySelect option {
+        padding: 10px;
+        font-size: 14px;
+    }
+    
+    #categorySelect option[style*="padding-left: 20px"] {
+        background-color: #f9f9f9;
+        color: #555;
+    }
+    
+    /* Special styling for Other options */
+    #categorySelect option[value*="Other"] {
+        background-color: #fff3e0;
+        color: #e67e22;
+        font-style: italic;
+        border-top: 1px solid #ffd699;
+    }
+    
+    /* Special styling for IT and Research subcategories */
+    #categorySelect option[data-parent="Information Technology"],
+    #categorySelect option[data-parent="Research"] {
+        color: #2c3e50;
+    }
+    
+    #categorySelect:focus {
+        outline: none;
+        border-color: #007bff;
+        box-shadow: 0 0 0 3px rgba(0,123,255,0.25);
+    }
+    
+    #numberInput:focus {
+        outline: none;
+        border-color: #007bff;
+        box-shadow: 0 0 0 3px rgba(0,123,255,0.1);
+    }
+    
+    /* Remove spinner buttons for number input */
+    #numberInput::-webkit-inner-spin-button, 
+    #numberInput::-webkit-outer-spin-button {
+        opacity: 0.5;
+    }
+    
+    @media (max-width: 576px) {
+        .number-input-field div {
+            flex-direction: column;
+            align-items: flex-start !important;
+        }
+        
+        #amountDisplay {
+            font-size: 16px !important;
+        }
+    }
+</style>
